@@ -3,13 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>uWaterloo GPA Calculator</title>
-
-  <script>
-  //calculates and outputs the GPA information
-  function calculateGPA(){
-
-  }
-  </script>
+  <script src="university-list.js"></script>
+  <script src="calculateGPA.js"></script>
 </head>
 
 <body>
@@ -18,12 +13,76 @@
   <h2>Simply input your marks and your university to get an accurate calculated mark</h2>
 
 
-  <form action="calculateGPA()" id="input-gpa-form">
-    <p>Grade</p> <p>Credit Weight</p>
-    <br>
-    <input type="text" id="course_1_value">
+  <form action="" id="input-gpa-form" onsubmit="return calculateGPA()">
+    <h3>Please select your university.</h3>
+    <select id="university">
+        <option value="Acadia">Acadia</option>
+        <option value="Alberta">Alberta</option>
+        <option value="Athabasca">Athabasca</option>
+        <option value="Bishop">Bishop</option>
+        <option value="Brandon">Brandon</option>
+        <option value="Brock">Brock</option>
+        <option value="Calgary">Calgary</option>
+        <option value="Carleton">Carleton</option>
+        <option value="Concordia">Concordia</option>
+        <option value="Dalhousie">Dalhousie</option>
+        <option value="Guelph">Guelph</option>
+        <option value="Lakehead">Lakehead</option>
+        <option value="Laurentian">Laurentian</option>
+        <option value="Laval">Laval</option>
+        <option value="Lethbridge">Lethbridge</option>
+        <option value="Manitoba">Manitoba</option>
+        <option value="McGill">McGill</option>
+        <option value="McMaster">McMaster</option>
+        <option value="Memorial">Memorial</option>
+        <option value="Moncton">Moncton</option>
+        <option value="Montreal">Montreal</option>
+        <option value="Mt.Allison">Mt.Allison</option>
+        <option value="Mt. St.Vincent">Mt. St.Vincent</option>
+        <option value="New Brunswick">New Brunswick</option>
+        <option value="Nipissing">Nipissing</option>
+        <option value="Northern BC">Northern BC</option>
+        <option value="Ottawa">Ottawa</option>
+        <option value="PEI">PEI</option>
+        <option value="Quebec">Quebec</option>
+        <option value="Queen's">Queen's</option>
+        <option value="Queen's Engineering">Queen's Engineering</option>
+        <option value="Regina">Regina</option>
+        <option value="RMC/CMR">RMC/CMR</option>
+        <option value="Royal Roads">Royal Roads</option>
+        <option value="Ryerson">Ryerson</option>
+        <option value="Saskatchewan">Saskatchewan</option>
+        <option value="Sherbrooke">Sherbrooke</option>
+        <option value="Simon Fraser">Simon Fraser</option>
+        <option value="St.Francis Xavier">St.Francis Xavier</option>
+        <option value="St.Mary's">St.Mary's</option>
+        <option value="St.Thomas">St.Thomas</option>
+        <option value="Ste-Anne">Ste-Anne</option>
+        <option value="Toronto">Toronto</option>
+        <option value="Trent">Trent</option>
+        <option value="Trinity Western">Trinity Western</option>
+        <option value="UBC">UBC</option>
+        <option value="UOIT">UOIT</option>
+        <option value="Victoria">Victoria</option>
+        <option value="Waterloo">Waterloo</option>
+        <option value="Western">Western</option>
+        <option value="Laurier">Laurier</option>
+        <option value="Windsor">Windsor</option>
+        <option value="Winnipeg">Winnipeg</option>
+        <option value="York">York</option>
+    </select>
 
+    <h3>What type of grades are you inputting?</h3>
+    <input type="radio" name="input-type" value="percent" checked="checked" id="input-percent">Percentage %<br>
+    <input type="radio" name="input-type" value="letter" id="input-letter">Letter (eg. A+) <br>    
+    <input type="radio" name="input-type" value="12-point" id="input-12point">12-Point <br>
     
+
+    <h3>Input your grade and the corresponding credit weight</h3>
+    <h4 class="input-titles">Grade</h4> <h4 class="input-titles">Credit Weight</h4>
+    <br>
+
+    <input type="text" id="course_1_value">
     <select id="course_1_weight">
         <option value="0.25">0.25</option>
         <option value="0.5">0.5</option>
@@ -31,9 +90,58 @@
         <option value="1.0">1.0</option>
     </select>
     <br>
-    
+
+    <input type="text" id="course_2_value">
+    <select id="course_2_weight">
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="0.75">0.75</option>
+        <option value="1.0">1.0</option>
+    </select>
+    <br>
+
+    <input type="text" id="course_3_value">
+    <select id="course_3_weight">
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="0.75">0.75</option>
+        <option value="1.0">1.0</option>
+    </select>
+    <br>
+
+    <input type="text" id="course_4_value">
+    <select id="course_4_weight">
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="0.75">0.75</option>
+        <option value="1.0">1.0</option>
+    </select>
+    <br>
+
+    <input type="text" id="course_5_value">
+    <select id="course_5_weight">
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="0.75">0.75</option>
+        <option value="1.0">1.0</option>
+    </select>
+    <br>
+
+    <input type="text" id="course_6_value">
+    <select id="course_6_weight">
+        <option value="0.25">0.25</option>
+        <option value="0.5">0.5</option>
+        <option value="0.75">0.75</option>
+        <option value="1.0">1.0</option>
+    </select>
+    <br>
+
     <input type="submit" value="Submit">
 
   </form>
+
+  <div id="percentage">Your precentage:</div>
+  <div id="GPA">Your GPA:</div>
+  <div id="message">Your congratulary message</div>
 </body>
 </html>
