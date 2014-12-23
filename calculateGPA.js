@@ -31,11 +31,25 @@ function outputPercentage(percentage){
 
 }
 
-function convertPercentToGPA(universityIndex){
-  alert (universities[universityIndex][1]);
+function convertPercentToGPA(universityIndex, percentage){
+
+  percentage=Math.round(percentage);
+
+  var percentType=universities[universityIndex][1];
+
+  var grades=new Array();
+  for (var i=0; i<15; i++){
+    if (percentage>GPAlist[i][percentType]){
+      //first index represents GPA, second letter, third 12point grade
+      var grades=new Array (GPAlist[i][0],GPAlist[i][universities[universityIndex][2]],GPAlist[i][8]);
+      break;
+    }
+  }
+
+  return grades;
 }
 //calculates and outputs the GPA information
-  function calculateGPA(){
+function calculateGPA(){
     
     //Storing the values from the input fields
     var marks=new Array(document.getElementById("course_1_value").value,
@@ -67,10 +81,11 @@ function convertPercentToGPA(universityIndex){
     if (gradeType=="percent"){
       var percentage=calculatePercentage(marks, creditWeights);
       outputPercentage(percentage);
+      var grades=convertPercentToGPA(universityIndex,percentage);
+      document.getElementById("GPA").innerHTML=""+grades[0];
+
     }
 
-    convertPercentToGPA(universityIndex);
-  
     return false; //returns a false that stops form submission, since theres nothing to really submit to
   } //end of function
 
