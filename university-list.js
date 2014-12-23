@@ -77,5 +77,5 @@ var GPAlist=new Array(
     new Array(1.30,57,56,101,101, "D+", "D+","D+",3),
     new Array(1.00,53,53,101,50,"D","D","D",2),
     new Array(0.70,50,50,101,101,"D-","D-","D",1),
-    new Array(0.0,0,0,0,0,"E/F","E/F","E/F",0)
+    new Array(0.0,0,0,0,0,"F","F","F",0)
 );
