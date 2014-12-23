@@ -64,7 +64,6 @@ var universities=new Array(
 //101 indicates that the percentage does not exist for the specified GPA
 var GPAlist=new Array(
     //GPA-0, low-percent-1, low-percent-2,low-percent-3, letter-5, letter-6, letter-7, 12-point-8
-    //Assuming that a 3.8 GPA is also an 11 in the 12-point system
     new Array(4.0,90,93,94,94,"A+","A","A+",12),
     new Array(3.9,85,84,85,85,"A","A","A",11),
     new Array(3.7,80,75,80,80,"A-", "A-","A",10),
