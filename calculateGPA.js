@@ -8,9 +8,10 @@ function calculatePercentage(marks,creditWeights){
 
   //calculates the percentage based on the input
   for (var i=0; i<maxCourses; i++){
-    var mark=Number(marks[i]);
+    var mark=parseFloat(marks[i]);
     
-    if (mark>0 && !isNaN(mark)){ //checks to make sure the input is valid
+    if (mark>=0 && !isNaN(mark)){ //checks to make sure the input is valid
+      
       var creditWeight=Number(creditWeights[i]);
       percentage+=mark*creditWeight;
       combinedCreditWeight+=creditWeight;
@@ -45,8 +46,6 @@ function display12Point(grade){
 
 function convertPercentToGPA(universityIndex, percentage){
 
-  percentage=Math.round(percentage);
-
   var referencePercentageIndex=universities[universityIndex][1];
   var referenceLetterGradeIndex=universities[universityIndex][2];
 
@@ -54,7 +53,7 @@ function convertPercentToGPA(universityIndex, percentage){
   for (var i=0; i<sizeOfGPAList; i++){
     if (percentage>=GPAlist[i][referencePercentageIndex]){
       //first index represents GPA, second letter, third 12point grade
-      var grades=new Array (GPAlist[i][0],GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
+      grades=new Array (GPAlist[i][0],GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
       break;
     }
   }
@@ -112,7 +111,10 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
   for (var i=0; i<maxCourses; i++){
     for (var j=0; j<sizeOfGPAList; j++){
 
-      if (marks[i]==GPAlist[j][8]){
+      var mark=parseInt(marks[i]);
+
+      if (mark==GPAlist[j][8] && !isNaN(mark)){ //if input is valid and if it finds the input in the list
+        
         var creditWeight=Number(creditWeights[i]);
         PointTotal+=marks[i]*creditWeight;
         GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
