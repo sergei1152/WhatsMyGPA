@@ -17,20 +17,16 @@ function calculatePercentage(marks,creditWeights){
     }
   }
   percentage/=combinedCreditWeight;
+
+  if (isNaN(percentage)) //makes sure the inputs were filled in
+    percentage=0;
+
   return percentage;
 }
 
 function displayPercent(percentage){
 
-  //checks to make sure that the percentage is a non-zero number
-  if (isNaN(percentage) || percentage==0){
-   document.getElementById("message").innerHTML="Input numbers only please";
-  }
-
-  else{
-    //outputs the percentage
-    document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;
-  }
+  document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;
 
 }
 
@@ -51,13 +47,14 @@ function convertPercentToGPA(universityIndex, percentage){
 
   percentage=Math.round(percentage);
 
-  var percentType=universities[universityIndex][1];
+  var referencePercentageIndex=universities[universityIndex][1];
+  var referenceLetterGradeIndex=universities[universityIndex][2];
 
   var grades=new Array();
   for (var i=0; i<sizeOfGPAList; i++){
-    if (percentage>=GPAlist[i][percentType]){
+    if (percentage>=GPAlist[i][referencePercentageIndex]){
       //first index represents GPA, second letter, third 12point grade
-      var grades=new Array (GPAlist[i][0],GPAlist[i][universities[universityIndex][2]],GPAlist[i][8]);
+      var grades=new Array (GPAlist[i][0],GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
       break;
     }
   }
@@ -71,10 +68,10 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
 
   var referenceLetterGradeIndex=universities[universityIndex][2];
   //scrolls through all the letter marks
-  for (var i=0; i<6; i++){
+  for (var i=0; i<maxCourses; i++){
 
     //scrolls through the GPA list and finds a match to the mark
-    for (var j = 0; j <13; j++) {
+    for (var j = 0; j <sizeOfGPAList; j++) {
 
       //checks if the mark of the course matches a GPA
       if (marks[i].toUpperCase()==GPAlist[j][referenceLetterGradeIndex]){
@@ -94,7 +91,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
 
   //calculates the 12-point system and letter grade based on the GPA
   var i;
-  for (i = 0; i <13; i++) {
+  for (i = 0; i <sizeOfGPAList; i++) {
     if (GPA>=GPAlist[i][0]){
       break;
     }
@@ -112,8 +109,8 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
 
   var referenceLetterGradeIndex=universities[universityIndex][2];
 
-  for (var i=0; i<6; i++){
-    for (var j=0; j<13; j++){
+  for (var i=0; i<maxCourses; i++){
+    for (var j=0; j<sizeOfGPAList; j++){
 
       if (marks[i]==GPAlist[j][8]){
         var creditWeight=Number(creditWeights[i]);
@@ -134,7 +131,7 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
 
   //calculates the letter grade based on the GPA
   var i;
-  for (i = 0; i <13; i++) {
+  for (i = 0; i <sizeOfGPAList; i++) {
     if (GPA>=GPAlist[i][0]){
       break;
     }
@@ -144,6 +141,28 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
 
   return grades;
   
+}
+
+//Displays a message based on how well someone did
+function displayMessage(GPA){
+  var message;
+  if (GPA>3.5){
+    message="Congradulations! Go and relax now :)";
+  }
+
+  else if (GPA>3.0){
+    message="Good job!";
+  }
+
+  else if (GPA>2){
+    message="Nice! You passed :)";
+  }
+
+  else{
+    message="Good luck on improving!";
+  }
+
+  document.getElementById("message").innerHTML=message;
 }
 //calculates and outputs the GPA information
 function calculateGPA(){
@@ -174,8 +193,7 @@ function calculateGPA(){
       var gradeType="12-point";
     
     if (gradeType=="percent"){
-      var percentage=calculatePercentage(marks, creditWeights);
-      
+      var percentage=calculatePercentage(marks,creditWeights);
       var grades=convertPercentToGPA(universityIndex,percentage);
       
       displayPercent(percentage);
@@ -197,6 +215,8 @@ function calculateGPA(){
       displayLetter(grades[1]);
       display12Point(grades[2]);
     }
+
+    displayMessage(grades[0]);
 
     return false; //returns a false that stops form submission, since theres nothing to really submit to
 
