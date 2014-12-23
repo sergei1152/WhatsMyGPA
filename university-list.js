@@ -62,22 +62,20 @@ var universities=new Array(
 
 //Contains data for the percentage grade corresponding to a GPA
 //101 indicates that the percentage does not exist for the specified GPA
-//-1 Indicates no letter grade for the specified GPA exists
 var GPAlist=new Array(
-    //GPA-0, low-percent-1, low-percent-2,low-percent-3, lowpercent-4, letter-5, letter-6, letter-7, 12-point-8
+    //GPA-0, low-percent-1, low-percent-2,low-percent-3, letter-5, letter-6, letter-7, 12-point-8
     //Assuming that a 3.8 GPA is also an 11 in the 12-point system
     new Array(4.0,90,93,94,94,"A+","A","A+",12),
-    new Array(3.9,85,84,85,85,"A",-1,-1,11),
-    new Array(3.8,101,101,101,101,-1,-1,"A",11),
-    new Array(3.7,80,75,80,80,"A-", "A-",-1,10),
+    new Array(3.9,85,84,85,85,"A","A","A",11),
+    new Array(3.7,80,75,80,80,"A-", "A-","A",10),
     new Array(3.3,77,72,75,75,"B+","B+","B+",9),
     new Array(3.00,73,69,70,70,"B","B","B",8),
-    new Array(2.70,70,66,65,65,"B-","B-",-1,7),
+    new Array(2.70,70,66,65,65,"B-","B-","B",7),
     new Array(2.3,67,64,60,60,"C+","C+","C+",6),
     new Array(2.00,63,62,55,55,"C","C","C",5),
-    new Array(1.70,60,60,50,101,"C-","C-",-1,4),
+    new Array(1.70,60,60,50,101,"C-","C-","C",4),
     new Array(1.30,57,56,101,101, "D+", "D+","D+",3),
     new Array(1.00,53,53,101,50,"D","D","D",2),
-    new Array(0.70,50,50,101,101,"D-","D-",-1,1),
+    new Array(0.70,50,50,101,101,"D-","D-","D",1),
     new Array(0.0,0,0,0,0,"E/F","E/F","E/F",0)
 );
