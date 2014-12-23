@@ -44,7 +44,7 @@ function displayLetter(letter){
 }
 
 function display12Point(grade){
-  document.getElementById("12point-output").innerHTML=grade;
+  document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100;
 }
 
 function convertPercentToGPA(universityIndex, percentage){
@@ -79,7 +79,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
       //checks if the mark of the course matches a GPA
       if (marks[i].toUpperCase()==GPAlist[j][referenceLetterGradeIndex]){
 
-        GPAtotal+=GPAlist[j][0]*creditWeights[i]; //adds the GPA to the total
+        GPAtotal+=GPAlist[j][0]*Number(creditWeights[i]); //adds the GPA to the total
         creditTotal+=Number(creditWeights[i]);
         break;
       }
@@ -92,7 +92,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
     GPA=0;
   }
 
-  //calculates the 12-point system grade based on the GPA
+  //calculates the 12-point system and letter grade based on the GPA
   var i;
   for (i = 0; i <13; i++) {
     if (GPA>=GPAlist[i][0]){
@@ -100,13 +100,53 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
     }
   }
 
-  var grades=new Array(GPA,GPAlist[i][8],GPAlist[i][referenceLetterGradeIndex]);
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
 
   return grades;
 }
+
+function convert12PointToGPA(universityIndex, marks, creditWeights){
+  var GPAtotal=0;
+  var creditTotal=0;
+  var PointTotal=0;
+
+  var referenceLetterGradeIndex=universities[universityIndex][2];
+
+  for (var i=0; i<6; i++){
+    for (var j=0; j<13; j++){
+
+      if (marks[i]==GPAlist[j][8]){
+        var creditWeight=Number(creditWeights[i]);
+        PointTotal+=marks[i]*creditWeight;
+        GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
+        creditTotal+=creditWeight;
+        break;
+      }
+    }
+  }
+
+  var GPA=GPAtotal/creditTotal;
+  var point=PointTotal/creditTotal;
+  if (isNaN(GPA) || isNaN(point)){//Checks to make sure that the fields were filled in
+    GPA=0;
+    point=0;
+  }
+
+  //calculates the letter grade based on the GPA
+  var i;
+  for (i = 0; i <13; i++) {
+    if (GPA>=GPAlist[i][0]){
+      break;
+    }
+  }
+
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],point);
+
+  return grades;
+  
+}
 //calculates and outputs the GPA information
 function calculateGPA(){
-    console.log ("calculateGPA() was called");
     //Storing the values from the input fields
     var marks=new Array(document.getElementById("course_1_value").value,
       document.getElementById("course_2_value").value,
@@ -146,6 +186,13 @@ function calculateGPA(){
 
     else if (gradeType=="letter"){
       var grades=convertLetterToGPA(universityIndex, marks, creditWeights);
+      displayGPA(grades[0]);
+      displayLetter(grades[1]);
+      display12Point(grades[2]);
+    }
+
+    else if (gradeType=="12-point"){
+      var grades=convert12PointToGPA(universityIndex, marks, creditWeights);
       displayGPA(grades[0]);
       displayLetter(grades[1]);
       display12Point(grades[2]);
