@@ -10,7 +10,7 @@ function calculatePercentage(marks,creditWeights){
   for (var i=0; i<maxCourses; i++){
     var mark=parseFloat(marks[i]);
     
-    if (mark>=0 && !isNaN(mark)){ //checks to make sure the input is valid
+    if (mark>=0 && mark<=100 && !isNaN(mark)){ //checks to make sure the input is valid
       
       var creditWeight=Number(creditWeights[i]);
       percentage+=mark*creditWeight;
