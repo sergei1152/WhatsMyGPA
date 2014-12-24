@@ -44,23 +44,6 @@ function display12Point(grade){
   document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100;
 }
 
-function convertPercentToGPA(universityIndex, percentage){
-
-  var referencePercentageIndex=universities[universityIndex][1];
-  var referenceLetterGradeIndex=universities[universityIndex][2];
-
-  var grades=new Array();
-  for (var i=0; i<sizeOfGPAList; i++){
-    if (percentage>=GPAlist[i][referencePercentageIndex]){
-      //first index represents GPA, second letter, third 12point grade
-      grades=new Array (GPAlist[i][0],GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
-      break;
-    }
-  }
-
-  return grades;
-}
-
 function convertLetterToGPA(universityIndex, marks, creditWeights){
   var GPAtotal=0;
   var creditTotal=0;
@@ -89,6 +72,47 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
   }
 
   //calculates the 12-point system and letter grade based on the GPA
+  var i;
+  for (i = 0; i <sizeOfGPAList; i++) {
+    if (GPA>=GPAlist[i][0]){
+      break;
+    }
+  }
+
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
+
+  return grades;
+}
+
+function convertPercentToGPA(universityIndex, marks, creditWeights){
+  var GPAtotal=0;
+  var creditTotal=0;
+
+  var referencePercentageIndex=universities[universityIndex][1];
+  var referenceLetterGradeIndex=universities[universityIndex][2];
+
+  for (var i=0; i<maxCourses; i++){
+
+    for (var j=0; j<sizeOfGPAList; j++){
+
+      var mark=parseFloat(marks[i]);
+
+      if (mark>=0 &&  mark<=100 &&!isNaN(mark) && mark>=GPAlist[j][referencePercentageIndex]){ //if input is valid and matches list
+        var creditWeight=Number(creditWeights[i]);
+        GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
+        creditTotal+=creditWeight;
+        break;
+      }
+    }
+  }
+
+  var GPA=GPAtotal/creditTotal;
+
+  if (isNaN(GPA)){//Checks to make sure that the fields were filled in
+    GPA=0;
+  }
+
+  //calculates the letter grade and 12-point system grade based on final gpa
   var i;
   for (i = 0; i <sizeOfGPAList; i++) {
     if (GPA>=GPAlist[i][0]){
@@ -196,7 +220,7 @@ function calculateGPA(){
     
     if (gradeType=="percent"){
       var percentage=calculatePercentage(marks,creditWeights);
-      var grades=convertPercentToGPA(universityIndex,percentage);
+      var grades=convertPercentToGPA(universityIndex,marks, creditWeights);
       
       displayPercent(percentage);
       displayGPA(grades[0]);
