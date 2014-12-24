@@ -26,22 +26,40 @@ function calculatePercentage(marks,creditWeights){
 }
 
 function displayPercent(percentage){
+  if (!isNaN(percentage) && percentage!=0)
+    document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;
 
-  document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;
-
+  else
+    document.getElementById("percentage-output").innerHTML="--";
 }
 
 function displayGPA(GPA){
   GPA=Math.round(GPA*100)/100;
-  document.getElementById("GPA-output").innerHTML=""+GPA;
+
+  if (GPA!=0 && !isNaN(GPA))
+    document.getElementById("GPA-output").innerHTML=GPA;
+
+  else 
+    document.getElementById("GPA-output").innerHTML="--";
 }
 
-function displayLetter(letter){
-  document.getElementById("letter-output").innerHTML=letter;
+//requires the gpa so as to check wether to display a legitimate "F" or a -- if the user just happened to not enter anything
+function displayLetter(letter, GPA){ 
+
+  if (GPA!=0 && !isNaN(GPA))
+    document.getElementById("letter-output").innerHTML=letter;
+
+  else 
+    document.getElementById("letter-output").innerHTML="--";
 }
 
 function display12Point(grade){
-  document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100;
+
+  if (grade!=0 && !isNaN(grade))
+    document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100;
+
+  else 
+    document.getElementById("12point-output").innerHTML="--";
 }
 
 function convertLetterToGPA(universityIndex, marks, creditWeights){
@@ -176,27 +194,6 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
   
 }
 
-//Displays a message based on how well someone did
-function displayMessage(GPA){
-  var message;
-  if (GPA>3.5){
-    message="Congradulations! Go and relax now :)";
-  }
-
-  else if (GPA>3.0){
-    message="Good job!";
-  }
-
-  else if (GPA>2){
-    message="Nice! You passed :)";
-  }
-
-  else{
-    message="Good luck on improving!";
-  }
-
-  document.getElementById("message").innerHTML=message;
-}
 //calculates and outputs the GPA information
 function calculateGPA(){
     //Storing the values from the input fields
@@ -231,25 +228,25 @@ function calculateGPA(){
       
       displayPercent(percentage);
       displayGPA(grades[0]);
-      displayLetter(grades[1]);
+      displayLetter(grades[1],grades[0]);
       display12Point(grades[2]);
     }
 
     else if (gradeType=="letter"){
       var grades=convertLetterToGPA(universityIndex, marks, creditWeights);
+      displayPercent(0);
       displayGPA(grades[0]);
-      displayLetter(grades[1]);
+      displayLetter(grades[1],grades[0]);
       display12Point(grades[2]);
     }
 
     else if (gradeType=="12-point"){
       var grades=convert12PointToGPA(universityIndex, marks, creditWeights);
+      displayPercent(0);
       displayGPA(grades[0]);
-      displayLetter(grades[1]);
+      displayLetter(grades[1],grades[0]);
       display12Point(grades[2]);
     }
-
-    displayMessage(grades[0]);
 
     return false; //returns a false that stops form submission, since theres nothing to really submit to
 
