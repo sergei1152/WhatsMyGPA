@@ -46,7 +46,7 @@ var universities=new Array(
     new Array("St.Mary's",1,5),
     new Array("St.Thomas",1,5),
     new Array("Ste-Anne",1,5),
-    new Array("Toronto",1,6),
+    new Array("Toronto",3,6),
     new Array("Trent",1,5),
     new Array("Trinity Western",1,5),
     new Array("UBC",1,5),
@@ -63,18 +63,18 @@ var universities=new Array(
 //Contains data for the percentage grade corresponding to a GPA
 //101 indicates that the percentage does not exist for the specified GPA
 var GPAlist=new Array(
-    //GPA-0, low-percent-1, low-percent-2,low-percent-3, letter-5, letter-6, letter-7, 12-point-8
-    new Array(4.0,90,93,94,94,"A+","A","A+",12),
-    new Array(3.9,85,84,85,85,"A","A","A",11),
+    //GPA-0, low-percent-1, low-percent-2,low-percent-3, low-percent-4, letter-5, letter-6, letter-7, 12-point-8
+    new Array(4.0,90,93,85,94,"A+","A","A+",12),
+    new Array(3.9,85,84,101,85,"A","A","A",11),
     new Array(3.7,80,75,80,80,"A-", "A-","A-",10),
-    new Array(3.3,77,72,75,75,"B+","B+","B+",9),
-    new Array(3.00,73,69,70,70,"B","B","B",8),
-    new Array(2.70,70,66,65,65,"B-","B-","B-",7),
-    new Array(2.3,67,64,60,60,"C+","C+","C+",6),
-    new Array(2.00,63,62,55,55,"C","C","C",5),
-    new Array(1.70,60,60,50,101,"C-","C-","C-",4),
-    new Array(1.30,57,56,101,101, "D+", "D+","D+",3),
-    new Array(1.00,53,53,101,50,"D","D","D",2),
-    new Array(0.70,50,50,101,101,"D-","D-","D-",1),
+    new Array(3.3,77,72,77,75,"B+","B+","B+",9),
+    new Array(3.00,73,69,73,70,"B","B","B",8),
+    new Array(2.70,70,66,70,65,"B-","B-","B-",7),
+    new Array(2.3,67,64,67,60,"C+","C+","C+",6),
+    new Array(2.00,63,62,63,55,"C","C","C",5),
+    new Array(1.70,60,60,60,101,"C-","C-","C-",4),
+    new Array(1.30,57,56,57,101, "D+", "D+","D+",3),
+    new Array(1.00,53,53,53,50,"D","D","D",2),
+    new Array(0.70,50,50,50,101,"D-","D-","D-",1),
     new Array(0.0,0,0,0,0,"F","F","F",0)
 );
