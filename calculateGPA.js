@@ -47,6 +47,7 @@ function display12Point(grade){
 function convertLetterToGPA(universityIndex, marks, creditWeights){
   var GPAtotal=0;
   var creditTotal=0;
+  var pointTotal=0;
 
   var referenceLetterGradeIndex=universities[universityIndex][2];
   //scrolls through all the letter marks
@@ -57,18 +58,20 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
 
       //checks if the mark of the course matches a GPA
       if (marks[i].toUpperCase()==GPAlist[j][referenceLetterGradeIndex]){
-
-        GPAtotal+=GPAlist[j][0]*Number(creditWeights[i]); //adds the GPA to the total
-        creditTotal+=Number(creditWeights[i]);
+        var creditWeight=Number(creditWeights[i]);
+        GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
+        creditTotal+=creditWeight;
+        pointTotal+=GPAlist[j][8]*creditWeight;
         break;
       }
     }
   }
 
   var GPA=GPAtotal/creditTotal;
-  
-  if (isNaN(GPA)){//Checks to make sure that the fields were filled in
+  var points=pointTotal/creditTotal;
+  if (isNaN(GPA) || isNaN(creditTotal)){//Checks to make sure that the fields were filled in
     GPA=0;
+    points=0;
   }
 
   //calculates the 12-point system and letter grade based on the GPA
@@ -79,7 +82,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
     }
   }
 
-  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],points);
 
   return grades;
 }
@@ -87,6 +90,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
 function convertPercentToGPA(universityIndex, marks, creditWeights){
   var GPAtotal=0;
   var creditTotal=0;
+  var pointTotal=0;
 
   var referencePercentageIndex=universities[universityIndex][1];
   var referenceLetterGradeIndex=universities[universityIndex][2];
@@ -101,15 +105,18 @@ function convertPercentToGPA(universityIndex, marks, creditWeights){
         var creditWeight=Number(creditWeights[i]);
         GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
         creditTotal+=creditWeight;
+        pointTotal+=GPAlist[j][8]*creditWeight;
         break;
       }
     }
   }
 
   var GPA=GPAtotal/creditTotal;
+  var points=pointTotal/creditTotal;
 
-  if (isNaN(GPA)){//Checks to make sure that the fields were filled in
+  if (isNaN(GPA) || isNaN(points)){//Checks to make sure that the fields were filled in
     GPA=0;
+    points=0;
   }
 
   //calculates the letter grade and 12-point system grade based on final gpa
@@ -120,7 +127,7 @@ function convertPercentToGPA(universityIndex, marks, creditWeights){
     }
   }
 
-  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],GPAlist[i][8]);
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],points);
 
   return grades;
 }
