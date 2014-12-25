@@ -15,6 +15,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>\
       <input type='text' id='course_"+(maxCourses+2)+"_value'>\
@@ -26,6 +28,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>\
       <input type='text' id='course_"+(maxCourses+3)+"_value'>\
@@ -37,6 +41,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>\
       <input type='text' id='course_"+(maxCourses+4)+"_value'>\
@@ -48,6 +54,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>\
       <input type='text' id='course_"+(maxCourses+5)+"_value'>\
@@ -59,6 +67,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>\
       <input type='text' id='course_"+(maxCourses+6)+"_value'>\
@@ -70,6 +80,8 @@ function addSemester(){
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
           <option value='6.0'>6.0</option>\
+          <option value='9.0'>9.0</option>\
+          <option value='12.0'>12.0</option>\
       </select>\
       <br>";
 
