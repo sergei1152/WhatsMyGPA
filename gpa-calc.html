@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="main.css">
     <script src="university-list.js"></script>
     <script src="calculateGPA.js"></script>
+    <script src="addSemester.js"></script>
     
 </head>
 
@@ -87,8 +88,8 @@
 
     <h3>3. Input the Grade and Credit Weight</h3>
     <br>
-
-    <div class="semester-input">
+    <div id="semesters">
+    <div class="semester-input" id="first-semester">
       <h4>Grade</h4> <h4>Credit</h4>
       <br>
 
@@ -164,11 +165,11 @@
       </select>
       <br>
     </div>
-
-    <button type="button" id="add-semester-button">+</button>
-
+    </div>
+    
     <br>
     <input type="submit" value="Calculate" id="submit-button">
+    <button type="button" id="add-semester-button" onclick="addSemester()">+</button>
   </form>
 
 

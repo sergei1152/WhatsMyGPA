@@ -203,20 +203,14 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
 //Main function that stores the inputs and calculates and outputs the final grades
 function calculateGPA(){
 
+    var marks=new Array();
+    var creditWeights=new Array();
+
     //Storing the values from the input fields
-    var marks=new Array(document.getElementById("course_1_value").value,
-      document.getElementById("course_2_value").value,
-      document.getElementById("course_3_value").value,
-      document.getElementById("course_4_value").value,
-      document.getElementById("course_5_value").value,
-      document.getElementById("course_6_value").value);
-      
-    var creditWeights=new Array (document.getElementById("course_1_weight").value,
-      document.getElementById("course_2_weight").value,
-      document.getElementById("course_3_weight").value,
-      document.getElementById("course_4_weight").value,
-      document.getElementById("course_5_weight").value,
-      document.getElementById("course_6_weight").value);
+    for (var i=1; i<=maxCourses; i++){
+      marks.push(document.getElementById("course_"+i+"_value").value);
+      creditWeights.push( document.getElementById("course_"+i+"_weight").value)
+    }
 
     //Storing the university selected index. Works as long as the list in university-list.js matches the one in the html.
     var universityIndex=document.getElementById("university").selectedIndex;
