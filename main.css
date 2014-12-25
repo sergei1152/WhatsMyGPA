@@ -37,6 +37,19 @@ body{
 	margin-left: 1em;
 	color: #37474F;
 }
+#javascript-warning{
+	display: inline-block;
+	font-family: Open Sans, Arial;
+	font-weight: bold;
+	font-color: white;
+	border-radius: .5em;
+	padding: 0.5em;
+	font-size: 2em;
+	color: white;
+	background-color: #ef9a9a;
+	border: 3px solid #b71c1c;
+	margin-bottom: 1em;
+}
 #input-form{
 	width:auto;
 	display: inline-block;
@@ -78,7 +91,7 @@ input[type='radio'] {
 }
 .semester-input{
 	display: inline-block;
-	width: auto;
+	width: 10em;
 }
 .semester-input h4{
 	font-family: Open Sans, Arial;

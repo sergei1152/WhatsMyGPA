@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="main.css">
     <script src="university-list.js"></script>
     <script src="calculateGPA.js"></script>
+    
 </head>
 
 <body>
@@ -15,6 +16,9 @@
     <h2>Supports over 50 Canadian Universities</h2>
   </div>
   
+  <div id="javascript-warning">Please Enable Javascript Before Continuing</div>
+  <script>document.getElementById('javascript-warning').style.display ='none';</script>
+  <br>
   <form action="" id="input-form" onsubmit="return calculateGPA()">
     <h3>1. Select Your University</h3>
     <select id="university">
