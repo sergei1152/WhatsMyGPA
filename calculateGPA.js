@@ -160,12 +160,12 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
   for (var i=0; i<maxCourses; i++){
     for (var j=0; j<sizeOfGPAList; j++){
 
-      var mark=parseInt(marks[i]);
+      var mark=parseFloat(marks[i]);
 
-      if (mark==GPAlist[j][8] && !isNaN(mark)){ //if input is valid and if it finds the input in the list
+      if (mark>=GPAlist[j][8] && !isNaN(mark) && mark<=12 && mark >=0){ //if input is valid and if it finds the input in the list
         
         var creditWeight=Number(creditWeights[i]);
-        PointTotal+=marks[i]*creditWeight;
+        PointTotal+=mark*creditWeight;
         GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
         creditTotal+=creditWeight;
         break;
