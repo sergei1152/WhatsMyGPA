@@ -63,18 +63,18 @@ var universities=new Array(
 //list of ALL GPA's and their corresponding letter grades and percentages positioned based on the above list
 //101 indicates that the percentage does not exist for the specified GPA
 var GPAlist=new Array(
-    //GPA-0, low-percent-1, low-percent-2,low-percent-3, low-percent-4, letter-5, letter-6, letter-7, 12-point-8, low-percent-6
-    new Array(4.0 ,90 ,93 ,85 ,94 ,"A+" ,"A"  ,"A+" ,12 ,90),
-    new Array(3.9 ,85 ,84 ,101,85 ,"A"  ,"A"  ,"A"  ,11 ,80),
-    new Array(3.7 ,80 ,75 ,80 ,80 ,"A-" ,"A-" ,"A-" ,10 ,101),
-    new Array(3.3 ,77 ,72 ,77 ,75 ,"B+" ,"B+" ,"B+" ,9  ,75),
-    new Array(3.0 ,73 ,69 ,73 ,70 ,"B"  ,"B"  ,"B"  ,8  ,70),
-    new Array(2.7 ,70 ,66 ,70 ,65 ,"B-" ,"B-" ,"B-" ,7  ,101),
-    new Array(2.3 ,67 ,64 ,67 ,60 ,"C+" ,"C+" ,"C+" ,6  ,65),
-    new Array(2.0 ,63 ,62 ,63 ,55 ,"C"  ,"C"  ,"C"  ,5  ,60),
-    new Array(1.7 ,60 ,60 ,60 ,101,"C-" ,"C-" ,"C-" ,4  ,101),
-    new Array(1.3 ,57 ,56 ,57 ,101,"D+" ,"D+" ,"D+" ,3  ,55),
-    new Array(1.0 ,53 ,53 ,53 ,50 ,"D"  ,"D"  ,"D"  ,2  ,50),
-    new Array(0.7 ,50 ,50 ,50 ,101,"D-" ,"D-" ,"D-" ,1  ,101),
-    new Array(0.0 ,0  ,0  ,0  ,0  ,"F"  ,"F"  ,"F"  ,0  ,0)
+    //GPA-0, low-percent-1, low-percent-2,low-percent-3, low-percent-4, letter-5, letter-6, letter-7, 12-point-8, low-percent-9, 9-point(10)
+    new Array(4.0 ,90 ,93 ,85 ,94 ,"A+" ,"A"  ,"A+" ,12 ,90 , 9),
+    new Array(3.9 ,85 ,84 ,101,85 ,"A"  ,"A"  ,"A"  ,11 ,80 , 8),
+    new Array(3.7 ,80 ,75 ,80 ,80 ,"A-" ,"A-" ,"A-" ,10 ,101, 7.5),
+    new Array(3.3 ,77 ,72 ,77 ,75 ,"B+" ,"B+" ,"B+" ,9  ,75 , 7),
+    new Array(3.0 ,73 ,69 ,73 ,70 ,"B"  ,"B"  ,"B"  ,8  ,70 , 6),
+    new Array(2.7 ,70 ,66 ,70 ,65 ,"B-" ,"B-" ,"B-" ,7  ,101, 5.5),
+    new Array(2.3 ,67 ,64 ,67 ,60 ,"C+" ,"C+" ,"C+" ,6  ,65 , 5),
+    new Array(2.0 ,63 ,62 ,63 ,55 ,"C"  ,"C"  ,"C"  ,5  ,60 , 4),
+    new Array(1.7 ,60 ,60 ,60 ,101,"C-" ,"C-" ,"C-" ,4  ,101, 3.5),
+    new Array(1.3 ,57 ,56 ,57 ,101,"D+" ,"D+" ,"D+" ,3  ,55 , 3),
+    new Array(1.0 ,53 ,53 ,53 ,50 ,"D"  ,"D"  ,"D"  ,2  ,50 , 2),
+    new Array(0.7 ,50 ,50 ,50 ,101,"D-" ,"D-" ,"D-" ,1  ,101, 1),
+    new Array(0.0 ,0  ,0  ,0  ,0  ,"F"  ,"F"  ,"F"  ,0  ,0  , 0)
 );
