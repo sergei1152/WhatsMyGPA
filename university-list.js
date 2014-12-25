@@ -1,5 +1,5 @@
 //Conversion Factors from: http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
-//Note: Assuming a percent converstion index of 1 and letter index of 5 for unspecified percentages and GPA's on the website
+//Note: Assuming a percent conversion index of 1 and letter index of 5 for unspecified percentages and GPA's on the website
 
 /*First number represents the percentage conversion index, the second
 number represents the letter grade conversion index*/
@@ -60,7 +60,7 @@ var universities=new Array(
     new Array("York",                9, 7)
 );
 
-//Contains data for the percentage grade corresponding to a GPA
+//list of ALL GPA's and their corresponding letter grades and percentages positioned based on the above list
 //101 indicates that the percentage does not exist for the specified GPA
 var GPAlist=new Array(
     //GPA-0, low-percent-1, low-percent-2,low-percent-3, low-percent-4, letter-5, letter-6, letter-7, 12-point-8, low-percent-6

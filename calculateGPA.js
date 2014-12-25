@@ -1,51 +1,24 @@
 var sizeOfGPAList=GPAlist.length;
-var maxCourses=6;
-
-function calculatePercentage(marks,creditWeights){
-
-  var percentage=0;
-  var combinedCreditWeight=0; 
-
-  //calculates the percentage based on the input
-  for (var i=0; i<maxCourses; i++){
-    var mark=parseFloat(marks[i]);
-    
-    if (mark>=0 && mark<=100 && !isNaN(mark)){ //checks to make sure the input is valid
-      
-      var creditWeight=Number(creditWeights[i]);
-      percentage+=mark*creditWeight;
-      combinedCreditWeight+=creditWeight;
-    }
-  }
-  percentage/=combinedCreditWeight;
-
-  if (isNaN(percentage)) //makes sure the inputs were filled in
-    percentage=0;
-
-  return percentage;
-}
+var maxCourses=6; //size of the number of inputs displayed in the html
 
 function displayPercent(percentage){
   if (!isNaN(percentage) && percentage!=0)
-    document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;
+    document.getElementById("percentage-output").innerHTML=Math.round(percentage*100)/100;//rounds to 2 decimal places
 
   else
     document.getElementById("percentage-output").innerHTML="--";
 }
 
 function displayGPA(GPA){
-  GPA=Math.round(GPA*100)/100;
-
   if (GPA!=0 && !isNaN(GPA))
-    document.getElementById("GPA-output").innerHTML=GPA;
+    document.getElementById("GPA-output").innerHTML=Math.round(GPA*100)/100;//rounds to 2 decimal places
 
   else 
     document.getElementById("GPA-output").innerHTML="--";
 }
 
-//requires the gpa so as to check wether to display a legitimate "F" or a -- if the user just happened to not enter anything
+//Requires the GPA so as to check whether the GPA is a "true" 0. If so then the user hasn't entered enough inputs properly
 function displayLetter(letter, GPA){ 
-
   if (GPA!=0 && !isNaN(GPA))
     document.getElementById("letter-output").innerHTML=letter;
 
@@ -54,72 +27,55 @@ function displayLetter(letter, GPA){
 }
 
 function display12Point(grade){
-
   if (grade!=0 && !isNaN(grade))
-    document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100;
+    document.getElementById("12point-output").innerHTML=Math.round(grade*100)/100; //rounds to 2 decimal places
 
   else 
     document.getElementById("12point-output").innerHTML="--";
 }
 
-function convertLetterToGPA(universityIndex, marks, creditWeights){
-  var GPAtotal=0;
-  var creditTotal=0;
-  var pointTotal=0;
+//Calculates the percent average. This number does not go towards calculating the GPA.
+function calculatePercentage(marks,creditWeights){
+  var percentage=0;
+  var combinedCreditWeight=0; 
 
-  var referenceLetterGradeIndex=universities[universityIndex][2];
-  //scrolls through all the letter marks
-  for (var i=0; i<maxCourses; i++){
-
-    //scrolls through the GPA list and finds a match to the mark
-    for (var j = 0; j <sizeOfGPAList; j++) {
-
-      //checks if the mark of the course matches a GPA
-      if (marks[i].toUpperCase()==GPAlist[j][referenceLetterGradeIndex]){
-        var creditWeight=Number(creditWeights[i]);
-        GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
-        creditTotal+=creditWeight;
-        pointTotal+=GPAlist[j][8]*creditWeight;
-        break;
-      }
+  for (var i=0; i<maxCourses; i++){ //checks every input for a valid entry
+    
+    var mark=parseFloat(marks[i]);
+    
+    if (mark>=0 && mark<=100 && !isNaN(mark)){ //checks to make sure an input exists and is valid
+      var creditWeight=Number(creditWeights[i]);
+      percentage+=mark*creditWeight;
+      combinedCreditWeight+=creditWeight;
     }
   }
+  percentage/=combinedCreditWeight;
 
-  var GPA=GPAtotal/creditTotal;
-  var points=pointTotal/creditTotal;
-  if (isNaN(GPA) || isNaN(creditTotal)){//Checks to make sure that the fields were filled in
-    GPA=0;
-    points=0;
-  }
+  if (isNaN(percentage)) //in case no inputs were filled in and combinedCreditWeight stays at 0
+    percentage=0;
 
-  //calculates the 12-point system and letter grade based on the GPA
-  var i;
-  for (i = 0; i <sizeOfGPAList; i++) {
-    if (GPA>=GPAlist[i][0]){
-      break;
-    }
-  }
-
-  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],points);
-
-  return grades;
+  return percentage;
 }
 
+//Converts an array of percentage marks to a letter grade, GPA, and 12-point system grade
 function convertPercentToGPA(universityIndex, marks, creditWeights){
   var GPAtotal=0;
   var creditTotal=0;
-  var pointTotal=0;
+  var pointTotal=0; //for calculating the 12-point grade
 
-  var referencePercentageIndex=universities[universityIndex][1];
-  var referenceLetterGradeIndex=universities[universityIndex][2];
+  var referencePercentageIndex=universities[universityIndex][1]; //the index of which percentage ranges to use from the GPA list
+  var referenceLetterGradeIndex=universities[universityIndex][2]; //the index of which letter grades to use from the GPA list
 
-  for (var i=0; i<maxCourses; i++){
+  for (var i=0; i<maxCourses; i++){ //checks every input for a valid entry
 
-    for (var j=0; j<sizeOfGPAList; j++){
+    //finds the range at which the mark fits in
+    for (var j=0; j<sizeOfGPAList; j++){ 
 
       var mark=parseFloat(marks[i]);
 
-      if (mark>=0 &&  mark<=100 &&!isNaN(mark) && mark>=GPAlist[j][referencePercentageIndex]){ //if input is valid and matches list
+      //checks to make sure an input is valid
+      if (mark>=0 &&  mark<=100 &&!isNaN(mark) && mark>=GPAlist[j][referencePercentageIndex]){
+
         var creditWeight=Number(creditWeights[i]);
         GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
         creditTotal+=creditWeight;
@@ -137,7 +93,7 @@ function convertPercentToGPA(universityIndex, marks, creditWeights){
     points=0;
   }
 
-  //calculates the letter grade and 12-point system grade based on final gpa
+  //calculates the letter grade based on final GPA
   var i;
   for (i = 0; i <sizeOfGPAList; i++) {
     if (GPA>=GPAlist[i][0]){
@@ -150,18 +106,67 @@ function convertPercentToGPA(universityIndex, marks, creditWeights){
   return grades;
 }
 
+//Converts an array of letter grades into a final letter grade, a GPA, and a 12-point system grade
+function convertLetterToGPA(universityIndex, marks, creditWeights){
+  var GPAtotal=0;
+  var creditTotal=0;
+  var pointTotal=0; //to calculate the 12-point grade
+
+  var referenceLetterGradeIndex=universities[universityIndex][2]; //index of where to obtain the letter grade from the GPAlist
+
+  for (var i=0; i<maxCourses; i++){ //checks every input for a valid entry
+
+    
+    for (var j = 0; j <sizeOfGPAList; j++) {
+
+      ///tries to match the entry with a mark in the GPAlist
+      if (marks[i].toUpperCase()==GPAlist[j][referenceLetterGradeIndex]){
+
+        var creditWeight=Number(creditWeights[i]);
+        GPAtotal+=GPAlist[j][0]*creditWeight; //adds the GPA to the total
+        creditTotal+=creditWeight;
+        pointTotal+=GPAlist[j][8]*creditWeight;
+        break;
+      }
+    }
+  }
+
+  var GPA=GPAtotal/creditTotal;
+  var points=pointTotal/creditTotal;
+
+  if (isNaN(GPA) || isNaN(points)){//Checks to make sure that the fields were filled in (since a creditTotal would be 0)
+    GPA=0;
+    points=0;
+  }
+
+  //matches a letter grade to the GPA
+  var i;
+  for (i = 0; i <sizeOfGPAList; i++) {
+    if (GPA>=GPAlist[i][0]){
+      break;
+    }
+  }
+
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],points);
+
+  return grades;
+}
+
+//Converts an array of 12-point system grades to a GPA, and a corresponding letter grade
 function convert12PointToGPA(universityIndex, marks, creditWeights){
   var GPAtotal=0;
   var creditTotal=0;
-  var PointTotal=0;
+  var PointTotal=0; //for calculating the 12-point grade
 
-  var referenceLetterGradeIndex=universities[universityIndex][2];
+  var referenceLetterGradeIndex=universities[universityIndex][2]; //the index of which letter grades to use from the GPA list
 
-  for (var i=0; i<maxCourses; i++){
+  for (var i=0; i<maxCourses; i++){ //checks every input for a valid entry
+
     for (var j=0; j<sizeOfGPAList; j++){
 
       var mark=parseFloat(marks[i]);
 
+      //tries to match the letter to one in the GPAlist
       if (mark>=GPAlist[j][8] && !isNaN(mark) && mark<=12 && mark >=0){ //if input is valid and if it finds the input in the list
         
         var creditWeight=Number(creditWeights[i]);
@@ -174,10 +179,11 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
   }
 
   var GPA=GPAtotal/creditTotal;
-  var point=PointTotal/creditTotal;
-  if (isNaN(GPA) || isNaN(point)){//Checks to make sure that the fields were filled in
+  var points=PointTotal/creditTotal;
+
+  if (isNaN(GPA) || isNaN(points)){//Checks to make sure that the fields were filled in
     GPA=0;
-    point=0;
+    points=0;
   }
 
   //calculates the letter grade based on the GPA
@@ -188,14 +194,15 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
     }
   }
 
-  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],point);
+  var grades=new Array(GPA,GPAlist[i][referenceLetterGradeIndex],points);
 
   return grades;
   
 }
 
-//calculates and outputs the GPA information
+//Main function that stores the inputs and calculates and outputs the final grades
 function calculateGPA(){
+
     //Storing the values from the input fields
     var marks=new Array(document.getElementById("course_1_value").value,
       document.getElementById("course_2_value").value,
@@ -210,11 +217,11 @@ function calculateGPA(){
       document.getElementById("course_4_weight").value,
       document.getElementById("course_5_weight").value,
       document.getElementById("course_6_weight").value);
-    
-    //works as long as the list in university-list.js matches the one in the html
+
+    //Storing the university selected index. Works as long as the list in university-list.js matches the one in the html.
     var universityIndex=document.getElementById("university").selectedIndex;
 
-    //Checks for type of grades inputed
+    //Checks for type of grades inputed from the radio buttons
     if (document.getElementById("input-percent").checked)
       var gradeType="percent";
     else if (document.getElementById("input-letter").checked)
@@ -222,6 +229,7 @@ function calculateGPA(){
     else
       var gradeType="12-point";
     
+    //converts and outputs the percentage to a GPA
     if (gradeType=="percent"){
       var percentage=calculatePercentage(marks,creditWeights);
       var grades=convertPercentToGPA(universityIndex,marks, creditWeights);
@@ -232,6 +240,7 @@ function calculateGPA(){
       display12Point(grades[2]);
     }
 
+    //converts and outputs the letter grades to a GPA
     else if (gradeType=="letter"){
       var grades=convertLetterToGPA(universityIndex, marks, creditWeights);
       displayPercent(0);
@@ -240,6 +249,7 @@ function calculateGPA(){
       display12Point(grades[2]);
     }
 
+    //converts and outputs the 12-point grades to a GPA
     else if (gradeType=="12-point"){
       var grades=convert12PointToGPA(universityIndex, marks, creditWeights);
       displayPercent(0);
@@ -248,6 +258,6 @@ function calculateGPA(){
       display12Point(grades[2]);
     }
 
-    return false; //returns a false that stops form submission, since theres nothing to really submit to
+    return false; //returns a false that stops form submission, since theres nothing to submit to
 
   } //end of function

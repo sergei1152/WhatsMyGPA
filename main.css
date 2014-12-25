@@ -125,7 +125,6 @@ input[type='radio'] {
 .semester-input input:focus{
     outline: 0;
     box-shadow: 0px 0px 1px 2px #8BC34A;
-
 }
 .semester-input select{
 	font-family: Open Sans, Arial;
@@ -135,7 +134,6 @@ input[type='radio'] {
 	border-radius: 0.5em;
 	border: 1px solid grey;
 }
-
 .semester-input select:focus{
     outline: 0;
     box-shadow: 0px 0px 1px 2px #8BC34A;
