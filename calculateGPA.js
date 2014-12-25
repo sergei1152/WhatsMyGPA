@@ -249,31 +249,24 @@ function calculateGPA(){
       var grades=convertPercentToGPA(universityIndex,marks, creditWeights);
       
       displayPercent(percentage);
-      displayGPA(grades[0]);
-      displayLetter(grades[1],grades[0]);
-      display12Point(grades[2]);
-      display9Point(grades[3]);
     }
 
     //converts and outputs the letter grades to a GPA
     else if (gradeType=="letter"){
       var grades=convertLetterToGPA(universityIndex, marks, creditWeights);
       displayPercent(0);
-      displayGPA(grades[0]);
-      displayLetter(grades[1],grades[0]);
-      display12Point(grades[2]);
-      display9Point(grades[3]);
     }
 
     //converts and outputs the 12-point grades to a GPA
     else if (gradeType=="12-point"){
       var grades=convert12PointToGPA(universityIndex, marks, creditWeights);
       displayPercent(0);
-      displayGPA(grades[0]);
-      displayLetter(grades[1],grades[0]);
-      display12Point(grades[2]);
-      display9Point(grades[3]);
     }
+
+    displayGPA(grades[0]);
+    displayLetter(grades[1],grades[0]);
+    display12Point(grades[2]);
+    display9Point(grades[3]);
 
     return false; //returns a false that stops form submission, since theres nothing to submit to
 
