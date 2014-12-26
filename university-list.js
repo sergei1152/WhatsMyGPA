@@ -17,6 +17,7 @@ var universities=new Array(
     new Array("Guelph",              1, 5),
     new Array("Lakehead",            1, 5),
     new Array("Laurentian",          1, 5),
+    new Array("Laurier",             1, 5),
     new Array("Laval",               1, 5),
     new Array("Lethbridge",          1, 5),
     new Array("Manitoba",            1, 7),
@@ -54,7 +55,6 @@ var universities=new Array(
     new Array("Victoria",            1, 5),
     new Array("Waterloo",            1, 5),
     new Array("Western",             1, 5),
-    new Array("Laurier",             1, 5),
     new Array("Windsor",             1, 5),
     new Array("Winnipeg",            1, 5),
     new Array("York",                9, 7)

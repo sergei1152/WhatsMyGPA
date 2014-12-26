@@ -154,18 +154,16 @@ input[type='radio'] {
 }
 
 #add-semester-button{
-	width: 2em;
-	height: 2em;
+	height: 2.5em;
 	font-family: Open Sans, Arial;
-	font-weight: bold;
-	font-size: 3em;
-	border-radius: 100%;
+	font-weight: normal;
+	font-size: 2em;
+	border-radius: 0.5em;
 	border: 1px solid #f44336;
 	color: white;
 	float:right;
-	float:bottom;
 	background-color: #f44336;
-	margin-top: 0.5em;
+	margin-top:1em;
 }
 #add-semester-button:hover{
 	background-color: #ef5350;
