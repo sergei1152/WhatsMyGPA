@@ -108,7 +108,7 @@ function convertPercentToGPA(universityIndex, marks, creditWeights){
   //calculates the letter grade based on final GPA
   var i;
   for (i = 0; i <sizeOfGPAList; i++) {
-    if (GPA>=GPAlist[i][0]){
+    if (Math.round(GPA*10)/10>=GPAlist[i][0]){ //rounds GPA to 1 decimal place before converting to letter grade. So a 3.95 is same as a 4.0
       break;
     }
   }
@@ -158,7 +158,7 @@ function convertLetterToGPA(universityIndex, marks, creditWeights){
   //matches a letter grade to the GPA
   var i;
   for (i = 0; i <sizeOfGPAList; i++) {
-    if (GPA>=GPAlist[i][0]){
+    if (Math.round(GPA*10)/10>=GPAlist[i][0]){ //rounds GPA to 1 decimal place before converting to letter grade. So a 3.95 is same as a 4.0
       break;
     }
   }
@@ -209,7 +209,7 @@ function convert12PointToGPA(universityIndex, marks, creditWeights){
   //calculates the letter grade based on the GPA
   var i;
   for (i = 0; i <sizeOfGPAList; i++) {
-    if (GPA>=GPAlist[i][0]){
+    if (Math.round(GPA*10)/10>=GPAlist[i][0]){ //rounds GPA to 1 decimal place before converting to letter grade. So a 3.95 is same as a 4.0
       break;
     }
   }
