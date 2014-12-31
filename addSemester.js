@@ -14,6 +14,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
@@ -27,6 +28,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
@@ -40,6 +42,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
@@ -53,6 +56,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
@@ -66,6 +70,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
@@ -79,6 +84,7 @@ function addSemester(){
           <option value='0.8'>0.80</option>\
           <option value='1.0'>1.0</option>\
           <option value='3.0'>3.0</option>\
+          <option value='4.0'>4.0</option>\
           <option value='6.0'>6.0</option>\
           <option value='9.0'>9.0</option>\
           <option value='12.0'>12.0</option>\
