@@ -1,0 +1,31 @@
+{
+  "name": "WhatsMyGPA.ca",
+  "version": "2.0.0",
+  "homepage": "https://github.com/sergei1152/WhatsMyGPA",
+  "authors": [
+    "Serge Babayan <serj.b.babayan@gmail.com>"
+  ],
+  "description": "Canadian University GPA Calculator with support for over 50 Canadian Universities",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "gpa",
+    "calculator",
+    "university",
+    "canadian"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AngularJS": "angular-latest#~1.4.5",
+    "jquery": "~2.1.4"
+  }
+}
