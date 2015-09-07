@@ -1,0 +1,28 @@
+{
+  "name": "whatsmygpa",
+  "version": "2.0.0",
+  "description": "Canadian Universities GPA calculator with support for over 50 Canadian Universities",
+  "main": "addSemester.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergei1152/WhatsMyGPA.git"
+  },
+  "keywords": [
+    "gpa",
+    "canada",
+    "university",
+    "calculator"
+  ],
+  "author": "Serj Babayan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergei1152/WhatsMyGPA/issues"
+  },
+  "homepage": "https://github.com/sergei1152/WhatsMyGPA#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
