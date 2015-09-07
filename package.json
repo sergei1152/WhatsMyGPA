@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/sergei1152/WhatsMyGPA#readme",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-sass": "^2.0.4"
   }
 }
