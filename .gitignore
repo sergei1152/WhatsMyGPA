@@ -1,12 +1,3 @@
-#Javascript compiled file
-/scripts/dist
-
-#Javascript libraries
-/scripts/lib
-
-#CSS Compiled files
-style/dist
-
 # Logs
 logs
 *.log
