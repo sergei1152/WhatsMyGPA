@@ -13,7 +13,7 @@ gulp.task('default', function() {
 
 //for production builds
 gulp.task('build', function() {
-    gulp.src(['./scripts/*.js', './scripts/lib/angular.js', 'scripts/lib/jquery/dist/jquery.js'])
+    gulp.src([ './scripts/lib/angular/angular.js', 'scripts/lib/jquery/dist/jquery.js','./scripts/*.js'])
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./scripts/dist/'));
@@ -44,7 +44,7 @@ gulp.task('js-hint', function() {
 
 //concatanates all the javascript files
 gulp.task('js-concat', function() {
-    gulp.src(['./scripts/*.js', './scripts/lib/angular.js', 'scripts/lib/jquery/dist/jquery.js'])
+    gulp.src(['./scripts/lib/angular/angular.js', 'scripts/lib/jquery/dist/jquery.js','./scripts/*.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./scripts/dist/'))
         .pipe(livereload());
