@@ -6,25 +6,20 @@
   <meta name="description" content="Calculate your canadian GPA, percentage, 12-point system grade, and 9 point system grade. Supports GPA conversion for over 50 Candian universities, including University of Waterloo, University of York, University of Toronto (UFT) and more.">
   <meta name="keywords" content="GPA, 12-point, 9-point, gpa conversion">
     <link rel="stylesheet" href="style/dist/main.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="scripts/dist/main.js"></script>
-
-
-</script>
-    
 </head>
 
-<body>
-	
+<body ng-app='WhatsMyGPA.ca'>
   <div id="header">
     <a href="index.html"><h1 style="color:#ECEFF1;">WhatsMy</h1><h1 style="color:#1B5E20;">GPA</h1></a>
     <h2>Supports over 50 Canadian Universities</h2>
   </div>
-  
+  <!-- Should use noscript tag instead -->
   <div id="javascript-warning">Please Enable Javascript Before Continuing</div>
   <script>document.getElementById('javascript-warning').style.display ='none';</script>
   <br>
-  <form action="" id="input-form" onsubmit="return calculateGPA()">
+  <form ng-controller="InputController" action="" id="input-form" onsubmit="return calculateGPA()">
     <h3>1. Select Your University</h3>
     <select id="university">
         <option value="Acadia">Acadia</option>
