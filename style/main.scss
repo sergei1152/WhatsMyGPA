@@ -16,28 +16,28 @@ body{
 	// background-image:url(background.png);
 	background-repeat: repeat;
 }
-#header {
+header {
 	height: 5em;
 	text-align: center;
 	margin: -0.6em -0.6em 1em -0.6em;
 	line-height: 100%;
 	background-color: #8BC34A;
 }
-#header h1{
+header h1{
 	font-family: Open Sans, Arial;
 	font-weight: bold;
 	display: inline-block;
 	font-size: 3em;
 	color: white;
 }
-#header h2{
+header h2{
 	font-family: Open Sans, Arial;
 	font-weight: normal;
 	display: inline-block;
 	margin-left: 1em;
 	color: #37474F;
 }
-#javascript-warning{
+noscript{
 	display: inline-block;
 	font-family: Open Sans, Arial;
 	font-weight: bold;
