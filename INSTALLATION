@@ -1,0 +1,19 @@
+#Setting Up Your Development Environment
+
+Install Node
+sudo npm install -g bower gulp
+
+Install ruby then install SASS
+gem install sass
+
+Install Project Dependencies
+npm install
+bower install
+
+Do a gulp build for a production build
+gulp build
+
+or a gulp watch to watch files and perform live reload upon file change
+gulp watch
+
+Install the live reload chrome extension
