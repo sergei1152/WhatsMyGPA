@@ -17,3 +17,5 @@ or a gulp watch to watch files and perform live reload upon file change
 gulp watch
 
 Install the live reload chrome extension
+Make sure the "Allow Access to File URLs option in live reload is set to on"
+
