@@ -26,6 +26,10 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "selectize": "~0.12.1",
+    "angular-selectize2": "~3.0.1",
+    "ui-select": "angular-ui-select#~0.13.1",
+    "angular-sanitize": "~1.4.7"
   }
 }

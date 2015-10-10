@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <script src="scripts/dist/main.js"></script>
 </head>
-
+<link rel="stylesheet" type="text/css" href="scripts/lib/ui-select/dist/select.min.css" />
 <body ng-app='WhatsMyGPA.ca'>
   <header>
     <a href="index.html"><h1 style="color:#ECEFF1;">WhatsMy</h1><h1 style="color:#1B5E20;">GPA</h1></a>
@@ -20,68 +20,21 @@
 
   <noscript>Please Enable Javascript Before Continuing</noscript>
   
-  <section>
-    
   <form ng-controller="InputController" action="" id="input-form" onsubmit="return calculateGPA()">
-
     <h3>1. Select Your University</h3>
-    <select id="university">
-        <option value="Acadia">Acadia</option>
-        <option value="Alberta">Alberta</option>
-        <option value="Athabasca">Athabasca</option>
-        <option value="Bishop">Bishop</option>
-        <option value="Brandon">Brandon</option>
-        <option value="Brock">Brock</option>
-        <option value="Calgary">Calgary</option>
-        <option value="Carleton">Carleton</option>
-        <option value="Concordia">Concordia</option>
-        <option value="Dalhousie">Dalhousie</option>
-        <option value="Guelph">Guelph</option>
-        <option value="Lakehead">Lakehead</option>
-        <option value="Laurentian">Laurentian</option>
-        <option value="Laurier">Laurier</option>
-        <option value="Laval">Laval</option>
-        <option value="Lethbridge">Lethbridge</option>
-        <option value="Manitoba">Manitoba</option>
-        <option value="McGill">McGill</option>
-        <option value="McMaster">McMaster</option>
-        <option value="Memorial">Memorial</option>
-        <option value="Moncton">Moncton</option>
-        <option value="Montreal">Montreal</option>
-        <option value="Mt.Allison">Mt.Allison</option>
-        <option value="Mt. St.Vincent">Mt. St.Vincent</option>
-        <option value="New Brunswick">New Brunswick</option>
-        <option value="Nipissing">Nipissing</option>
-        <option value="Northern BC">Northern BC</option>
-        <option value="Ottawa">Ottawa</option>
-        <option value="PEI">PEI</option>
-        <option value="Quebec">Quebec</option>
-        <option value="Queen's">Queen's</option>
-        <option value="Queen's Engineering">Queen's Engineering</option>
-        <option value="Regina">Regina</option>
-        <option value="RMC/CMR">RMC/CMR</option>
-        <option value="Royal Roads">Royal Roads</option>
-        <option value="Ryerson">Ryerson</option>
-        <option value="Saskatchewan">Saskatchewan</option>
-        <option value="Sherbrooke">Sherbrooke</option>
-        <option value="Simon Fraser">Simon Fraser</option>
-        <option value="St.Francis Xavier">St.Francis Xavier</option>
-        <option value="St.Mary's">St.Mary's</option>
-        <option value="St.Thomas">St.Thomas</option>
-        <option value="Ste-Anne">Ste-Anne</option>
-        <option value="Toronto">Toronto</option>
-        <option value="Trent">Trent</option>
-        <option value="Trinity Western">Trinity Western</option>
-        <option value="UBC">UBC</option>
-        <option value="UOIT">UOIT</option>
-        <option value="Victoria">Victoria</option>
-        <option value="Waterloo">Waterloo</option>
-        <option value="Western">Western</option>
-        <option value="Windsor">Windsor</option>
-        <option value="Winnipeg">Winnipeg</option>
-        <option value="York">York</option>
+    <select  id="university">
+        <option  ng-repeat="(key, value) in UniversityList" value={{key}}>{{value.name}}</option>
     </select>
+
     <br>
+
+<ui-select ng-model="country.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+    <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="country in countries | filter: $select.search">
+      <span ng-bind-html="country.name | highlight: $select.search"></span>
+      <small ng-bind-html="country.code | highlight: $select.search"></small>
+    </ui-select-choices>
+  </ui-select>
 
     <h3>2. What Type Of Grades Are You Inputting?</h3>
     <div class="radio"><input type="radio" name="input-type" value="percent" checked="checked" id="input-percent" >Percentage % (eg. 85.36)</div>

@@ -1,9 +1,6 @@
 #Setting Up Your Development Environment
 
 Install Node
-You may go to these instructions if you're running ubuntu because the repositories don't have the latest version:
-https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
-
 sudo npm install -g bower gulp
 
 Install ruby then install SASS

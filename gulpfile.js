@@ -7,13 +7,18 @@ var jshint_stylish = require('jshint-stylish');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
+var javascript_libraries=[ './scripts/lib/angular/angular.min.js', 'scripts/lib/jquery/dist/jquery.min.js','./scripts/lib/selectize/dist/js/standalone/selectize.min.js','./scripts/lib/ui-select/dist/select.min.js',
+    'scripts/lib/angular-sanitize/angular-sanitize.min.js'];
+javascript_libraries.push('./scripts/*.js');
+var javascript_files=javascript_libraries;
+
 gulp.task('default', function() {
     console.log("NOTE: Please use either gulp build or gulp watch");
 });
 
 //for production builds
 gulp.task('build', function() {
-    gulp.src([ './scripts/lib/angular/angular.js', 'scripts/lib/jquery/dist/jquery.js','./scripts/*.js'])
+    gulp.src(javascript_files)
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./scripts/dist/'));
@@ -44,7 +49,7 @@ gulp.task('js-hint', function() {
 
 //concatanates all the javascript files
 gulp.task('js-concat', function() {
-    gulp.src(['./scripts/lib/angular/angular.js', 'scripts/lib/jquery/dist/jquery.js','./scripts/*.js'])
+    gulp.src(javascript_files)
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./scripts/dist/'))
         .pipe(livereload());
