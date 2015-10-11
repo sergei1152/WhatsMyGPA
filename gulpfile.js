@@ -21,6 +21,7 @@ var scripts=[
 //all the css files the app uses
 var styles=[
     'bower_components/ui-select/dist/select.min.css',
+    'bower_components/bootstrap/dist/css/bootstrap.min.css',
     'style/dist/*.css',
     '!style/dist/dist.css' //not the actual dist file
     ];

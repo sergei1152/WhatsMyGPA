@@ -1,164 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="GPA, 12-point, 9-point, gpa conversion">
-  <meta name="description" content="Calculate your canadian GPA, percentage, 12-point system grade, and 9 point system grade. Supports GPA conversion for over 50 Candian universities, including University of Waterloo, University of York, University of Toronto (UFT) and more.">
-
-	<title>WhatsMyGPA.ca - Canadian Universities GPA Calculator</title>
-  <link rel="stylesheet" href="style/dist/main.css">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <script src="scripts/dist/main.js"></script>
-</head>
-<link rel="stylesheet" type="text/css" href="scripts/lib/ui-select/dist/select.min.css" />
-<body ng-app='WhatsMyGPA.ca'>
-  <header>
-    <a href="index.html"><h1 style="color:#ECEFF1;">WhatsMy</h1><h1 style="color:#1B5E20;">GPA</h1></a>
-    <h2>Supports over 50 Canadian Universities</h2>
-  </header>
-
-  <noscript>Please Enable Javascript Before Continuing</noscript>
-  
-  <form ng-controller="InputController" action="" id="input-form" onsubmit="return calculateGPA()">
-    <h3>1. Select Your University</h3>
-    <select  id="university">
-        <option  ng-repeat="(key, value) in UniversityList" value={{key}}>{{value.name}}</option>
-    </select>
-
-    <br>
-
-<ui-select ng-model="country.selected" theme="selectize" ng-disabled="disabled" style="width: 300px;">
-    <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
-    <ui-select-choices repeat="country in countries | filter: $select.search">
-      <span ng-bind-html="country.name | highlight: $select.search"></span>
-      <small ng-bind-html="country.code | highlight: $select.search"></small>
-    </ui-select-choices>
-  </ui-select>
-
-    <h3>2. What Type Of Grades Are You Inputting?</h3>
-    <div class="radio"><input type="radio" name="input-type" value="percent" checked="checked" id="input-percent" >Percentage % (eg. 85.36)</div>
-    <div class="radio"><input type="radio" name="input-type" value="letter" id="input-letter" class="radio">Letter (eg. A+, B-) </div>
-    <div class="radio"><input type="radio" name="input-type" value="12-point" id="input-12point" class="radio">12-Point (eg. 12, 5, 3)</div>
-    <br>
-
-    <h3>3. Input the Grade and Credit Weight</h3>
-    <br>
-    <div id="semesters">
-    <div class="semester-input" id="first-semester">
-      <h4>Grade</h4> <h4>Credit</h4>
-      <br>
-
-      <input type="text" id="course_1_value">
-      <select id="course_1_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-
-      <input type="text" id="course_2_value">
-      <select id="course_2_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-
-      <input type="text" id="course_3_value">
-      <select id="course_3_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-
-      <input type="text" id="course_4_value">
-      <select id="course_4_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-
-      <input type="text" id="course_5_value">
-      <select id="course_5_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-
-      <input type="text" id="course_6_value">
-      <select id="course_6_weight">
-          <option value="0.25">0.25</option>
-          <option value="0.5">0.5</option>
-          <option value="0.75">0.75</option>
-          <option value="0.8">0.80</option>
-          <option value="1.0">1.0</option>
-          <option value="3.0">3.0</option>
-          <option value="4.0">4.0</option>
-          <option value="6.0">6.0</option>
-          <option value="9.0">9.0</option>
-          <option value="12.0">12.0</option>
-      </select>
-      <br>
-    </div>
-    </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="GPA, 12-point, 9-point, gpa conversion">
+    <meta name="description" content="Calculate your canadian GPA, percentage, 12-point system grade, and 9 point system grade. Supports GPA conversion for over 50 Candian universities, including University of Waterloo, University of York, University of Toronto (UFT) and more.">
+    <title>WhatsMyGPA.ca - Canadian Universities GPA Calculator</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  </head>
+  <body ng-app='WhatsMyGPA.ca'>
+<!--     <header>
+      <a href="/"><h1 style="color:#ECEFF1;">WhatsMy</h1><h1 style="color:#1B5E20;">GPA</h1></a>
+      <h2>Supports over 50 Canadian Universities</h2>
+    </header>
+    <noscript>Please Enable Javascript Before Continuing</noscript> -->
     
-    <br>
-    <input type="submit" value="Calculate" id="submit-button">
-    <button type="button" id="add-semester-button" onclick="addSemester()">Add Grades</button>
-  </form>
+    <section id="main-content">
+      <form ng-controller="InputController" action="" class="grade-input">
+        <h3>1. Select Your University</h3>
+        <ui-select ng-model="UniversityList.selected" title="Choose a university or college" on-select="selectedUniversity($item, $model)">
+        <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
+        <ui-select-choices repeat="(key, university) in UniversityList | filter: {'key':$select.search}">
+          <p>{{university.value.name}}</p>
+          <p>{{university.value.location}}</p>
+        </ui-select-choices>
+        </ui-select>
 
-
-  <br>
-  <div id="grade-output">
-    <p>Percent Average: </p><h4 id="percentage-output">--</h4><br>
-    <p>GPA: </p><h4 id="GPA-output">--</h4><h4>/4.0</h4><br>
-    <p>Letter Grade:</p><h4 id="letter-output">--</h4><br>
-    <p>12-Point Grade: </p><h4 id="12point-output">--</h4><h4>/12</h4><br>
-    <p>9-Point Grade: </p><h4 id="9point-output">--</h4><h4>/9</h4><br>
-  </div>
-  </section>
-
-  <footer>
-    
-  </footer>
-</body>
+      </form>
+    </section>
+    <section id="grade-output">
+      
+    </section>
+      
+    <footer>
+      
+    </footer>
+    <link rel="stylesheet" href="style/dist/dist.css">
+    <script src="scripts/dist/main.js"></script>
+  </body>
 </html>
