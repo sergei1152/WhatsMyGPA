@@ -18,12 +18,13 @@
     <section id="main-content">
       <form ng-controller="InputController" action="" class="grade-input">
         <h3>1. Select Your University</h3>
-        <ui-select ng-model="UniversityList.selected" title="Choose a university or college" on-select="selectedUniversity($item, $model)">
-        <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
-        <ui-select-choices repeat="(key, university) in UniversityList | filter: {'key':$select.search}">
-          <p>{{university.value.name}}</p>
-          <p>{{university.value.location}}</p>
-        </ui-select-choices>
+
+        <ui-select ng-model="selectedUniversity" title="Select your university or college" on-select="universitySelected($item)">
+          <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
+          <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
+            <div ng-bind-html="value.value.name | highlight: $select.search"></div>
+            <p class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
+          </ui-select-choices>
         </ui-select>
 
       </form>

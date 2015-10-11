@@ -2,10 +2,50 @@ angular.module('WhatsMyGPA.ca', ['Universities', 'ngSanitize','ui.select'])
 
 .controller('InputController',['$scope','UniversityList',"$timeout",function($scope,UniversityList){
 	$scope.UniversityList=UniversityList;
-  $scope.selectUniversity=function(test,test2){
-    console.log(test);
-    console.log(test2);
-    console.log(UniversityList.selected);
+  $scope.selectedUniversity; //contains the "value" of the univeristy
+  //called when a user selects their university/college
+  $scope.universitySelected=function(selectedUniversity){
+
+    console.log(selectedUniversity); //same object as selectedUniversity
   }
-}]);
+}])
+
+/**
+ * AngularJS default filter with the following expression:
+ * "person in people | filter: {name: $select.search, age: $select.search}"
+ * performs a AND between 'name: $select.search' and 'age: $select.search'.
+ * We want to perform a OR.
+ */
+.filter('propsFilter', function() {
+  return function(items, props) {
+    var out = [];
+
+    if (angular.isArray(items)) {
+      var keys = Object.keys(props);
+        
+      items.forEach(function(item) {
+        var itemMatches = false;
+
+        for (var i = 0; i < keys.length; i++) {
+          var prop = keys[i];
+          var text = props[prop].toLowerCase();
+          if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+            itemMatches = true;
+            break;
+          }
+        }
+
+        if (itemMatches) {
+          out.push(item);
+        }
+      });
+    } else {
+      // Let the output be the input untouched
+      out = items;
+    }
+
+    return out;
+  };
+});
+;
 	

@@ -4,7 +4,11 @@ angular.module('Universities',[])
 	return {
 		universityofwaterloo:{
 			name: 'University Of Waterloo',
-			location: "Waterloo, ON",
+			location:{
+				city: "Waterloo",
+				state: "Ontario",
+				country: "Canada"
+			},
 			commonCreditWeights:[0.25,0.5,0.75,0.80,1],
 			percentageGradeToGPA: { //assumes a 4.0 GPA system
 				"4.0": {
@@ -131,7 +135,11 @@ angular.module('Universities',[])
 		},
 		universityoftoronto:{
 			name: 'University Of Toronto',
-			location: "Toronto, ON",
+			location:{
+				city: "Toronto",
+				state: "Ontario",
+				country: "Canada"
+			},
 			commonCreditWeights:[0.25,0.5,0.75,0.80,1],
 			percentageGradeToGPA: { //assumes a 4.0 GPA system
 				"4.0": {
