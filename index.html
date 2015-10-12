@@ -16,7 +16,7 @@
     <noscript>Please Enable Javascript Before Continuing</noscript> -->
     
     <section id="main-content">
-      <form ng-controller="InputController" action="" class="grade-input">
+      <form ng-controller="InputController" action="" class="grade-input-form">
         <h3>1. Select your university or college</h3>
 
         <ui-select theme="bootstrap" ng-model="selectedUniversity" title="Select your university or college" on-select="universitySelected($item)">
@@ -34,8 +34,11 @@
          
         <h3>3. Enter your grades and their credit weight</h3>
         <div class="semester">
-          <input type="text">
-          <datalist class="class-selection">
+          <div class="grade" ng-repeat="n in ReportCard.grades track by $index">
+                <input ng-model="ReportCard.grades[$index].grade" type="text" class="grade-input">
+                <datalist ng-model="ReportCard.grades[$index].creditWeight" class="credit_weight">
+          </div>
+    
             
           </datalist>
 
