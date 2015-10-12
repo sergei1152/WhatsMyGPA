@@ -2,13 +2,17 @@ angular.module('WhatsMyGPA.ca', ['Universities', 'ngSanitize','ui.select'])
 
 .controller('InputController',['$scope','UniversityList',"$timeout",function($scope,UniversityList){
 	$scope.UniversityList=UniversityList;
-  $scope.selectedUniversity; //contains the "value" of the univeristy
+  $scope.selectedUniversity={}; //contains the "value" of the univeristy
   $scope.gradeInputTypes={};
   $scope.getGradeInputTypeName=getGradeInputTypeName;
+  $scope.numberOfSemesters=1;
+
   //called when a user selects their university/college
   $scope.universitySelected=function(selectedUniversity){
+    $scope.selectedUniversity=selectedUniversity;
     setGradeInputs($scope.gradeInputTypes,selectedUniversity);
     console.log(selectedUniversity); //same object as selectedUniversity
+    $scope.$apply();
   }
   function setGradeInputs(gradeInputTypes,selectedUniversity){
     if(selectedUniversity.value){
@@ -41,4 +45,4 @@ angular.module('WhatsMyGPA.ca', ['Universities', 'ngSanitize','ui.select'])
       
     }
   }
-}]);
+}])
