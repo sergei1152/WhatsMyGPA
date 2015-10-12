@@ -13,7 +13,6 @@ angular.module('ReportCard',[])
 	var ReportCard={
 		semesters:[],
 		addSemester: function(){
-			console.log('hello2');
 			var newSemester=[];
 			for(var i=0;i<gradesPerSemester;i++){
 				newSemester.push(new Grade());
