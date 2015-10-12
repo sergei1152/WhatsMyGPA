@@ -16,7 +16,8 @@
     <noscript>Please Enable Javascript Before Continuing</noscript> -->
     
     <section id="main-content">
-      <form ng-controller="InputController" action="" class="grade-input-form">
+      <form ng-controller="InputController" class="grade-input-form">
+
         <h3>1. Select your university or college</h3>
 
         <ui-select theme="bootstrap" ng-model="selectedUniversity" title="Select your university or college" on-select="universitySelected($item)">
@@ -26,7 +27,7 @@
             <p class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
           </ui-select-choices>
         </ui-select>
-       <!-- TODO: MAKE the rest show after the university has been selected  -->
+
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type radio" ng-repeat="gradeInputType in selectedUniversity.value.gradeConversions">
            <input type="radio" name="grade-input-type" value="{{gradeInputType}}"> {{gradeInputType.name}}
@@ -36,11 +37,13 @@
         <div class="semester" ng-repeat="semester in ReportCard.semesters">
           <div class="grade" ng-repeat="grade in semester">
                 <input ng-model="grade.value" type="text" class="grade-input">
-                <datalist ng-model="grade.creditWeight" class="credit_weight">
+                <input list="credit-weights" ng-model="grade.creditWeight" >
+                <datalist id="credit-weights"  class="credit_weight">
+                  <option  ng-repeat="creditWeight in selectedUniversity.value.commonCreditWeights" value="{{creditWeight}}">{{creditWeight}}</option>
+                </datalist>
           </div>
     
-            
-          </datalist>
+          <a ng-click="print()">click</a>
 
         </div>
       </form>
@@ -54,5 +57,8 @@
     </footer>
     <link rel="stylesheet" href="style/dist/dist.css">
     <script src="scripts/dist/main.js"></script>
+    <script>
+    $('input[list]').datalist(); //for datalist support on browsers that dont support it
+    </script>
   </body>
 </html>
