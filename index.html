@@ -30,7 +30,7 @@
 
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type radio" ng-repeat="gradeConversion in university.selected.value.gradeConversions">
-           <input type="radio" name="grade-input-type" ng-model="$parent.university.selectedGradeConversion"> {{gradeConversion.name}}
+           <input type="radio" name="grade-input-type" value="{{gradeConversion}}" ng-model="$parent.university.selectedGradeConversion"> {{gradeConversion.name}}
          </div>
          
         <h3>3. Enter your grades and their credit weight</h3>
@@ -52,7 +52,7 @@
     </section>
 
     <section id="grade-output-results">
-      
+      {{$scope.university.results}}
     </section>
       
     <footer>

@@ -13,7 +13,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   
   $scope.Calculate=function(){
     $scope.university.results=Calculate($scope.university);
-  }
+  };
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 }]);
