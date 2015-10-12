@@ -21,4 +21,10 @@ angular.module('ReportCard',[])
 		}
 	};
 	return ReportCard;
-}]);
+}])
+
+//The service that stores the results of the calculations
+.factory('Results',function(){
+	var results={};
+	return results;
+});

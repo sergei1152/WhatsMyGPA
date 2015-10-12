@@ -7,13 +7,16 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   $scope.university={
     selected: null, //the selected university
-    selectedGradeConversion: null, //the input grade type the user selected
-    results: null //the results of the calculation
+    selectedGradeConversion: null //the input grade type the user selected
   };
-  
+
   $scope.Calculate=function(){
-    $scope.university.results=Calculate($scope.university);
+    Calculate($scope.university);
   };
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
+}])
+
+.controller('OutputController', ['$scope', 'Results', function($scope, Results){
+  $scope.results=Results;
 }]);
