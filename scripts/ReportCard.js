@@ -2,7 +2,7 @@ angular.module('ReportCard',[])
 
 .factory('Grade',function(){
 	var Grade=function(grade,weight){
-		this.grade=grade;
+		this.value=grade;
 		this.creditWeight=weight;
 	};
 	return Grade;
@@ -11,14 +11,13 @@ angular.module('ReportCard',[])
 .factory('ReportCard',['Grade',function(Grade){
 	var gradesPerSemester=6;
 	var ReportCard={
-		grades:[],
-		addGrade: function(grade, credit){
-			this.grades.push(new Grade(grade, credit));
-		},
+		semesters:[],
 		addSemester: function(){
+			var newSemester=[];
 			for(var i=0;i<gradesPerSemester;i++){
-				this.addGrade();
+				newSemester.push(new Grade());
 			}
+			this.semesters.push(newSemester);
 		}
 	};
 	return ReportCard;

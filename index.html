@@ -28,15 +28,15 @@
         </ui-select>
        <!-- TODO: MAKE the rest show after the university has been selected  -->
         <h3>2. What type of grades are you inputting?</h3>
-         <div class="grade-input-type radio" ng-repeat="n in selectedUniversity.value.gradeConversions track by $index">
-           <input type="radio" name="grade-input-type" value="{{$index}}"> {{selectedUniversity.value.gradeConversions[$index].name}}
+         <div class="grade-input-type radio" ng-repeat="gradeInputType in selectedUniversity.value.gradeConversions">
+           <input type="radio" name="grade-input-type" value="{{gradeInputType}}"> {{gradeInputType.name}}
          </div>
          
         <h3>3. Enter your grades and their credit weight</h3>
-        <div class="semester">
-          <div class="grade" ng-repeat="n in ReportCard.grades track by $index">
-                <input ng-model="ReportCard.grades[$index].grade" type="text" class="grade-input">
-                <datalist ng-model="ReportCard.grades[$index].creditWeight" class="credit_weight">
+        <div class="semester" ng-repeat="semester in ReportCard.semesters">
+          <div class="grade" ng-repeat="grade in semester">
+                <input ng-model="grade.value" type="text" class="grade-input">
+                <datalist ng-model="grade.creditWeight" class="credit_weight">
           </div>
     
             
