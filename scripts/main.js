@@ -5,8 +5,10 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard', 'ngSanitize','ui.s
   $scope.selectedUniversity={}; //contains the "value" of the univeristy
   $scope.ReportCard=ReportCard;
   $scope.ReportCard.addSemester();
+  $scope.selectedGradeInputType={};
   $scope.print=function(){
     console.log(ReportCard.semesters[0]);
+    console.log($scope.selectedGradeInputType);
   }
   //called when a user selects their university/college
   $scope.universitySelected=function(selectedUniversity){
