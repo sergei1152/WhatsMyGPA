@@ -17,16 +17,22 @@
     
     <section id="main-content">
       <form ng-controller="InputController" action="" class="grade-input">
-        <h3>1. Select Your University</h3>
+        <h3>1. Select your university or college</h3>
 
-        <ui-select ng-model="selectedUniversity" title="Select your university or college" on-select="universitySelected($item)">
+        <ui-select theme="bootstrap" ng-model="selectedUniversity" title="Select your university or college" on-select="universitySelected($item)">
           <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
           <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
             <div ng-bind-html="value.value.name | highlight: $select.search"></div>
             <p class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
           </ui-select-choices>
         </ui-select>
-
+       <!-- TODO: MAKE the rest show after the university has been selected  -->
+        <h3>2. What type of grades are you inputting?</h3>
+         <div class="grade-input-type radio" ng-repeat="(key,value) in gradeInputTypes">
+           <input type="radio" name="input-type" value="{{key}}"> {{getGradeInputTypeName(key)}}
+         </div>
+         
+        <h3>3. Enter your grades and their credit weight</h3>
       </form>
     </section>
     <section id="grade-output">
