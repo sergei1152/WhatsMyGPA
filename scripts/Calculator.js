@@ -24,19 +24,42 @@ angular.module('Calculator',['ReportCard'])
 						grades.push(grade);
 					}
 				}
-				
 			}
 		}
 	}
-	
+
 	return function(university){
-		var grades=[];
-		var type=JSON.parse(university.selectedGradeConversion).type;
-		filterGrades(grades,type);
-
+		var input_grades=[];
+		var output_grades=[];
+		var selectedUniversity=university.selected.value;
+		var selectedGradeConversion=JSON.parse(university.selectedGradeConversion);
+		var type=selectedGradeConversion.type;
+		filterGrades(input_grades,type);
+		Results=[]; //resets the results
 		
+		//settings up results for display
+		for(var i=0;i<selectedUniversity.gradeConversions.length;i++){
+			var conversion={
+				type: selectedUniversity.gradeConversions[i].type,
+				name: selectedUniversity.gradeConversions[i].name,
+				min: selectedUniversity.gradeConversions[i].min_range,
+				max: selectedUniversity.gradeConversions[i].max_range,
+				result: null
+			}
+			Results.push(conversion);
+		}
+		//if number, calculate its respective number and calculate gpa and convert backwards to everything else
+		//if letter, simply calculate gpa, then convert backwards to everything else
+		for(var i=0;i<input_grades.length;i++){
+			if(type==="number"){
+				for(var j=0;j<selectedUniversity.gradeConversions.length;j++){
+					if(selectedGradeConversion.name===selectedUniversity.gradeConversions[j].name){
+						console.log('HEELOWEFIJOEWJFOIEWFj');
+					}
+				}
+			}
 
-		console.log(grades);
+		}
 		var results="hello";
 		return results;
 	};
