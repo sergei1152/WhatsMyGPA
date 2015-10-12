@@ -1,6 +1,6 @@
 angular.module('WhatsMyGPA.ca', ['Universities', 'ngSanitize','ui.select'])
 
-.controller('InputController',['$scope','UniversityList',"$timeout",function($scope,UniversityList){
+.controller('InputController',['$scope','UniversityList',function($scope,UniversityList){
 	$scope.UniversityList=UniversityList;
   $scope.selectedUniversity={}; //contains the "value" of the univeristy
   
