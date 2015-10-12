@@ -29,6 +29,7 @@
     "jquery": "~2.1.4",
     "ui-select": "angular-ui-select#~0.13.1",
     "angular-sanitize": "~1.4.7",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "jquery.datalist.js": "https://github.com/miketaylr/jquery.datalist.js.git"
   }
 }

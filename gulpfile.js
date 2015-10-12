@@ -15,6 +15,7 @@ var scripts=[
     'bower_components/angular/angular.min.js',
     'bower_components/angular-sanitize/angular-sanitize.min.js',
     'bower_components/ui-select/dist/select.min.js',
+    'bower_components/jquery.datalist.js/jquery.datalist.min.js',
     'scripts/*.js'
     ];
 
