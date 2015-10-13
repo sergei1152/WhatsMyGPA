@@ -7,7 +7,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   $scope.university={
     selected: null, //the selected university
-    selectedGradeConversion: null //the input grade type the user selected
+    selectedGradeInput: null //the input grade type the user selected
   };
 
   $scope.Calculate=function(){
