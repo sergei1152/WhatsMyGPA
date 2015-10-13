@@ -124,7 +124,8 @@ angular.module('Universities', [])
                 country: "Canada"
             },
             commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
-            gradeConversions: [{
+           	gradeConversions: {
+            	"percentage": {
                     name: "Percentage (eg. 75%)",
                     type: "number",
                     min_range: 0,
@@ -182,7 +183,8 @@ angular.module('Universities', [])
                         min: 0,
                         max: 49
                     }]
-                }, {
+                }, 
+                "letter":{
                     name: "Letter (eg. B, A+)",
                     type: "letter",
                     gpaConversion: [{
@@ -226,7 +228,7 @@ angular.module('Universities', [])
                         letters: ['E', 'F']
                     }]
                 }
-            ]
+            }
         }
     };
 });
