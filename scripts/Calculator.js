@@ -3,8 +3,8 @@ angular.module('Calculator', ['ReportCard'])
 .factory('Regex', function() {
     return {
         letterGradeRegex: /^[a-zA-Z-+]{1,3}$/,
-        numberGradeRegex: /^[1-9.]{1,5}$/,
-        creditWeightRegex: /^[1-9.]{1,4}$/
+        numberGradeRegex: /^[0-9.]{1,5}$/,
+        creditWeightRegex: /^[0-9.]{1,4}$/
     };
 })
 
@@ -43,20 +43,46 @@ angular.module('Calculator', ['ReportCard'])
             }
             return Results;
         }
+        function convertGradeToGPA(grade, selectedGradeConversion){
+        	 if(selectedGradeConversion.type==="number"){
+        	 	grade=Math.round(Number(grade));
+        	 }
+        	 else if (selectedGradeConversion.type==="letter"){
+        	 	grade=grade.toUpperCase();
+        	 }
+        	 for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
+        	 	if(selectedGradeConversion.type==='number'){
+        	 		if(grade>=selectedGradeConversion.gpaConversion[i].min && grade<=selectedGradeConversion.gpaConversion[i].max){
+        	 			return selectedGradeConversion.gpaConversion[i].value;
+        	 		}
+        	 	}
+        	 	else if (selectedGradeConversion.type==="letter"){
+        	 		if(selectedGradeConversion.gpaConversion[i].letters.indexOf(grade)>-1){
+        	 			return selectedGradeConversion.gpaConversion[i].value;
+        	 		}
+        	 	}
+        	 	else{
+        	 		console.error('Invalid grade conversion type from dataset');
+        	 	}
+        	 }
+        }
         return function(university) {
             var input_grades = [];
             var output_grades = [];
             var selectedUniversity = university.selected.value;
             var selectedGradeConversion = selectedUniversity.gradeConversions[university.selectedGradeInput];
             var type = selectedGradeConversion.type;
-
+            //setup input grades
             filterGrades(input_grades, type);
+
+            //set up results
             Results=[];
-            setUpResults(Results,selectedUniversity); //resets the results
+            setUpResults(Results,selectedUniversity);
 
             //if number, calculate its respective number and calculate gpa and convert backwards to everything else
             //if letter, simply calculate gpa, then convert backwards to everything else
             for (var i = 0; i < input_grades.length; i++) {
+            	console.log(convertGradeToGPA(input_grades[i].value,selectedGradeConversion));
                 if (type === "number") {
                     for (var j = 0; j < selectedUniversity.gradeConversions.length; j++) {
                         if (selectedGradeConversion.name === selectedUniversity.gradeConversions[j].name) {
