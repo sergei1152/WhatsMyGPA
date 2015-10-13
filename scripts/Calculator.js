@@ -66,6 +66,21 @@ angular.module('Calculator', ['ReportCard'])
         	 	}
         	 }
         }
+        function convertGPAToGrade(gpa, selectedGradeConversion){
+        	for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
+        		if(selectedGradeConversion.gpaConversion[i].value===gpa){
+        			if(selectedGradeConversion.type==="number"){
+        				return (selectedGradeConversion.gpaConversion[i].min+selectedGradeConversion.gpaConversion[i].max)/2;
+        			}
+        			else if(selectedGradeConversion.type==="letter"){
+        				return selectedGradeConversion.gpaConversion[i].letters[0];
+        			}
+        			else{
+        				console.error('Invalid grade conversion type from dataset');
+        			}
+        		}
+        	}
+        }
         return function(university) {
             var input_grades = [];
             var output_grades = [];
@@ -83,6 +98,7 @@ angular.module('Calculator', ['ReportCard'])
             //if letter, simply calculate gpa, then convert backwards to everything else
             for (var i = 0; i < input_grades.length; i++) {
             	console.log(convertGradeToGPA(input_grades[i].value,selectedGradeConversion));
+            	console.log(convertGPAToGrade(convertGradeToGPA(input_grades[i].value,selectedGradeConversion),selectedGradeConversion));
                 if (type === "number") {
                     for (var j = 0; j < selectedUniversity.gradeConversions.length; j++) {
                         if (selectedGradeConversion.name === selectedUniversity.gradeConversions[j].name) {
