@@ -92,7 +92,7 @@ angular.module('Calculator', ['ReportCard'])
         		}
         	}
         }
-        function calculateResult(Results){
+        function calculateFinalResult(Results){
         	for(var outputGradeKey in Results){
         		if(Results.hasOwnProperty(outputGradeKey)){
         			Results[outputGradeKey].result=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
@@ -130,16 +130,14 @@ angular.module('Calculator', ['ReportCard'])
 	                       }
 	                    }
 	                }
-                }
+                }//TODO: WHAT HAPPENS WHEN THE OUTPUT TYPE IS A LETTER
                 else if (type==="letter"){ 
-
+                	
                 }
             }
 
-            calculateResult(Results);
+            calculateFinalResult(Results);
             console.log(Results);
-            var results = "hello";
-            return results;
         };
     }
 ]);
