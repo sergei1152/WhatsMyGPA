@@ -21,25 +21,26 @@
 
         <h3>1. Select your university or college</h3>
 
-        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college">
+        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input">
           <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
           <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
-            <div ng-bind-html="value.value.name | highlight: $select.search"></div>
-            <p class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
+            <p ng-bind-html="value.value.name | highlight: $select.search"></p>
+            <p ng-bind-html="value.value.location.city | highlight: $select.search" class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
           </ui-select-choices>
         </ui-select>
 
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
-           <input type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> {{value.name}}
+           <input title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> <h6 title="Select the grade input type">{{value.name}}</h6>
+
          </div>
          
         <h3>3. Enter your grades and their credit weight</h3>
         <div class="semester" ng-repeat="semester in ReportCard.semesters">
           <div class="grade" ng-repeat="grade in semester">
-                <input ng-model="grade.value" type="text" class="grade-input">
+                <input title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input">
                 <div class="credit-weight-input">
-                  <input list="credit-weights" ng-model="grade.creditWeight"  >
+                  <input title="Enter the credit weight for the grade here" list="credit-weights" ng-model="grade.creditWeight"  >
                   <datalist id="credit-weights">
                     <option  ng-repeat="creditWeight in university.selected.value.commonCreditWeights">{{creditWeight}}</option>
                   </datalist>
