@@ -30,10 +30,12 @@
         </ui-select>
 
         <h3>2. What type of grades are you inputting?</h3>
-         <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
+         <div class="grade-input-type-wrapper">
+           <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
            <input title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> <h6 title="Select the grade input type">{{value.name}}</h6>
-
          </div>
+         </div>
+         
          
         <h3>3. Enter your grades and their credit weight</h3>
         <div class="semester" ng-repeat="semester in ReportCard.semesters">
