@@ -16,11 +16,12 @@ html, body{
 #main-content{
 	@extend .center-text;
 	width: 100%;
+	margin: 24px auto 24px auto;
 	max-width: 980px;
 	margin-top: 24px;
 	h3{
 		font-family: $sans;
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 24px;
 		margin: 12px 0 12px 0;
 	}
