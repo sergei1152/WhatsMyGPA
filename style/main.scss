@@ -122,6 +122,12 @@ html, body{
 				}
 			}
 		}
+		.button-wrapper{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			padding: 12px;
+		}
 	}
 }
 @media(min-width: 980px){ //when on desktop
@@ -129,4 +135,10 @@ html, body{
 		max-height: 550px;
 		overflow: auto;
 	}
+}
+.btn{
+	font-family: $sans;		
+}
+.btn-large{
+	font-size: 20px;
 }

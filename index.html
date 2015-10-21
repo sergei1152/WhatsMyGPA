@@ -56,8 +56,10 @@
             </div>
           </div>
         </div>
-        <a class="button" ng-click="Calculate()">Calculate</a>
-        <a class="button" ng-click="ReportCard.addSemester();">Add Grades</a>
+        <div class="button-wrapper">
+          <a class="btn btn-danger btn-large" ng-click="ReportCard.addSemester();">Add Grades</a>
+          <a class="btn btn-success btn-large" ng-click="Calculate()">Calculate</a>
+        </div>
       </form>
     </section>
 
