@@ -19,6 +19,7 @@ html, body{
 	margin: 24px auto 24px auto;
 	max-width: 980px;
 	margin-top: 24px;
+	padding: 12px;
 	h3{
 		font-family: $sans;
 		font-weight: 500;
@@ -31,6 +32,9 @@ html, body{
 		display: block;
 		margin: auto;
 		.university-selection-input{
+			.ui-select-match>.btn{
+				text-align: center !important;
+			}
 			.ui-select-choices-row{
 				width: 100%;
 				height: 50px;
@@ -80,6 +84,49 @@ html, body{
 				}
 			}
 		}
-		
+		.semesters-wrapper{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			.semester{
+				width: 180px;
+				&:nth-child(odd){
+					margin-right: 18px;
+				}
+				.label-wrapper{
+					display: flex;
+					justify-content: space-around;
+					width: 100%;
+					margin-bottom: 6px;
+					label{
+						font-family: $sans;
+					}
+				}
+				.grade{
+					width: 100%;
+					display: flex;
+					margin-bottom: 8px;
+					.grade-input{
+						width: calc(50% - 4px); //4px because of the 8px margin between the grade and credit weight
+					}
+					.credit-weight-input{
+						width:calc(50% - 4px);
+						input{
+							width:100%;
+							margin-left: 8px;
+						}
+						datalist{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media(min-width: 980px){ //when on desktop
+	.semesters-wrapper{
+		max-height: 550px;
+		overflow: auto;
 	}
 }
