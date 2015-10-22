@@ -61,12 +61,13 @@
           <a class="btn btn-success btn-large" ng-click="Calculate()">Calculate</a>
         </div>
       </form>
+
+      <section id="grade-output-results" ng-controller="OutputController">
+      <div class="result" ng-repeat="(key, value) in Results">{{value.name}}: {{value.result}}</div>
     </section>
 
-    <section id="grade-output-results" ng-controller="OutputController">
-      <p>{{Results}}</p>
-    </section>
-      
+    </section>  <!-- main section ends -->
+    
     <footer>
       
     </footer>
