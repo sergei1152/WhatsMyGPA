@@ -18,8 +18,5 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 }])
 
 .controller('OutputController', ['$scope', 'Results', function($scope, Results){
-  $scope.getResults=function(){
-    return Results;
-  }
   $scope.Results=Results;
 }]);
