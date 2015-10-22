@@ -25,7 +25,7 @@
           <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
           <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
             <p ng-bind-html="value.value.name | highlight: $select.search"></p>
-            <p ng-bind-html="value.value.location.city | highlight: $select.search" class="university-location">{{value.value.location.city}}, {{value.value.location.state}}</p>
+            <p ng-bind-html="value.value.location.city | highlight: $select.search" class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
           </ui-select-choices>
         </ui-select>
 
@@ -63,8 +63,8 @@
       </form>
     </section>
 
-    <section id="grade-output-results">
-      <p>{{results}}</p>
+    <section id="grade-output-results" ng-controller="OutputController">
+      <p>{{getResults()}}</p>
     </section>
       
     <footer>

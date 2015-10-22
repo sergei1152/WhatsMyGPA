@@ -25,6 +25,6 @@ angular.module('ReportCard',[])
 
 //The service that stores the results of the calculations
 .factory('Results',function(){
-	var results=[];
-	return results;
+	var Results={};
+	return Results;
 });

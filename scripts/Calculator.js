@@ -110,9 +110,7 @@ angular.module('Calculator', ['ReportCard'])
             filterGrades(input_grades, type);
 
             //set up results
-            Results=[];
             setUpResults(Results,selectedUniversity);
-            console.log(Results);
             //if number, calculate its respective number and calculate gpa and convert backwards to everything else
             //if letter, simply calculate gpa, then convert backwards to everything else
             for (var i = 0; i < input_grades.length; i++) {
