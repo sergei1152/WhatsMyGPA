@@ -163,7 +163,22 @@ angular.module('Calculator', ['ReportCard'])
 	                }
                 }
                 else if (type==="letter"){ 
-                	
+                	for (var gradeConversionKey in selectedUniversity.gradeConversions) {
+                        if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversionKey)) {
+                           var outputGradeConversion=selectedUniversity.gradeConversions[gradeConversionKey];
+                            if(outputGradeConversion.type==="letter"){ 
+                                Results[gradeConversionKey].totalGrade+=convertGradeToGPA(input_grades[i].value,selectedGradeConversion)*input_grades[i].creditWeight;
+                                Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
+                            }
+                            else if(outputGradeConversion.type==="number"){ //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
+                                Results[gradeConversionKey].totalGrade+=convertGPAToGrade(convertGradeToGPA(input_grades[i].value,selectedGradeConversion),outputGradeConversion)*input_grades[i].creditWeight;
+                                Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
+                            }
+                            else{
+                                console.error('Grade conversions types can either be letter or number');
+                            }
+                        }
+                    }
                 }
             }
 
