@@ -64,6 +64,7 @@
 
       <section ng-hide="isEmpty(Results)" id="grade-output-results" ng-controller="OutputController">
         <div class="result" ng-repeat="(key, value) in Results">{{value.name}}: <span class="value">{{value.result}} <span ng-show="value.max">/{{value.max}}</span></span></div>
+        <a href="#"  ng-click='share()'>Facebook</a>
       </section>
     </section>  <!-- main section ends -->
 

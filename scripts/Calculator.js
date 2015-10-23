@@ -111,7 +111,9 @@ angular.module('Calculator', ['ReportCard'])
         	for(var outputGradeKey in Results){
         		if(Results.hasOwnProperty(outputGradeKey)){
                     if(Results[outputGradeKey].type==="number"){
-                        Results[outputGradeKey].result=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
+                        var result=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
+                        result=Math.round(result*100)/100;
+                        Results[outputGradeKey].result=result;
                     }
         			else if(Results[outputGradeKey].type==="letter"){
                         var finalGPA=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
@@ -181,7 +183,7 @@ angular.module('Calculator', ['ReportCard'])
                     }
                 }
             }
-            debugger
+            
             calculateFinalResult(Results,selectedUniversity);
         };
     }
