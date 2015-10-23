@@ -8,6 +8,7 @@ angular.module('Calculator', ['ReportCard'])
     };
 })
 
+
 .factory('Calculate', ["ReportCard", 'Results', 'Regex',
     function(ReportCard, Results, Regex) {
         //filter ReportCard for all valid grades
@@ -77,20 +78,34 @@ angular.module('Calculator', ['ReportCard'])
         //converts a gpa to the equivalient grade. If its like a percentage where a range of percentages equal to a single
         //gpa, it will take the average of those percentages. If the input is like 12-point where is point is equivalent
         //to a single gpa, it will take the average of min and max and so it will still equal to the grade
+        //if the output grade is letter, it will pick the maximum gpa thats less than the input grade
         function convertGPAToGrade(gpa, selectedGradeConversion){
-        	for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
-        		if(selectedGradeConversion.gpaConversion[i].value===gpa){
-        			if(selectedGradeConversion.type==="number"){
-        				return (selectedGradeConversion.gpaConversion[i].min+selectedGradeConversion.gpaConversion[i].max)/2;
-        			}
-        			else if(selectedGradeConversion.type==="letter"){
-        				return selectedGradeConversion.gpaConversion[i].letters[0];
-        			}
-        			else{
-        				console.error('Invalid grade conversion type from dataset');
-        			}
-        		}
-        	}
+            if(selectedGradeConversion.type==='letter'){
+                gpa=Math.round(gpa*10)/10;
+                var maximumGPA=0;
+                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
+                    
+                    if (gpa>=selectedGradeConversion.gpaConversion[i].value && maximumGPA<selectedGradeConversion.gpaConversion[i].value){
+                        maximumGPA=selectedGradeConversion.gpaConversion[i].value;
+                    }
+                }
+                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
+                    if(selectedGradeConversion.gpaConversion[i].value===maximumGPA){
+                        return selectedGradeConversion.gpaConversion[i].letters[0];
+                    }
+                }
+            }
+            else if (selectedGradeConversion.type==='number'){
+                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
+                    if(selectedGradeConversion.gpaConversion[i].value===gpa){
+                        return (selectedGradeConversion.gpaConversion[i].min+selectedGradeConversion.gpaConversion[i].max)/2;
+                    }
+                }
+            }
+            else{
+                console.error('Invalid grade conversion type from dataset');
+            }
+        	
         }
         function calculateFinalResult(Results,selectedUniversity){
         	for(var outputGradeKey in Results){
@@ -99,9 +114,7 @@ angular.module('Calculator', ['ReportCard'])
                         Results[outputGradeKey].result=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
                     }
         			else if(Results[outputGradeKey].type==="letter"){
-                        console.log('calculating letter');
                         var finalGPA=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
-                        console.log(finalGPA);
                         Results[outputGradeKey].result= convertGPAToGrade(finalGPA,selectedUniversity.gradeConversions[outputGradeKey]);
                     }
                     else{
