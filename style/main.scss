@@ -128,11 +128,27 @@ html, body{
 			justify-content: space-around;
 			padding: 12px;
 		}
-		.grade-output-results{
-			
+	}
+	#grade-output-results{
+		background-color: #F5F5F5;
+		width: 100%;
+		max-width: 400px;
+		display: block;
+		margin: auto;
+		border-radius: 5px;
+		padding: 12px;
+		.result{
+			margin: 6px 0 6px 0;
+			font-family: $sans;
+			font-size: 24px;
+			.value{
+				font-weight: 600;
+				font-size: 24px;
+			}
 		}
 	}
 }
+
 @media(min-width: 980px){ //when on desktop
 	.semesters-wrapper{
 		max-height: 550px;

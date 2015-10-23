@@ -19,4 +19,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
 .controller('OutputController', ['$scope', 'Results', function($scope, Results){
   $scope.Results=Results;
+
+  $scope.isEmpty=function(object){
+    for(var key in object){
+      if(object.hasOwnProperty(key)){
+        return false;
+      }
+    }
+    return true;
+  }
 }]);

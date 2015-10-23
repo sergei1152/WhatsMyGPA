@@ -181,9 +181,8 @@ angular.module('Calculator', ['ReportCard'])
                     }
                 }
             }
-
+            debugger
             calculateFinalResult(Results,selectedUniversity);
-            console.log(Results);
         };
     }
 ]);
