@@ -1,6 +1,13 @@
 angular.module('Universities', [])
 
 .factory('UniversityList', function() {
+    var gpa={
+        name: "GPA (eg. 3.7, 2.1)",
+        type: "number",
+        min_range: 0,
+        max_range: 4
+    };
+
     return {
         universityofwaterloo: {
             name: 'University Of Waterloo',
@@ -11,6 +18,7 @@ angular.module('Universities', [])
             },
             commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
             gradeConversions: {
+                gpa: gpa,
             	"percentage": {
                     name: "Percentage (eg. 75%)",
                     type: "number",
@@ -125,6 +133,7 @@ angular.module('Universities', [])
             },
             commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
            	gradeConversions: {
+                gpa: gpa,
             	"percentage": {
                     name: "Percentage (eg. 75%)",
                     type: "number",
