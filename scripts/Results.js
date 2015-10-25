@@ -20,6 +20,19 @@ angular.module('Results', [])
     };
 }])
 
+//formats results for display
+.factory('resetResults', ['Results', function(Results) {
+    return function() {
+        for (var gradeConversion in Results) {
+            if (Results.hasOwnProperty(gradeConversion)) {
+                Results[gradeConversion].result=null;
+                Results[gradeConversion].totalCredits=0;
+                Results[gradeConversion].totalGrade=0;
+            }
+        }
+    };
+}])
+
 .factory('Results', function($window) {
     var Results = {};
     $window.Results=Results;
