@@ -164,6 +164,9 @@ html, body{
 	max-width: 400px;
 	font-weight: 500;
 	text-align: center;
+	font-weight: 600;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	.image{
 		background-color: #002d68;
 		height: 100%;
@@ -184,6 +187,14 @@ html, body{
 	.semesters-wrapper{
 		max-height: 550px;
 		overflow: auto;
+	}
+}
+
+@media(max-width: 400px ){
+	.semester{
+		&:nth-child(odd){
+			margin-right: 0 !important;
+		}
 	}
 }
 .btn{
