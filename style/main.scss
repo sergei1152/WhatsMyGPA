@@ -149,6 +149,37 @@ html, body{
 	}
 }
 
+#facebook-button{
+	background-color: #3B5998;
+	position: relative;
+	color: #FFFFFF;
+	font-family: $sans;
+	padding: 18px;
+	width: 100%;
+	display: block;
+	border-radius: 50px;
+	font-size: 18px;
+	text-decoration: none;
+	margin-top: 24px;
+	max-width: 400px;
+	font-weight: 500;
+	text-align: center;
+	.image{
+		background-color: #002d68;
+		height: 100%;
+		width: 48px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-top-left-radius: 50%;
+		border-bottom-left-radius: 50%;
+		.icon{
+			font-size: 28px;
+			line-height: 56px;
+		}
+		
+	}
+}
 @media(min-width: 980px){ //when on desktop
 	.semesters-wrapper{
 		max-height: 550px;

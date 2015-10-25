@@ -39,7 +39,6 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
 
         //Converts a grade to its equivalent gpa value by looking at the grade conversion data
         function convertGradeToGPA(grade, selectedGradeConversion, selectedGradeConversionKey) { //third parameter is optional
-            debugger
             if (typeof selectedGradeConversionKey !== 'undefined' && selectedGradeConversionKey && selectedGradeConversionKey === 'gpa') { //if input is gpa return the type
                 return grade;
             } else {
