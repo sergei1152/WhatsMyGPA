@@ -48,7 +48,7 @@
             <div class="grade" ng-repeat="grade in semester">
                   <input title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input form-control">
                   <div class="credit-weight-input">
-                    <input title="Enter the credit weight for the grade here" list="credit-weights" class="form-control" ng-model="grade.creditWeight"  >
+                    <input title="Enter the credit weight for the grade here" list="credit-weights"  type="tel" class="form-control" ng-model="grade.creditWeight"  >
                     <datalist id="credit-weights">
                       <option  ng-repeat="creditWeight in university.selected.value.commonCreditWeights">{{creditWeight}}</option>
                     </datalist>
