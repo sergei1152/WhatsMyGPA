@@ -21,7 +21,7 @@
 
         <h3>1. Select your university or college</h3>
 
-        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input">
+        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()">
           <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
           <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
             <p ng-bind-html="value.value.name | highlight: $select.search"></p>
@@ -64,7 +64,7 @@
 
       <section ng-hide="isEmpty(Results)" id="grade-output-results" ng-controller="OutputController">
         <div class="result" ng-repeat="(key, value) in Results">{{value.name}}: <span class="value">{{value.result}} <span ng-show="value.max">/{{value.max}}</span></span></div>
-        <a href="#"  ng-click='share()'>Facebook</a>
+        <a href="#"  ng-click='Facebook.share()'>Facebook</a>
       </section>
     </section>  <!-- main section ends -->
 

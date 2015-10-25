@@ -1,12 +1,4 @@
-angular.module('ReportCard',[])
-
-.factory('Grade',function(){
-	var Grade=function(grade,weight){
-		this.value=grade;
-		this.creditWeight=weight;
-	};
-	return Grade;
-})
+angular.module('ReportCard',['Grade'])
 
 .factory('ReportCard',['Grade',function(Grade){
 	var gradesPerSemester=6;
@@ -23,8 +15,3 @@ angular.module('ReportCard',[])
 	return ReportCard;
 }])
 
-//The service that stores the results of the calculations
-.factory('Results',function(){
-	var Results={};
-	return Results;
-});
