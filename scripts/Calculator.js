@@ -1,190 +1,161 @@
-angular.module('Calculator', ['ReportCard'])
+angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
 
-.factory('Regex', function() {
-    return {
-        letterGradeRegex: /^[a-zA-Z-+]{1,3}$/,
-        numberGradeRegex: /^[0-9.]{1,5}$/,
-        creditWeightRegex: /^[0-9.]{1,4}$/
-    };
-})
+.factory('Calculate', ["ReportCard", 'Results', 'Validator',function(ReportCard, Results, Validator) {
+        function isDefined(value) {
+            if (typeof value !== 'undefined' && value) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
-
-.factory('Calculate', ["ReportCard", 'Results', 'Regex',
-    function(ReportCard, Results, Regex) {
-        //filter ReportCard for all valid grades
-        function filterGrades(grades, type) {
+        //filter ReportCard for all valid grades that pass the regex
+        /*Parameters
+            grades: empty array where the valid grades will be injected into
+            selectedGradeConversion: input grade type
+        */
+        function filterGrades(grades, selectedGradeConversion) {
             for (var i = 0; i < ReportCard.semesters.length; i++) { //iterate through all the semesters
                 for (var j = 0; j < ReportCard.semesters[i].length; j++) { //iterate through all the grades in the semesters
                     var grade = ReportCard.semesters[i][j];
-                    if (type === "letter") {
-                        if (grade && grade.value && grade.creditWeight && grade.value.match(Regex.letterGradeRegex) && grade.creditWeight.match(Regex.creditWeightRegex)) {
+                    //if it is a valid letter or number grade
+                    if (isDefined(grade) && isDefined(grade.value) && isDefined(grade.creditWeight) && Validator.isValid(grade.value, selectedGradeConversion) && Validator.isValid(grade.creditWeight, selectedGradeConversion)) {
+                        if (selectedGradeConversion.type === "letter") {
                             grades.push({
-                            	value: grade.value.toUpperCase(),
-                            	creditWeight: Number(grade.creditWeight)
+                                value: grade.value.toUpperCase(),
+                                creditWeight: Number(grade.creditWeight)
                             });
-                        }
-                    } else if (type === "number") {
-                        if (grade && grade.value && grade.creditWeight && grade.value.match(Regex.numberGradeRegex) && grade.creditWeight.match(Regex.creditWeightRegex)) {
+                        } else if (selectedGradeConversion.type === "number") {
                             grades.push({
-                            	value: Number(grade.value),
-                            	creditWeight: Number(grade.creditWeight)
+                                value: Number(grade.value),
+                                creditWeight: Number(grade.creditWeight)
                             });
                         }
                     }
                 }
             }
         }
-        //formats the results data structure for display
-        function setUpResults(Results,selectedUniversity) {
-            for (var gradeConversion in selectedUniversity.gradeConversions) {
-                if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversion)) {
-                    var conversion = {
-	                    type: selectedUniversity.gradeConversions[gradeConversion].type,
-	                    name: selectedUniversity.gradeConversions[gradeConversion].name,
-	                    min: selectedUniversity.gradeConversions[gradeConversion].min_range,
-	                    max: selectedUniversity.gradeConversions[gradeConversion].max_range,
-	                    result: null,
-	                    totalCredits: 0,
-	                    totalGrade: 0
-               	 	};
-                	Results[gradeConversion]=conversion;
-                }
-            }
-            return Results;
-        }
-        //Converts a grade to its equivalent gpa value by looking at the grade conversion data
-        function convertGradeToGPA(grade, selectedGradeConversion){
-        	//formatting the input grades
-        	 if(selectedGradeConversion.type==="number"){
-        	 	grade=Math.round(Number(grade));
-        	 }
 
-        	 for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
-        	 	if(selectedGradeConversion.type==='number'){
-        	 		if(grade>=selectedGradeConversion.gpaConversion[i].min && grade<=selectedGradeConversion.gpaConversion[i].max){
-        	 			return selectedGradeConversion.gpaConversion[i].value;
-        	 		}
-        	 	}
-        	 	else if (selectedGradeConversion.type==="letter"){
-        	 		if(selectedGradeConversion.gpaConversion[i].letters.indexOf(grade)>-1){
-        	 			return selectedGradeConversion.gpaConversion[i].value;
-        	 		}
-        	 	}
-        	 	else{
-        	 		console.error('Invalid grade conversion type from dataset');
-        	 	}
-        	 }
+        //Converts a grade to its equivalent gpa value by looking at the grade conversion data
+        function convertGradeToGPA(grade, selectedGradeConversion) {
+            //formatting the input grades
+            if (selectedGradeConversion.type === "number") {
+                grade = Math.round(grade);
+            }
+
+            for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //iterate through all gpa values in grade conversion table
+                if (selectedGradeConversion.type === 'number') {
+                    if (grade >= selectedGradeConversion.gpaConversion[i].min && grade <= selectedGradeConversion.gpaConversion[i].max) { //check if grade is within max and min range, if so return selected gpa value
+                        return selectedGradeConversion.gpaConversion[i].value;
+                    }
+                } else if (selectedGradeConversion.type === "letter") {
+                    if (selectedGradeConversion.gpaConversion[i].letters.indexOf(grade) > -1) { //check if grade exists in the "letters" array
+                        return selectedGradeConversion.gpaConversion[i].value;
+                    }
+                } else {
+                    console.error('Invalid grade conversion type from dataset');
+                }
+            }
         }
-        //converts a gpa to the equivalient grade. If its like a percentage where a range of percentages equal to a single
-        //gpa, it will take the average of those percentages. If the input is like 12-point where is point is equivalent
-        //to a single gpa, it will take the average of min and max and so it will still equal to the grade
-        //if the output grade is letter, it will pick the maximum gpa thats less than the input grade
-        function convertGPAToGrade(gpa, selectedGradeConversion){
-            if(selectedGradeConversion.type==='letter'){
-                gpa=Math.round(gpa*10)/10;
-                var maximumGPA=0;
-                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
-                    
-                    if (gpa>=selectedGradeConversion.gpaConversion[i].value && maximumGPA<selectedGradeConversion.gpaConversion[i].value){
-                        maximumGPA=selectedGradeConversion.gpaConversion[i].value;
+        /*Converts a gpa to the equivalient grade. If its like a percentage where a range of percentages equal to a single
+          gpa, it will take the average of those percentages. If the input is like 12-point where is point is equivalent
+          to a single gpa, it will take the average of min and max and so it will still equal to the grade
+          If the output grade is letter, it will pick the maximum gpa thats less than the input grade
+        */
+        function convertGPAToGrade(gpa, selectedGradeConversion) {
+            if (selectedGradeConversion.type === 'letter') {
+                var maximumGPA = 0;
+                //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
+                for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
+                    if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
+                        maximumGPA = selectedGradeConversion.gpaConversion[i].value;
                     }
                 }
-                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
-                    if(selectedGradeConversion.gpaConversion[i].value===maximumGPA){
-                        return selectedGradeConversion.gpaConversion[i].letters[0];
+                for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //convert the maximum gpa back to its letter grade equivalent
+                    if (selectedGradeConversion.gpaConversion[i].value === maximumGPA) {
+                        return selectedGradeConversion.gpaConversion[i].letters[0]; //return the first letter in the letters array
                     }
                 }
-            }
-            else if (selectedGradeConversion.type==='number'){
-                for(var i=0;i<selectedGradeConversion.gpaConversion.length;i++){
-                    if(selectedGradeConversion.gpaConversion[i].value===gpa){
-                        return (selectedGradeConversion.gpaConversion[i].min+selectedGradeConversion.gpaConversion[i].max)/2;
+            } else if (selectedGradeConversion.type === 'number') {
+                for (var j = 0; j < selectedGradeConversion.gpaConversion.length; j++) {
+                    if (selectedGradeConversion.gpaConversion[j].value === gpa) {
+                        return (selectedGradeConversion.gpaConversion[j].min + selectedGradeConversion.gpaConversion[j].max) / 2;
                     }
                 }
-            }
-            else{
+            } else {
                 console.error('Invalid grade conversion type from dataset');
             }
-        	
+
         }
-        function calculateFinalResult(Results,selectedUniversity){
-        	for(var outputGradeKey in Results){
-        		if(Results.hasOwnProperty(outputGradeKey)){
-                    if(Results[outputGradeKey].type==="number"){
-                        var result=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
-                        result=Math.round(result*100)/100;
-                        Results[outputGradeKey].result=result;
-                    }
-        			else if(Results[outputGradeKey].type==="letter"){
-                        var finalGPA=Results[outputGradeKey].totalGrade/Results[outputGradeKey].totalCredits;
-                        Results[outputGradeKey].result= convertGPAToGrade(finalGPA,selectedUniversity.gradeConversions[outputGradeKey]);
-                    }
-                    else{
+
+        //does the final devision between the totalGrade and totalCredit to get the resulting grades for each output type
+        function calculateFinalResult(selectedUniversity) {
+            for (var outputGradeKey in Results) {
+                if (Results.hasOwnProperty(outputGradeKey)) {
+                    if (Results[outputGradeKey].type === "number") {
+                        var result = Results[outputGradeKey].totalGrade / Results[outputGradeKey].totalCredits; //does the devision
+                        result = Math.round(result * 100) / 100; //rounds to 2 decimal places
+                        Results[outputGradeKey].result = result;
+                    } else if (Results[outputGradeKey].type === "letter") {
+                        var finalGPA = Results[outputGradeKey].totalGrade / Results[outputGradeKey].totalCredits;
+                        Results[outputGradeKey].result = convertGPAToGrade(finalGPA, selectedUniversity.gradeConversions[outputGradeKey]); //converts the finalGPA to its letter grade equivalent
+                    } else {
                         console.error('Wrong output grade conversion type in results. Must be either letter or number');
                     }
-        		}
-        	}
+                }
+            }
         }
         return function(university) {
             var input_grades = [];
-            var output_grades = [];
             var selectedUniversity = university.selected.value;
             var selectedGradeConversion = selectedUniversity.gradeConversions[university.selectedGradeInput];
             var type = selectedGradeConversion.type;
 
             //setup input grades
-            filterGrades(input_grades, type);
+            filterGrades(input_grades, selectedGradeConversion);
 
-            //set up results
-            setUpResults(Results,selectedUniversity);
             //if number, calculate its respective number and calculate gpa and convert backwards to everything else
             //if letter, simply calculate gpa, then convert backwards to everything else
             for (var i = 0; i < input_grades.length; i++) {
                 if (type === "number") { //convert each input grade to gpa and then to output grade, unless the output grade is same as the input grade
-                   	for (var gradeConversionKey in selectedUniversity.gradeConversions) {
-	                	if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversionKey)) {
-                           var outputGradeConversion=selectedUniversity.gradeConversions[gradeConversionKey]; //the grade conversion type to convert to
-	                       if(university.selectedGradeInput===gradeConversionKey){ //if the input grade is the same as the output grade, no conversion needed
-	                       		Results[university.selectedGradeInput].totalGrade+=input_grades[i].value*input_grades[i].creditWeight;
-	                       		Results[university.selectedGradeInput].totalCredits+=input_grades[i].creditWeight;
-	                       }
-	                       else{
-                                if(outputGradeConversion.type==="letter"){ //do a gpa conversion, calculate final gpa, the convert to letter grade since we cant add up letter grades
-                                    Results[gradeConversionKey].totalGrade+=convertGradeToGPA(input_grades[i].value,selectedGradeConversion)*input_grades[i].creditWeight;
-                                    Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
-                                }
-                                else if(outputGradeConversion.type==="number"){ //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
-                                    Results[gradeConversionKey].totalGrade+=convertGPAToGrade(convertGradeToGPA(input_grades[i].value,selectedGradeConversion),outputGradeConversion)*input_grades[i].creditWeight;
-                                    Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
-                                }
-                                else{
+                    for (var gradeConversionKey in selectedUniversity.gradeConversions) {
+                        if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversionKey)) {
+                            var outputGradeConversion = selectedUniversity.gradeConversions[gradeConversionKey]; //the grade conversion type to convert to
+                            if (university.selectedGradeInput === gradeConversionKey) { //if the input grade is the same as the output grade, no conversion needed
+                                Results[university.selectedGradeInput].totalGrade += input_grades[i].value * input_grades[i].creditWeight;
+                                Results[university.selectedGradeInput].totalCredits += input_grades[i].creditWeight;
+                            } else {
+                                if (outputGradeConversion.type === "letter") { //do a gpa conversion, calculate final gpa, the convert to letter grade since we cant add up letter grades
+                                    Results[gradeConversionKey].totalGrade += convertGradeToGPA(input_grades[i].value, selectedGradeConversion) * input_grades[i].creditWeight;
+                                    Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
+                                } else if (outputGradeConversion.type === "number") { //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
+                                    Results[gradeConversionKey].totalGrade += convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion), outputGradeConversion) * input_grades[i].creditWeight;
+                                    Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
+                                } else {
                                     console.error('Grade conversions types can either be letter or number');
                                 }
-	                       }
-	                    }
-	                }
-                }
-                else if (type==="letter"){ 
-                	for (var gradeConversionKey in selectedUniversity.gradeConversions) {
+                            }
+                        }
+                    }
+                } else if (type === "letter") {
+                    for (var gradeConversionKey in selectedUniversity.gradeConversions) {
                         if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversionKey)) {
-                           var outputGradeConversion=selectedUniversity.gradeConversions[gradeConversionKey];
-                            if(outputGradeConversion.type==="letter"){ 
-                                Results[gradeConversionKey].totalGrade+=convertGradeToGPA(input_grades[i].value,selectedGradeConversion)*input_grades[i].creditWeight;
-                                Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
-                            }
-                            else if(outputGradeConversion.type==="number"){ //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
-                                Results[gradeConversionKey].totalGrade+=convertGPAToGrade(convertGradeToGPA(input_grades[i].value,selectedGradeConversion),outputGradeConversion)*input_grades[i].creditWeight;
-                                Results[gradeConversionKey].totalCredits+=input_grades[i].creditWeight;
-                            }
-                            else{
+                            var outputGradeConversion = selectedUniversity.gradeConversions[gradeConversionKey];
+                            if (outputGradeConversion.type === "letter") {
+                                Results[gradeConversionKey].totalGrade += convertGradeToGPA(input_grades[i].value, selectedGradeConversion) * input_grades[i].creditWeight;
+                                Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
+                            } else if (outputGradeConversion.type === "number") { //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
+                                Results[gradeConversionKey].totalGrade += convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion), outputGradeConversion) * input_grades[i].creditWeight;
+                                Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
+                            } else {
                                 console.error('Grade conversions types can either be letter or number');
                             }
                         }
                     }
                 }
             }
-            
-            calculateFinalResult(Results,selectedUniversity);
+
+            calculateFinalResult(Results, selectedUniversity);
         };
     }
 ]);

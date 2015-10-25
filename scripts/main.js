@@ -1,6 +1,6 @@
 angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','Facebook','Results'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults',function($scope,UniversityList,ReportCard,Calculate,setUpResults){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
@@ -14,7 +14,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   $scope.universitySelected=function(){
     setUpResults($scope.university.selected.value);
-  }
+  };
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 }])

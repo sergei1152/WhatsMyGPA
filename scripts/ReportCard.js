@@ -13,5 +13,5 @@ angular.module('ReportCard',['Grade'])
 		}
 	};
 	return ReportCard;
-}])
+}]);
 
