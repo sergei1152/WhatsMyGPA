@@ -33,7 +33,7 @@
          <div class="grade-input-type-wrapper">
            <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
               <input title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> 
-              <h6 title="Select the grade input type">{{value.name}}</h6>
+              <h6 title="Select the grade input type">{{value.name}} (eg. {{value.example}})</h6>
             </div>
          </div>
          

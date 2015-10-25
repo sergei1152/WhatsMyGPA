@@ -2,7 +2,8 @@ angular.module('Universities', [])
 
 .factory('UniversityList', function() {
     var gpa={
-        name: "GPA (eg. 3.7, 2.1)",
+        name: "GPA",
+        example: "2.1, 4.0",
         type: "number",
         min_range: 0,
         max_range: 4
@@ -20,7 +21,8 @@ angular.module('Universities', [])
             gradeConversions: {
                 gpa: gpa,
             	"percentage": {
-                    name: "Percentage (eg. 75%)",
+                    name: "Percentage",
+                    example: "75%, 67%",
                     type: "number",
                     min_range: 0,
                     max_range: 100,
@@ -79,7 +81,8 @@ angular.module('Universities', [])
                     }]
                 }, 
                 "letter":{
-                    name: "Letter (eg. B, A+)",
+                    name: "Letter",
+                    example:"B, A+",
                     type: "letter",
                     gpaConversion: [{
                         value: 4,
@@ -135,7 +138,8 @@ angular.module('Universities', [])
            	gradeConversions: {
                 gpa: gpa,
             	"percentage": {
-                    name: "Percentage (eg. 75%)",
+                    name: "Percentage",
+                    example: "75%, 67%",
                     type: "number",
                     min_range: 0,
                     max_range: 100,
@@ -194,7 +198,8 @@ angular.module('Universities', [])
                     }]
                 }, 
                 "letter":{
-                    name: "Letter (eg. B, A+)",
+                    name: "Letter",
+                    example:"B, A+",
                     type: "letter",
                     gpaConversion: [{
                         value: 4,
