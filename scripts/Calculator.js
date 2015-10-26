@@ -67,28 +67,32 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
           to a single gpa, it will take the average of min and max and so it will still equal to the grade
           If the output grade is letter, it will pick the maximum gpa thats less than the input grade
         */
-        function convertGPAToGrade(gpa, selectedGradeConversion) {
-            if (selectedGradeConversion.type === 'letter') {
-                var maximumGPA = 0;
-                //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
-                for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
-                    if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
-                        maximumGPA = selectedGradeConversion.gpaConversion[i].value;
-                    }
-                }
-                for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //convert the maximum gpa back to its letter grade equivalent
-                    if (selectedGradeConversion.gpaConversion[i].value === maximumGPA) {
-                        return selectedGradeConversion.gpaConversion[i].letters[0]; //return the first letter in the letters array
-                    }
-                }
-            } else if (selectedGradeConversion.type === 'number') {
-                for (var j = 0; j < selectedGradeConversion.gpaConversion.length; j++) {
-                    if (selectedGradeConversion.gpaConversion[j].value === gpa) {
-                        return (selectedGradeConversion.gpaConversion[j].min + selectedGradeConversion.gpaConversion[j].max) / 2;
-                    }
-                }
+        function convertGPAToGrade(gpa, selectedGradeConversion, selectedGradeConversionKey) {
+            if (typeof selectedGradeConversionKey !== 'undefined' && selectedGradeConversionKey && selectedGradeConversionKey === 'gpa') { //if input is gpa return the type
+                return gpa;
             } else {
-                console.error('Invalid grade conversion type from dataset');
+                if (selectedGradeConversion.type === 'letter') {
+                    var maximumGPA = 0;
+                    //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
+                    for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
+                        if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
+                            maximumGPA = selectedGradeConversion.gpaConversion[i].value;
+                        }
+                    }
+                    for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //convert the maximum gpa back to its letter grade equivalent
+                        if (selectedGradeConversion.gpaConversion[i].value === maximumGPA) {
+                            return selectedGradeConversion.gpaConversion[i].letters[0]; //return the first letter in the letters array
+                        }
+                    }
+                } else if (selectedGradeConversion.type === 'number') {
+                    for (var j = 0; j < selectedGradeConversion.gpaConversion.length; j++) {
+                        if (selectedGradeConversion.gpaConversion[j].value === gpa) {
+                            return (selectedGradeConversion.gpaConversion[j].min + selectedGradeConversion.gpaConversion[j].max) / 2;
+                        }
+                    }
+                } else {
+                    console.error('Invalid grade conversion type from dataset');
+                }
             }
 
         }
@@ -133,7 +137,7 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                                 Results[gradeConversionKey].totalGrade += convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey) * input_grades[i].creditWeight;
                                 Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
                             } else if (outputGradeConversion.type === "number") { //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
-                                Results[gradeConversionKey].totalGrade += convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey), outputGradeConversion) * input_grades[i].creditWeight;
+                                Results[gradeConversionKey].totalGrade += convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey), outputGradeConversion,gradeConversionKey) * input_grades[i].creditWeight;
                                 Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
                             } else {
                                 console.error('Grade conversions types can either be letter or number');
