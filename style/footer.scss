@@ -1,0 +1,43 @@
+@import "config.scss";
+
+#main-content{
+	min-height: calc(100% - 84px);
+	margin-bottom: $footer_height_negative !important;
+	&:after{
+		content:"";
+		display: block;
+		height: $footer_height;
+	}
+}
+footer{
+	background-color: $header_background_color;
+	height: $footer_height;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size:16px !important;
+	p{
+		margin-left: 12px !important;
+	}
+	a{
+		font-weight: bold;
+		color: #FFFFFF;
+	}
+}
+@media(max-width: 650px){
+	footer{
+		flex-direction: column;
+		height: $footer_height_mobile;
+		p:nth-child(2){
+			margin-top: 8px;
+		}
+	}
+	#main-content{
+		min-height: calc(100% - 104px);
+		margin-bottom: $footer_height_negative_mobile !important;
+		&:after{
+			height: $footer_height_mobile;
+		}
+	}
+}

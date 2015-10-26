@@ -20,12 +20,11 @@ angular.module('Facebook',[])
 			 }(document, 'script', 'facebook-jssdk'));
 		},
 		share: function(){
-			console.log('hello');
 			if(typeof FB ==='undefined'){
 				Facebook.initialize(function(){
 					FB.ui({
 					  method: 'share',
-					  href: 'https://developers.facebook.com/docs/',
+					  href: 'http://www.whatsmygpa.ca',
 					}, function(response){});
 				});
 			}
