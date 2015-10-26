@@ -13,6 +13,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   };
 
   $scope.universitySelected=function(){
+    $("#university-selection").blur();
     setUpResults($scope.university.selected.value);
   };
 

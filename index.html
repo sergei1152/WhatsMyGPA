@@ -8,6 +8,8 @@
     <title>WhatsMyGPA.ca - Canadian Universities and College GPA Calculator</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900|Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style/dist/dist.css">
+    <script src="scripts/dist/main.js"></script>
   </head>
   <body ng-app='WhatsMyGPA.ca'>
     <header class="header">
@@ -21,8 +23,8 @@
 
         <h3>1. Select your university or college</h3>
 
-        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()">
-          <ui-select-match placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
+        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
+          <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
           <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
             <p ng-bind-html="value.value.name | highlight: $select.search"></p>
             <p ng-bind-html="value.value.location.city | highlight: $select.search" class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
@@ -72,8 +74,6 @@
       <p>Created by <a href="http://www.sergebabayan.com">Serge Babayan</a></p>
       <p><a href="https://www.github.com/sergei1152/WhatsMyGPA">View on Github</a></p>
     </footer>
-    <link rel="stylesheet" href="style/dist/dist.css">
-    <script src="scripts/dist/main.js"></script>
     <script>
     $('input[list]').datalist(); //for datalist support on browsers that dont support it
     </script>
