@@ -199,8 +199,17 @@ html, body{
 	}
 }
 .btn{
-	font-family: $sans;		
+	font-family: $sans;
 }
 .btn-large{
-	font-size: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.btn-success{
+	background-color: $header_background_color;
+}
+.no-border{
+	border: none;
 }
