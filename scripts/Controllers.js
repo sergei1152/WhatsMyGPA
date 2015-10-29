@@ -8,8 +8,10 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     selectedGradeInput: null //the input grade type the user selected
   };
 
-  $scope.Calculate=function(){
-    Calculate($scope.university);
+  $scope.Calculate=function(valid){
+    if(valid){
+      Calculate($scope.university);
+    }
   };
 
   $scope.universitySelected=function(){
