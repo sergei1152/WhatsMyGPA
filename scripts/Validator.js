@@ -11,7 +11,7 @@ angular.module('Validator',[])
 
 .factory('Validator',['Regex',function(Regex){
 	//checks validity of a grade using the predefined regex
-    var isValid = function(value, selectedGradeConversion) {
+    var isValidGrade = function(value, selectedGradeConversion) {
         if (selectedGradeConversion.type === 'letter') {
             if (value.match(Regex.letterGradeRegex)) {
                 return true;
@@ -29,7 +29,16 @@ angular.module('Validator',[])
         }
     };
 
+    var isValidCredit=function(value){
+        if (value.match(Regex.creditWeightRegex)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return {
-    	isValid: isValid
+    	isValidGrade: isValidGrade,
+        isValidCredit: isValidCredit
     };
 }]);
