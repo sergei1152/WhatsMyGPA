@@ -34,7 +34,7 @@ gulp.task('default', function() {
 
 //for production builds
 gulp.task('build', function() {
-    runSequence('js-hint','js-concat','js-uglify','sass','css-concat','css-min');
+    runSequence('js-hint','js-uglify','sass','css-min');
 });
 
 //so that livereload works with html
@@ -60,7 +60,8 @@ gulp.task('js-concat', function() {
 
 //minifies the main.js dist file
 gulp.task('js-uglify', function() {
-    gulp.src('scripts/dist/main.js')
+    gulp.src(scripts)
+        .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./scripts/dist/'));
 });
@@ -88,7 +89,8 @@ gulp.task('css-concat', function() {
 
 //minifies the main css file
 gulp.task('css-min', function() {
-     gulp.src(['style/dist/dist.css'])
+    gulp.src(styles)
+        .pipe(concat('dist.css'))
         .pipe(cssmin({compatibility: 'ie8'}))
         .pipe(gulp.dest('style/dist/'));
 });

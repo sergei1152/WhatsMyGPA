@@ -165,7 +165,6 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                 }
             }
             calculateFinalResult(selectedUniversity); //do the final devision
-            console.log(Results);
         };
     }
 ]);

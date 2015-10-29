@@ -33,8 +33,8 @@ angular.module('Results', [])
     };
 }])
 
-.factory('Results', function($window) {
+.factory('Results', ['$window', function($window) {
     var Results = {};
     $window.Results=Results;
     return Results;
-});
+}]);

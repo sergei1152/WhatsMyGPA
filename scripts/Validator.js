@@ -35,7 +35,7 @@ angular.module('Validator',[])
         } else {
             return false;
         }
-    }
+    };
 
     return {
     	isValidGrade: isValidGrade,
