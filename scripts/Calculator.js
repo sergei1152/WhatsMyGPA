@@ -149,13 +149,13 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                             var convertedGrade;
                             if (outputGradeConversion.type === "letter") { //do a gpa conversion, calculate cumulitive gpa, the convert to letter grade since we cant add up letter grades
                                 convertedGrade=convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey);
-                                if(convertedGrade){
+                                if(convertedGrade!==NaN){
                                     Results[gradeConversionKey].totalGrade += convertedGrade * input_grades[i].creditWeight;
                                     Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
                                 }
                             } else if (outputGradeConversion.type === "number") { //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
                                 convertedGrade= convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey), outputGradeConversion,gradeConversionKey);
-                                if(convertedGrade){
+                                if(convertedGrade!==NaN){
                                     Results[gradeConversionKey].totalGrade += convertedGrade* input_grades[i].creditWeight;
                                     Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
                                 }
