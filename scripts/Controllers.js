@@ -1,4 +1,4 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','Facebook','Results'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select',,'ui.validate','Facebook','Results'])
 
 .controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results){
 	$scope.UniversityList=UniversityList;
@@ -7,8 +7,11 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     selected: null, //the selected university
     selectedGradeInput: null //the input grade type the user selected
   };
+  $scope.gradeForm;
 
   $scope.Calculate=function(valid){
+    debugger
+     Calculate($scope.university);
     if(valid){
       Calculate($scope.university);
     }
@@ -17,6 +20,10 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   $scope.universitySelected=function(){
     $("#university-selection").blur();
     setUpResults($scope.university.selected.value);
+  };
+
+  $scope.getGradeRegex=function(){
+    return  /^[0-9.]{1,5}$/;
   };
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
