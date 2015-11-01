@@ -128,6 +128,9 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
             }
         }
         return function(university) {
+            if(!university.selected || !university.selectedGradeInput){ //if the university or grade conversion was not picked
+                return;
+            }
             var input_grades = [];
             var selectedUniversity = university.selected.value;
             var selectedGradeConversionKey = university.selectedGradeInput;
