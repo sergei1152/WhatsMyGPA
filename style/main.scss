@@ -65,7 +65,8 @@ html, body{
 		.grade-input-type-wrapper{
 			width: 250px;
 			display: block;
-			margin: auto;
+			//margin: auto;
+			margin: 24px auto 24px auto;
 			.grade-input-type{
 				display: flex;
 				width: 100%;
@@ -134,9 +135,9 @@ html, body{
 		width: 100%;
 		max-width: 400px;
 		display: block;
-		margin: auto;
+		margin: 12px auto 24px auto;
 		border-radius: 5px;
-		padding: 12px;
+		padding: 12px 24px 24px 24px;
 		.result{
 			margin: 6px 0 6px 0;
 			font-family: $sans;
@@ -184,9 +185,9 @@ html, body{
 		
 	}
 }
-@media(min-width: 980px){ //when on desktop
+@media(min-width: 320px){ //when on desktop
 	.semesters-wrapper{
-		max-height: 550px;
+		max-height: 300px;
 		overflow: auto;
 	}
 }
