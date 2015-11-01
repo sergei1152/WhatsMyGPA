@@ -31,6 +31,7 @@
     "angular-sanitize": "~1.4.7",
     "bootstrap": "~3.3.5",
     "jquery.datalist.js": "https://github.com/miketaylr/jquery.datalist.js.git",
-    "angular-ui-validate": "~1.2.1"
+    "angular-ui-validate": "~1.2.1",
+    "angular-scroll-glue": "~2.0.6"
   }
 }
