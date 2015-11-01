@@ -32,6 +32,20 @@
         </ui-select>
 
         <h3>2. What type of grades are you inputting?</h3>
+         <div class="grade-input-type-wrapper" ng-hide="university.selected">
+           <div class="grade-input-type radio">
+              <input title="Select the grade input type" type="radio" disabled> 
+              <h6 title="Select the grade input type">GPA (eg. 3.46)</h6>
+            </div>
+            <div class="grade-input-type radio">
+              <input title="Select the grade input type" type="radio" disabled> 
+              <h6 title="Select the grade input type">Percentage (eg. 86%, 70%)</h6>
+            </div>
+            <div class="grade-input-type radio">
+              <input title="Select the grade input type" type="radio" disabled> 
+              <h6 title="Select the grade input type">Letter (eg. A+, B-)</h6>
+            </div>
+         </div>
          <div class="grade-input-type-wrapper">
            <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
               <input ng-change="gradeInputTypeSelected()" title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> 
@@ -48,9 +62,9 @@
               <label>Credit</label>
             </div>
             <div class="grade" ng-repeat="grade in semester">
-                  <input title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input form-control" ui-validate="{badGrade : 'validateGrade($value)' }">
+                  <input  ng-disabled="!university.selectedGradeInput" title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input form-control" ui-validate="{badGrade : 'validateGrade($value)' }">
                   <div class="credit-weight-input">
-                    <input title="Enter the credit weight for the grade here" list="credit-weights" type="tel" class="form-control" ui-validate="{badGrade : 'validateCredit($value)'}" ng-model="grade.creditWeight"  >
+                    <input ng-disabled="!university.selectedGradeInput" title="Enter the credit weight for the grade here" list="credit-weights" type="tel" class="form-control" ui-validate="{badGrade : 'validateCredit($value)'}" ng-model="grade.creditWeight"  >
                     <datalist id="credit-weights">
                       <option  ng-repeat="creditWeight in university.selected.value.commonCreditWeights">{{creditWeight}}</option>
                     </datalist>
