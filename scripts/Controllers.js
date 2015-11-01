@@ -1,4 +1,4 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select',,'ui.validate','Facebook','Results','Validator'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters'])
 
 .controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator){
 	$scope.UniversityList=UniversityList;

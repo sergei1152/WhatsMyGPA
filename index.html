@@ -25,9 +25,9 @@
 
         <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
           <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
-          <ui-select-choices repeat="(key, value) in UniversityList | filter: {'key':$select.search}">
-            <p ng-bind-html="value.value.name | highlight: $select.search"></p>
-            <p ng-bind-html="value.value.location.city | highlight: $select.search" class="university-location">{{value.value.location.city}}, {{value.value.location.state}}, {{value.value.location.country}}</p>
+          <ui-select-choices repeat="(key, value) in UniversityList | uniFilter: {name:$select.search,city:$select.search,state:$select.search,country:$select.search}">
+            <p ng-bind-html="value.value.name | highlight: $select.search">{{value.value.name}}</p>
+            <p  class="university-location"><span ng-bind-html="value.value.location.city | highlight: $select.search">{{value.value.location.city}}</span>,&nbsp;<span ng-bind-html="value.value.location.state | highlight: $select.search">{{value.value.location.state}}</span>,&nbsp;<span ng-bind-html="value.value.location.country | highlight: $select.search">{{value.value.location.country}}</span></p>
           </ui-select-choices>
         </ui-select>
 
