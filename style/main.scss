@@ -128,6 +128,7 @@ html, body{
 			display: flex;
 			justify-content: space-around;
 			padding: 12px;
+			margin-top: 24px;
 		}
 	}
 	#grade-output-results{
@@ -162,7 +163,7 @@ html, body{
 	border-radius: 50px;
 	font-size: 18px;
 	text-decoration: none;
-	margin-top: 24px;
+	margin: 24px auto 0 auto;
 	max-width: 400px;
 	font-weight: 500;
 	text-align: center;
@@ -197,6 +198,17 @@ html, body{
 		&:nth-child(odd){
 			margin-right: 0 !important;
 		}
+	}
+}
+
+@media(max-width: 780px){
+	#main-content #grade-output-results{
+		max-width: 780px;
+		width:calc(100% + 24px);
+		border-radius: 0;
+	    position: relative;
+    	left: -12px;
+    	text-align: center;
 	}
 }
 .btn{
