@@ -77,6 +77,16 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     return "text";
   }
 
+  $scope.clearGrades=function(){
+    for (var i = 0; i < ReportCard.semesters.length; i++) { //iterate through all the semesters
+      for (var j = 0; j < ReportCard.semesters[i].length; j++) { //iterate through all the grades in the semesters
+        var grade = ReportCard.semesters[i][j];
+        grade.value='';
+        grade.creditWeight='';
+      }
+    }
+  };
+
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 }])
 
