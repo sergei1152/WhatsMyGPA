@@ -46,7 +46,11 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       }
     }
   };
-
+  $scope.selectGradeInput=function(event){
+    var relatedRadio=$(event.target).siblings('input[type=radio');
+    $scope.university.selectedGradeInput=relatedRadio.val();
+    $scope.gradeInputTypeSelected();
+  }
   $scope.gradeInputTypeSelected=function(){
     if($scope.university.selected){
       var selectedGradeConversion=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput];
