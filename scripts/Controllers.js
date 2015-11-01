@@ -1,29 +1,50 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select',,'ui.validate','Facebook','Results'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select',,'ui.validate','Facebook','Results','Validator'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
     selected: null, //the selected university
     selectedGradeInput: null //the input grade type the user selected
   };
-  $scope.gradeForm;
 
-  $scope.Calculate=function(valid){
-    debugger
-     Calculate($scope.university);
-    if(valid){
+  $scope.Calculate=function(){
       Calculate($scope.university);
+  };
+  $scope.validateGrade=function(value){
+    var emptyStringRegex=/^\s*$/; //because inputs arent required, and empty inputs simply wont be counted towards final
+    if((typeof value==='string' && value.match(emptyStringRegex)) || value===null){
+      return true;
     }
+    if($scope.university.selected && $scope.university.selectedGradeInput){//otherwise if the grade value isnt empty, do proper validation
+      return Validator.isValidGrade(value, $scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]);
+    }
+    return true; //if the user hasnt selected a university of grade input type yet
   };
 
+  $scope.validateCredit=function(value){
+    var emptyStringRegex=/^\s*$/; //because inputs arent required, and empty inputs simply wont be counted towards final
+    if((typeof value==='string' && value.match(emptyStringRegex))|| value===null){
+      return true;
+    }
+    if($scope.university.selected && $scope.university.selectedGradeInput){//otherwise if the grade value isnt empty, do proper validation
+     return Validator.isValidCredit(value);
+    }
+    return true;//if either university of grade input type wasnt selected
+  };
+    
   $scope.universitySelected=function(){
-    $("#university-selection").blur();
     setUpResults($scope.university.selected.value);
   };
 
-  $scope.getGradeRegex=function(){
-    return  /^[0-9.]{1,5}$/;
+  $scope.gradeInputTypeSelected=function(){
+    if($scope.university.selected){
+      var selectedGradeConversion=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput];
+      Validator.buildLetterIndex(selectedGradeConversion);
+    }
+    else{
+      console.error('Error: You need to select a univeristy first.');
+    }
   };
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in

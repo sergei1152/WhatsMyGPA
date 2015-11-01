@@ -19,7 +19,7 @@
     <noscript class="alert alert-danger center-text">Please Enable Javascript Before Continuing</noscript>
     
     <section id="main-content">
-      <form ng-controller="InputController" name="gradeForm" ng-submit="Calculate(gradeForm.$valid)" class="grade-input-form" ng-cloak>
+      <form ng-controller="InputController" name="gradeForm" ng-submit="Calculate()" class="grade-input-form" ng-cloak novalidate>
 
         <h3>1. Select your university or college</h3>
 
@@ -34,7 +34,7 @@
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type-wrapper">
            <div class="grade-input-type radio" ng-repeat="(key, value) in university.selected.value.gradeConversions">
-              <input title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> 
+              <input ng-change="gradeInputTypeSelected()" title="Select the grade input type" type="radio" name="grade-input-type" value="{{key}}" ng-model="$parent.university.selectedGradeInput"> 
               <h6 title="Select the grade input type">{{value.name}} (eg. {{value.example}})</h6>
             </div>
          </div>
@@ -48,9 +48,9 @@
               <label>Credit</label>
             </div>
             <div class="grade" ng-repeat="grade in semester">
-                  <input title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input form-control">
+                  <input title="Enter your grade here" ng-model="grade.value" type="text" class="grade-input form-control" ui-validate="{badGrade : 'validateGrade($value)' }">
                   <div class="credit-weight-input">
-                    <input title="Enter the credit weight for the grade here" list="credit-weights"  type="tel" class="form-control" ng-model="grade.creditWeight"  >
+                    <input title="Enter the credit weight for the grade here" list="credit-weights" type="tel" class="form-control" ui-validate="{badGrade : 'validateCredit($value)'}" ng-model="grade.creditWeight"  >
                     <datalist id="credit-weights">
                       <option  ng-repeat="creditWeight in university.selected.value.commonCreditWeights">{{creditWeight}}</option>
                     </datalist>

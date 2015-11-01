@@ -213,3 +213,7 @@ html, body{
 .no-border{
 	border: none;
 }
+
+input.ng-invalid-bad-grade{
+	border: 1px solid red;
+}
