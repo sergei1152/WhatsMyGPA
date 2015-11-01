@@ -35,6 +35,16 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     
   $scope.universitySelected=function(){
     setUpResults($scope.university.selected.value);
+    if($scope.university.selectedGradeInput){ //if a grade input was already selected and the other university has the grade input type
+      var selectedGradeConversion=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput];
+      if(selectedGradeConversion){
+        Validator.buildLetterIndex(selectedGradeConversion);
+      }
+      else{ //if the grade input type doesnt exist in the university
+        
+
+      }
+    }
   };
 
   $scope.gradeInputTypeSelected=function(){
