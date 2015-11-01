@@ -32,7 +32,8 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     }
     return true;//if either university of grade input type wasnt selected
   };
-    
+  
+  //event for when the user selects the university
   $scope.universitySelected=function(){
     setUpResults($scope.university.selected.value);
     if($scope.university.selectedGradeInput){ //if a grade input was already selected and the other university has the grade input type
@@ -46,11 +47,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       }
     }
   };
+  //selects the radio button when a user clicks on the text
   $scope.selectGradeInput=function(event){
     var relatedRadio=$(event.target).siblings('input[type=radio');
     $scope.university.selectedGradeInput=relatedRadio.val();
     $scope.gradeInputTypeSelected();
   }
+  //event for when the user selects the grade input type
   $scope.gradeInputTypeSelected=function(){
     if($scope.university.selected){
       var selectedGradeConversion=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput];
@@ -60,6 +63,18 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       console.error('Error: You need to select a univeristy first.');
     }
   };
+
+  //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
+  $scope.getInputType=function(){
+    if($scope.university.selectedGradeInput){
+      var selectedGradeConversionType=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput].type;
+      if(selectedGradeConversionType==='number'){
+        return 'tel';
+      }
+      return 'text';
+    }
+    return "text";
+  }
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 }])
