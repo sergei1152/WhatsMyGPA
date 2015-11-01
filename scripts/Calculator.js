@@ -76,28 +76,23 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                 
                 return gpa;
             } else {
+                var maximumGPA = 0;
+                var i=0;
                 if (selectedGradeConversion.type === 'letter') {
-                    
-                    var maximumGPA = 0;
                     //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
-                    for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
+                    for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
                         if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
                             maximumGPA = selectedGradeConversion.gpaConversion[i].value;
                         }
                     }
-                    
                     for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //convert the maximum gpa back to its letter grade equivalent
                         if (selectedGradeConversion.gpaConversion[i].value === maximumGPA) { 
                             return selectedGradeConversion.gpaConversion[i].letters[0]; //return the first letter in the letters array
                         }
                     }
                 } else if (selectedGradeConversion.type === 'number') {
-                    
-
-                    
-                    var maximumGPA = 0;
                     //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
-                    for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
+                    for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
                         if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
                             maximumGPA = selectedGradeConversion.gpaConversion[i].value;
                         }
@@ -151,14 +146,15 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                             Results[university.selectedGradeInput].totalGrade += input_grades[i].value * input_grades[i].creditWeight;
                             Results[university.selectedGradeInput].totalCredits += input_grades[i].creditWeight;
                         } else {
+                            var convertedGrade;
                             if (outputGradeConversion.type === "letter") { //do a gpa conversion, calculate cumulitive gpa, the convert to letter grade since we cant add up letter grades
-                                var convertedGrade=convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey);
+                                convertedGrade=convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey);
                                 if(convertedGrade){
                                     Results[gradeConversionKey].totalGrade += convertedGrade * input_grades[i].creditWeight;
                                     Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
                                 }
                             } else if (outputGradeConversion.type === "number") { //do a gpa conversion first and convert to the the output grade (ie. Percentage -> GPA -> 12-Point)
-                                var convertedGrade= convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey), outputGradeConversion,gradeConversionKey);
+                                convertedGrade= convertGPAToGrade(convertGradeToGPA(input_grades[i].value, selectedGradeConversion, selectedGradeConversionKey), outputGradeConversion,gradeConversionKey);
                                 if(convertedGrade){
                                     Results[gradeConversionKey].totalGrade += convertedGrade* input_grades[i].creditWeight;
                                     Results[gradeConversionKey].totalCredits += input_grades[i].creditWeight;
