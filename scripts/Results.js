@@ -8,8 +8,8 @@ angular.module('Results', [])
                 var conversion = {
                     type: selectedUniversity.gradeConversions[gradeConversion].type,
                     name: selectedUniversity.gradeConversions[gradeConversion].name,
-                    min: selectedUniversity.gradeConversions[gradeConversion].min_range,
-                    max: selectedUniversity.gradeConversions[gradeConversion].max_range,
+                    min: selectedUniversity.gradeConversions[gradeConversion].min,
+                    max: selectedUniversity.gradeConversions[gradeConversion].max,
                     result: null,
                     totalCredits: 0,
                     totalGrade: 0

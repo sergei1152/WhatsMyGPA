@@ -5,8 +5,8 @@ angular.module('Universities', [])
         name: "GPA",
         example: "2.1, 4.0",
         type: "number",
-        min_range: 0,
-        max_range: 4
+        min: 0,
+        max: 4
     };
 
     return {
@@ -24,8 +24,8 @@ angular.module('Universities', [])
                     name: "Percentage",
                     example: "75%, 67%",
                     type: "number",
-                    min_range: 0,
-                    max_range: 100,
+                    min: 0,
+                    max: 100,
                     gpaConversion: [{
                         value: 4,
                         min: 90,
@@ -141,8 +141,8 @@ angular.module('Universities', [])
                     name: "Percentage",
                     example: "75%, 67%",
                     type: "number",
-                    min_range: 0,
-                    max_range: 100,
+                    min: 0,
+                    max: 100,
                     gpaConversion: [{
                         value: 4,
                         min: 90,
