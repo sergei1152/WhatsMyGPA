@@ -1,13 +1,13 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
     selected: null, //the selected university
     selectedGradeInput: null //the input grade type the user selected
   };
-
+  
   $scope.Calculate=function(){
       Calculate($scope.university);
   };
@@ -34,7 +34,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   };
   
   //event for when the user selects the university
-  $scope.universitySelected=function(){
+  $scope.universitySelected=function(notWriteStorage){
     setUpResults($scope.university.selected.value);
 
     //selects the first grade conversion type from the university
@@ -44,7 +44,14 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
         break;
       }
     }
-    $scope.gradeInputTypeSelected();
+    if(notWriteStorage){
+      $scope.gradeInputTypeSelected(true);
+    }
+    else{
+      $scope.gradeInputTypeSelected(false);
+    }
+    
+    Storage.saveUniversity($scope.university.selected.key);
   };
 
   //selects the radio button when a user clicks on the text
@@ -52,13 +59,16 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     var relatedRadio=$(event.target).siblings('input[type=radio');
     $scope.university.selectedGradeInput=relatedRadio.val();
     $scope.gradeInputTypeSelected();
-  }
+  };
 
   //event for when the user selects the grade input type
-  $scope.gradeInputTypeSelected=function(){
+  $scope.gradeInputTypeSelected=function(notWriteStorage){
     if($scope.university.selected){
       var selectedGradeConversion=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput];
       Validator.buildLetterIndex(selectedGradeConversion);
+      if(Storage.on && !notWriteStorage){
+        Storage.saveGradeInput($scope.university.selectedGradeInput);
+      }
     }
     else{
       console.error('Error: You need to select a univeristy first.');
@@ -75,7 +85,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       return 'text';
     }
     return "text";
-  }
+  };
 
   $scope.clearGrades=function(){
     for (var i = 0; i < ReportCard.semesters.length; i++) { //iterate through all the semesters
@@ -88,6 +98,21 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   };
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
+
+
+  //retrieving stuff from local storage and setting it
+  if(Storage.on && Storage.getUniversity()){ //retrieving university
+    var key=Storage.getUniversity();
+    $scope.university.selected={
+      key:key,
+      value: UniversityList[key]
+    };
+    $scope.universitySelected(true);
+  }
+  if(Storage.on && Storage.getGradeType()){ //retrieving grade input type
+    $scope.university.selectedGradeInput=Storage.getGradeType();
+    $scope.gradeInputTypeSelected();
+  }
 }])
 
 .controller('OutputController', ['$scope', 'Results','Facebook', function($scope, Results,Facebook){
