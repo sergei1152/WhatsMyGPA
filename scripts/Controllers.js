@@ -10,6 +10,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   
   $scope.Calculate=function(){
       Calculate($scope.university);
+      Storage.saveGrades($scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]);
   };
   $scope.validateGrade=function(value){
     var emptyStringRegex=/^\s*$/; //because inputs arent required, and empty inputs simply wont be counted towards final
@@ -54,13 +55,6 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     Storage.saveUniversity($scope.university.selected.key);
   };
 
-  //selects the radio button when a user clicks on the text
-  $scope.selectGradeInput=function(event){
-    var relatedRadio=$(event.target).siblings('input[type=radio');
-    $scope.university.selectedGradeInput=relatedRadio.val();
-    $scope.gradeInputTypeSelected();
-  };
-
   //event for when the user selects the grade input type
   $scope.gradeInputTypeSelected=function(notWriteStorage){
     if($scope.university.selected){
@@ -73,6 +67,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     else{
       console.error('Error: You need to select a univeristy first.');
     }
+  };
+
+  //selects the radio button when a user clicks on the text
+  $scope.selectGradeInput=function(event){
+    var relatedRadio=$(event.target).siblings('input[type=radio');
+    $scope.university.selectedGradeInput=relatedRadio.val();
+    $scope.gradeInputTypeSelected();
   };
 
   //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
@@ -99,9 +100,8 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 
-
   //retrieving stuff from local storage and setting it
-  if(Storage.on && Storage.getUniversity()){ //retrieving university
+  if(Storage.getUniversity()){ //retrieving university
     var key=Storage.getUniversity();
     $scope.university.selected={
       key:key,
@@ -109,9 +109,12 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     };
     $scope.universitySelected(true);
   }
-  if(Storage.on && Storage.getGradeType()){ //retrieving grade input type
+  if(Storage.getGradeType()){ //retrieving grade input type
     $scope.university.selectedGradeInput=Storage.getGradeType();
     $scope.gradeInputTypeSelected();
+  }
+  if(Storage.getGrades()){
+    Storage.loadGrades();
   }
 }])
 
