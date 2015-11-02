@@ -96,6 +96,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
         grade.creditWeight='';
       }
     }
+    Storage.saveGrades();
   };
 
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in

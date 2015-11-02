@@ -19,7 +19,7 @@
     <noscript class="alert alert-danger center-text">Please Enable Javascript Before Continuing</noscript>
     
     <section id="main-content">
-      <form ng-controller="InputController" name="gradeForm" ng-submit="Calculate()" class="grade-input-form" ng-cloak novalidate>
+      <form ng-controller="InputController" name="gradeForm" class="grade-input-form" ng-cloak novalidate>
 
         <h3>1. Select your university or college</h3>
 
@@ -75,7 +75,7 @@
         <div class="button-wrapper">
           <button class="btn btn-danger btn-large no-border" ng-click="clearGrades()">Clear</button>
           <button class="btn btn-info btn-large no-border" ng-click="ReportCard.addSemester();">Add Grades</button>
-          <button class="btn btn-success btn-large no-border" type="submit">Calculate</button>
+          <button class="btn btn-success btn-large no-border" ng-click="Calculate()">Calculate</button>
         </div>
       </form>
 
