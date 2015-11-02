@@ -93,7 +93,7 @@ gulp.task('css-concat', function() {
 gulp.task('css-min', function() {
     gulp.src(styles)
         .pipe(concat('dist.css'))
-        .pipe(cssmin({compatibility: 'ie8'}))
+        .pipe(cssmin({compatibility: 'ie8',keepSpecialComments:0}))
         .pipe(gulp.dest('style/dist/'));
 });
 
