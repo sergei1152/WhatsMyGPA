@@ -10,7 +10,7 @@ angular.module('Universities', [])
     };
 
     return {
-        /*Retrieved from:
+        /*Based from:
             http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
         */
         universityofwaterloo: {
@@ -130,7 +130,7 @@ angular.module('Universities', [])
                 }
             }
         },
-        /*Retrieved from:
+        /*Based from:
             https://www.utsc.utoronto.ca/aacc/sites/utsc.utoronto.ca.aacc/files/tipsheets/Academic_Advising_Tipsheets/howtocalculateyourGPA.pdf
         */
         universityoftoronto: {
@@ -140,7 +140,7 @@ angular.module('Universities', [])
                 state: "Ontario",
                 country: "Canada"
             },
-            commonCreditWeights: [0.5,1],
+            commonCreditWeights: [0,0.5,1],
            	gradeConversions: {
                 gpa: gpa,
             	"percentage": {
@@ -238,7 +238,108 @@ angular.module('Universities', [])
                         letters: ['D-']
                     }, {
                         value: 0,
-                        letters: ['E', 'NC']
+                        letters: ['F','E', 'NC']
+                    }]
+                }
+            }
+        },
+        /*Based from:
+           http://laps.yorku.ca/student-resources/gpa-calculator/
+           ^^ That calculator isnt accurate as it treats E as a 0 in a 9 point conversion even though the chart on the same website lists it should be a 1
+           Also used http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html for gpa conversions
+        */
+        yorkuniversity: {
+            name: 'York University',
+            location: {
+                city: "Toronto",
+                state: "Ontario",
+                country: "Canada"
+            },
+            commonCreditWeights: [0,1,1.5,2,3,4,5,6,9,12],
+            gradeConversions: {
+                gpa: gpa,
+                "letter":{
+                    name: "Letter",
+                    example:"B, A+",
+                    type: "letter",
+                    gpaConversion: [{
+                        value: 4,
+                        letters: ['A+']
+                    }, {
+                        value: 3.8,
+                        letters: ['A']
+                    },{
+                        value: 3.3,
+                        letters: ['B+']
+                    }, {
+                        value: 3,
+                        letters: ['B']
+                    }, {
+                        value: 2.3,
+                        letters: ['C+']
+                    }, {
+                        value: 2,
+                        letters: ['C']
+                    }, {
+                        value: 1.3,
+                        letters: ['D+']
+                    }, {
+                        value: 1,
+                        letters: ['D']
+                    }, {
+                        value: 0.7,
+                        letters: ['E']
+                    },{
+                        value: 0,
+                        letters: ['F','NC']
+                    }]
+                },
+                "point9": {
+                    name: "9-Point",
+                    example: "5, 9",
+                    type: "number",
+                    min: 0,
+                    max: 9,
+                    gpaConversion: [{
+                        value: 4,
+                        min: 9,
+                        max: 9
+                    }, {
+                        value: 3.8,
+                        min: 8,
+                        max: 8
+                    }, {
+                        value: 3.3,
+                        min: 7,
+                        max: 7
+                    }, {
+                        value: 3,
+                        min: 6,
+                        max: 6
+                    }, {
+                        value: 2.3,
+                        min: 5,
+                        max: 5
+                    }, {
+                        value: 2,
+                        min: 4,
+                        max: 4
+                    }, {
+                        value: 1.3,
+                        min: 3,
+                        max: 3
+                    }, {
+                        value: 1,
+                        min: 2,
+                        max: 2
+                    }, {
+                        value: 0.7,
+                        min: 1,
+                        max: 1
+                    }, {
+                        value: 0,
+                        min: 0,
+                        max: 0
                     }]
                 }
             }
