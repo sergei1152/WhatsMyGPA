@@ -10,6 +10,9 @@ angular.module('Universities', [])
     };
 
     return {
+        /*Retrieved from:
+            http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
+        */
         universityofwaterloo: {
             name: 'University Of Waterloo',
             location: {
@@ -127,6 +130,9 @@ angular.module('Universities', [])
                 }
             }
         },
+        /*Retrieved from:
+            https://www.utsc.utoronto.ca/aacc/sites/utsc.utoronto.ca.aacc/files/tipsheets/Academic_Advising_Tipsheets/howtocalculateyourGPA.pdf
+        */
         universityoftoronto: {
             name: 'University Of Toronto',
             location: {
@@ -134,7 +140,7 @@ angular.module('Universities', [])
                 state: "Ontario",
                 country: "Canada"
             },
-            commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
+            commonCreditWeights: [0.5,1],
            	gradeConversions: {
                 gpa: gpa,
             	"percentage": {
@@ -145,12 +151,8 @@ angular.module('Universities', [])
                     max: 100,
                     gpaConversion: [{
                         value: 4,
-                        min: 90,
-                        max: 100
-                    }, {
-                        value: 3.9,
                         min: 85,
-                        max: 89
+                        max: 100
                     }, {
                         value: 3.7,
                         min: 80,
@@ -186,7 +188,7 @@ angular.module('Universities', [])
                     }, {
                         value: 1,
                         min: 53,
-                        max: 55
+                        max: 56
                     }, {
                         value: 0.7,
                         min: 50,
@@ -203,10 +205,7 @@ angular.module('Universities', [])
                     type: "letter",
                     gpaConversion: [{
                         value: 4,
-                        letters: ['A+']
-                    }, {
-                        value: 3.9,
-                        letters: ['A']
+                        letters: ['A+','A']
                     }, {
                         value: 3.7,
                         letters: ['A-']
@@ -239,7 +238,7 @@ angular.module('Universities', [])
                         letters: ['D-']
                     }, {
                         value: 0,
-                        letters: ['E', 'F']
+                        letters: ['E', 'NC']
                     }]
                 }
             }
