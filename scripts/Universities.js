@@ -247,6 +247,7 @@ angular.module('Universities', [])
            http://laps.yorku.ca/student-resources/gpa-calculator/
            ^^ That calculator isnt accurate as it treats E as a 0 in a 9 point conversion even though the chart on the same website lists it should be a 1
            Also used http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html for gpa conversions
+           and http://calendars.registrar.yorku.ca/2013-2014/academic/grades/ for percentage conversions
         */
         yorkuniversity: {
             name: 'York University',
@@ -340,6 +341,54 @@ angular.module('Universities', [])
                         value: 0,
                         min: 0,
                         max: 0
+                    }]
+                },
+                "percentage": {
+                    name: "Percentage",
+                    example: "75%, 67%",
+                    type: "number",
+                    min: 0,
+                    max: 100,
+                    gpaConversion: [{
+                        value: 4,
+                        min: 90,
+                        max: 100
+                    }, {
+                        value: 3.8,
+                        min: 80,
+                        max: 89
+                    }, {
+                        value: 3.3,
+                        min: 75,
+                        max: 79
+                    }, {
+                        value: 3,
+                        min: 70,
+                        max: 74
+                    }, {
+                        value: 2.3,
+                        min: 65,
+                        max: 69
+                    }, {
+                        value: 2,
+                        min: 60,
+                        max: 64
+                    }, {
+                        value: 1.3,
+                        min: 55,
+                        max: 59
+                    }, {
+                        value: 1,
+                        min: 50,
+                        max: 54
+                    }, {
+                        value: 0.7,
+                        min: 45,
+                        max: 49
+                    }, {
+                        value: 0,
+                        min: 0,
+                        max: 44
                     }]
                 }
             }
