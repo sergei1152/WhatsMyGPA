@@ -79,6 +79,7 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                 var maximumGPA = 0;
                 var i=0;
                 if (selectedGradeConversion.type === 'letter') {
+                    debugger
                     //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
                     for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
                         if (gpa >= selectedGradeConversion.gpaConversion[i].value && maximumGPA < selectedGradeConversion.gpaConversion[i].value) {
