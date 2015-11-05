@@ -655,6 +655,88 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         }
       }
     },
-    
+    senecacollege: {
+      name: 'Seneca College',
+      location: {
+        city: "Toronto",
+        state: "Ontario",
+        country: "Canada"
+      },
+      commonCreditWeights: [0, 1, 1.5, 2, 3, 4, 5, 6, 9, 12],
+      gradeConversions: {
+        gpa: gpa,
+        "letter": {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.5,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.5,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.5,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F', 'DNA']
+          }]
+        },
+        "percentage": {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 80,
+            max: 100
+          }, {
+            value: 3.5,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.5,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.5,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+
   };
 });
