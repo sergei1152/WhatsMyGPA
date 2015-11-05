@@ -662,7 +662,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state: "Ontario",
         country: "Canada"
       },
-      commonCreditWeights: [0, 1, 1.5, 2, 3, 4, 5, 6, 9, 12],
+      commonCreditWeights: [0,0.5,1,5],
       gradeConversions: {
         gpa: gpa,
         "letter": {
