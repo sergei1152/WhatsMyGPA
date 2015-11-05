@@ -53,6 +53,7 @@ html, body{
 						height: 100%;
 						display: flex;
 						align-items: center;
+						white-space: pre; //keeps it so that the highlight spans dont screw up the whitspace
 					}
 					p.university-location{
 						color: #9E9E9E;
