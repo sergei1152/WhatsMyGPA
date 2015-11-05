@@ -115,6 +115,67 @@ angular.module('Universities', [])
     }]
   };
 
+  var common12Point1 = {
+    name: "12-Point",
+    example: "6, 11.5",
+    min: 0,
+    max: 12,
+    type: "number",
+    gpaConversion: [{
+      value: 4,
+      min: 12,
+      max: 12
+    }, {
+      value: 3.9,
+      min: 11,
+      max: 11
+    }, {
+      value: 3.7,
+      min: 10,
+      max: 10
+    }, {
+      value: 3.3,
+      min: 9,
+      max: 9
+    }, {
+      value: 3,
+      min: 8,
+      max: 8
+    }, {
+      value: 2.7,
+      min: 7,
+      max: 7
+    }, {
+      value: 2.3,
+      min: 6,
+      max: 6
+    }, {
+      value: 2,
+      min: 5,
+      max: 5
+    }, {
+      value: 1.7,
+      min: 4,
+      max: 4
+    }, {
+      value: 1.3,
+      min: 3,
+      max: 3
+    }, {
+      value: 1,
+      min: 2,
+      max: 2
+    }, {
+      value: 0.7,
+      min: 1,
+      max: 1
+    }, {
+      value: 0,
+      min: 0,
+      max: 0
+    }]
+  };
+
   return {
     /*Based from:
     http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
@@ -593,68 +654,15 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
             letters: ['F', 'E', 'XF', 'DR']
           }]
         },
-        "point12": {
-          name: "12-Point",
-          example: "6, 11.5",
-          min: 0,
-          max: 12,
-          type: "number",
-          gpaConversion: [{
-            value: 4,
-            min: 12,
-            max: 12
-          }, {
-            value: 3.9,
-            min: 11,
-            max: 11
-          }, {
-            value: 3.7,
-            min: 10,
-            max: 10
-          }, {
-            value: 3.3,
-            min: 9,
-            max: 9
-          }, {
-            value: 3,
-            min: 8,
-            max: 8
-          }, {
-            value: 2.7,
-            min: 7,
-            max: 7
-          }, {
-            value: 2.3,
-            min: 6,
-            max: 6
-          }, {
-            value: 2,
-            min: 5,
-            max: 5
-          }, {
-            value: 1.7,
-            min: 4,
-            max: 4
-          }, {
-            value: 1.3,
-            min: 3,
-            max: 3
-          }, {
-            value: 1,
-            min: 2,
-            max: 2
-          }, {
-            value: 0.7,
-            min: 1,
-            max: 1
-          }, {
-            value: 0,
-            min: 0,
-            max: 0
-          }]
-        }
+        "point12": common12Point1
       }
     },
+    /*
+    Retrived from:
+      http://www.senecacollege.ca/registrar/records/senecatranscript.html
+      and
+      http://www.senecacollege.ca/registrar/records/gpa.html
+    */
     senecacollege: {
       name: 'Seneca College',
       location: {
@@ -662,7 +670,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state: "Ontario",
         country: "Canada"
       },
-      commonCreditWeights: [0,0.5,1,5],
+      commonCreditWeights: [0, 0.5, 1, 5],
       gradeConversions: {
         gpa: gpa,
         "letter": {
@@ -671,7 +679,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           type: "letter",
           gpaConversion: [{
             value: 4,
-            letters: ['A+','A']
+            letters: ['A+', 'A']
           }, {
             value: 3.5,
             letters: ['B+']
@@ -737,6 +745,23 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         }
       }
     },
-
+    /*Based from: http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
+    and https://iss.mcmaster.ca/incoming-exchange-students/academics-undergraduate/grading-system.html
+    */
+    mcmasteruniversity: {
+      name: 'McMaster University',
+      location: {
+        city: "Hamilton",
+        state: "Ontario",
+        country: "Canada"
+      },
+      commonCreditWeights: [0, 2, 3, 4, 5, 6, 8, 9, 12],
+      gradeConversions: {
+        gpa: gpa,
+        percentage: commonPercentage1,
+        "letter": commonLetter1,
+        "point12":common12Point1
+      }
+    }
   };
 });
