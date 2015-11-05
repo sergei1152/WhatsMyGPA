@@ -44,11 +44,6 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                 
                 return grade;
             } else {
-                //formatting the input grades
-                if (selectedGradeConversion.type === "number") {
-                    grade = Math.round(grade);
-                }
-
                 for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //iterate through all gpa values in grade conversion table
                     if (selectedGradeConversion.type === 'number') {
                         if (grade >= selectedGradeConversion.gpaConversion[i].min && grade <= selectedGradeConversion.gpaConversion[i].max) { //check if grade is within max and min range, if so return selected gpa value
