@@ -68,11 +68,11 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
         */
         function convertGPAToGrade(gpa, selectedGradeConversion, selectedGradeConversionKey) {
             if (typeof selectedGradeConversionKey !== 'undefined' && selectedGradeConversionKey && selectedGradeConversionKey === 'gpa') { //if input is gpa return the type
-                
                 return gpa;
             } else {
                 var maximumGPA = 0;
                 var i=0;
+                gpa=Math.round(gpa*10)/10;
                 if (selectedGradeConversion.type === 'letter') {
                     //finds the maximum gpa that corresponds to the input gpa (eg. 3.83.  Highest gpa would be 3.7 and thus a A-)
                     for (i = 0; i < selectedGradeConversion.gpaConversion.length; i++) {
