@@ -1,6 +1,6 @@
 angular.module('Filters',[])
 
-.filter('uniFilter', function() { //the custom university list filter. Names take priority over location
+.filter('uniFilter', ['$filter',function($filter) { //the custom university list filter. Names take priority over location
   return function(items, props) {
     var out = [];
     if (angular.isArray(items)) {
@@ -28,10 +28,11 @@ angular.module('Filters',[])
           out.push(item);
         }
       });
+      out=$filter('orderBy')(out, 'value.name', false); //filter the resulting array in alphabetical order
     } else {
       // Let the output be the input untouched
       out = items;
     }
     return out;
   };
-});
+}]);
