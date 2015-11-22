@@ -69,13 +69,6 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     }
   };
 
-  //selects the radio button when a user clicks on the text
-  $scope.selectGradeInput=function(event){
-    var relatedRadio=$(event.target).siblings('input[type=radio');
-    $scope.university.selectedGradeInput=relatedRadio.val();
-    $scope.gradeInputTypeSelected();
-  };
-
   //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
   $scope.getInputType=function(){
     if($scope.university.selectedGradeInput){
