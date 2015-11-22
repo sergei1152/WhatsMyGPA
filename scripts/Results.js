@@ -3,6 +3,11 @@ angular.module('Results', [])
 //formats results for display
 .factory('setUpResults', ['Results', function(Results) {
     return function(selectedUniversity) {
+        for (var gradeConversion in Results) {
+            if (Results.hasOwnProperty(gradeConversion)) {
+                delete Results[gradeConversion];
+            }
+        }
         for (var gradeConversion in selectedUniversity.gradeConversions) {
             if (selectedUniversity.gradeConversions.hasOwnProperty(gradeConversion)) {
                 var conversion = {
@@ -35,6 +40,5 @@ angular.module('Results', [])
 
 .factory('Results', ['$window', function($window) {
     var Results = {};
-    $window.Results=Results;
     return Results;
 }]);
