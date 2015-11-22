@@ -55,7 +55,7 @@
          
          
         <h3>3. Enter your grades and their credit weight</h3>
-        <div class="semesters-wrapper" scroll-glue="true">
+        <div class="semesters-wrapper" scroll-glue='angularScrollGlue'>
           <div class="semester" ng-repeat="semester in ReportCard.semesters">
             <div class="label-wrapper">
               <label>Grade</label>
@@ -74,7 +74,7 @@
         </div>
         <div class="button-wrapper">
           <button class="btn btn-danger btn-large no-border" ng-click="clearGrades()">Clear</button>
-          <button class="btn btn-info btn-large no-border" ng-click="ReportCard.addSemester();">Add Grades</button>
+          <button class="btn btn-info btn-large no-border" ng-click="addGrades();">Add Grades</button>
           <button class="btn btn-success btn-large no-border" ng-click="Calculate()">Calculate</button>
         </div>
       </form>

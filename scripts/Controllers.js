@@ -99,6 +99,14 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     Storage.saveGrades();
   };
 
+  $scope.addGrades=function(){
+    ReportCard.addSemester();
+    $scope.angularScrollGlue=true;
+    setTimeout(function(){
+      $scope.angularScrollGlue=false;
+    },1);
+  };
+  
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 
   //retrieving stuff from local storage and setting it
