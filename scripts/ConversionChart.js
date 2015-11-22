@@ -33,7 +33,12 @@ angular.module('ConversionChart',[])
         else if (conversion.type==='letter'){
           var letters='';
           for( var j=0;j<conversion.gpaConversion[i].letters.length;j++){
-            letters+=conversion.gpaConversion[i].letters[j]+' ';
+            if(j===0){
+              letters=conversion.gpaConversion[i].letters[j];
+            }
+            else{
+              letters+=', '+conversion.gpaConversion[i].letters[j];
+            }
           }
           newConversion.values.push(letters);
         }
