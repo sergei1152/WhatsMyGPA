@@ -765,6 +765,81 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         "letter": commonLetter1,
         "point12":common12Point1
       }
+    },
+    queensuniversity: {
+      name: 'Queen\'s University',
+      location: {
+        city: "Kingston",
+        state: "Ontario",
+        country: "Canada"
+      },
+      commonCreditWeights: [1,1.5,3,3.5,3.75,4,4.5,6,9,12],
+      sources:['http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','http://www.queensu.ca/english/undergrad/gradeCalculator.html','http://engineering.queensu.ca/Current-Students/Grade-Point-Index.html','http://www.queensu.ca/calendars/business/pg205.html'],
+      gradeConversions: {
+        gpa: gpa,
+        "letter":commonLetter1,
+        "percentage": commonPercentage1,
+        "4.3scale": {
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+             value: 4,
+              min: 4.3,
+              max: 4.3
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.7,
+              max: 3.7
+            }, {
+              value: 3.3,
+              min: 3.3,
+              max: 3.3
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.7,
+              max: 2.7
+            }, {
+              value: 2.3,
+              min: 2.3,
+              max: 2.3
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.7,
+              max: 1.7
+            }, {
+              value: 1.3,
+              min: 1.3,
+              max: 1.3
+            }, {
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0.7,
+              min: 0.7,
+              max: 0.7
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
     }
   };
 });
