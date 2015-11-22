@@ -771,7 +771,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       location: {
         city: "Kingston",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [1,1.5,3,3.5,3.75,4,4.5,6,9,12],
       sources:['http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','http://www.queensu.ca/english/undergrad/gradeCalculator.html','http://engineering.queensu.ca/Current-Students/Grade-Point-Index.html','http://www.queensu.ca/calendars/business/pg205.html'],
@@ -842,11 +842,11 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       }
     },
     uoit: {
-      name: 'University of Ontario Institute of Technology',
+      name: 'Ontario Institute of Technology (UOIT)',
       location: {
         city: "Oshawa",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0,0.5,1,3],
       sources:['http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','http://uoit.ca/main/current-students/academics/registration-and-records/grading.php'],
