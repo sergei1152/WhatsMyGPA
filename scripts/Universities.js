@@ -17,56 +17,56 @@ angular.module('Universities', [])
     max: 100,
     gpaConversion: [{
       value: 4,
-      min: 89.5, //90-100
+      min: 90,
       max: 100
     }, {
       value: 3.9,
-      min: 84.5, //85-89
-      max: 89.5
+      min: 85,
+      max: 89
     }, {
       value: 3.7,
-      min: 79.5, //80-84
-      max: 84.5
+      min: 80,
+      max: 84
     }, {
       value: 3.3,
-      min: 76.5, //77-79
-      max: 79.5
+      min: 77,
+      max: 79
     }, {
       value: 3,
-      min: 72.5, //73-76
-      max: 76.5
+      min: 73,
+      max: 76
     }, {
       value: 2.7,
-      min: 69.5, //70-72
-      max: 72.5
+      min: 70,
+      max: 72
     }, {
       value: 2.3,
-      min: 66.5, //67-69
-      max: 69.5
+      min: 67,
+      max: 69
     }, {
       value: 2,
-      min: 62.5, //63-66
-      max: 66.5
+      min: 63,
+      max: 66
     }, {
       value: 1.7,
-      min: 59.5, //60-62
-      max: 62.5
+      min: 60,
+      max: 62
     }, {
       value: 1.3,
-      min: 56.5, //57-59
-      max: 59.5
+      min: 57,
+      max: 59
     }, {
       value: 1,
-      min: 52.5, //53-56
-      max: 56.5
+      min: 53,
+      max: 56
     }, {
       value: 0.7,
-      min: 49.5, //50-52
-      max: 52.5
+      min: 50,
+      max: 52
     }, {
       value: 0,
-      min: 0, //0-49
-      max: 49.5
+      min: 0,
+      max: 49
     }]
   };
   var commonLetter1 = {
@@ -123,56 +123,56 @@ angular.module('Universities', [])
     type: "number",
     gpaConversion: [{
       value: 4,
-      min: 11.5, //12
+      min: 12,
       max: 12
     }, {
       value: 3.9,
-      min: 10.5, //11
-      max: 11.5
+      min: 11,
+      max: 11
     }, {
       value: 3.7,
-      min: 9.5, //10
-      max: 10.5
+      min: 10,
+      max: 10
     }, {
       value: 3.3,
-      min: 8.5, //9
-      max: 9.5
+      min: 9,
+      max: 9
     }, {
       value: 3,
-      min: 7.5, //8
-      max: 8.5
+      min: 8,
+      max: 8
     }, {
       value: 2.7,
-      min: 6.5, //7
-      max: 7.5
+      min: 7,
+      max: 7
     }, {
       value: 2.3,
-      min: 5.5, //6
-      max: 6.5
+      min: 6,
+      max: 6
     }, {
       value: 2,
-      min: 4.5, //5
-      max: 5.5
+      min: 5,
+      max: 5
     }, {
       value: 1.7,
-      min: 3.5, //4
-      max: 4.5
+      min: 4,
+      max: 4
     }, {
       value: 1.3,
-      min: 2.5, //3
-      max: 3.5
+      min: 3,
+      max: 3
     }, {
       value: 1,
-      min: 1.5, //2
-      max: 2.5
+      min: 2,
+      max: 2
     }, {
       value: 0.7,
-      min: 0.5, //1
-      max: 1.5
+      min: 1,
+      max: 1
     }, {
       value: 0,
-      min: 0, //0
-      max: 0.5
+      min: 0,
+      max: 0
     }]
   };
 
@@ -215,52 +215,52 @@ angular.module('Universities', [])
           max: 100,
           gpaConversion: [{
             value: 4,
-            min: 84.5, //85-100
+            min: 85,
             max: 100
           }, {
             value: 3.7,
-            min: 79.5, //80-84
-            max: 84.5
+            min: 80,
+            max: 84
           }, {
             value: 3.3,
-            min: 76.5, //77-79
-            max: 79.5
+            min: 77,
+            max: 79
           }, {
             value: 3,
-            min: 72.5, //73-76
-            max: 76.5
+            min: 73,
+            max: 76
           }, {
             value: 2.7,
-            min: 69.5, //70-72
-            max: 72.5
+            min: 70,
+            max: 72
           }, {
             value: 2.3,
-            min: 66.5, //67-69
-            max: 69.5
+            min: 67,
+            max: 69
           }, {
             value: 2,
-            min: 62.5, //63-66
-            max: 66.5
+            min: 63,
+            max: 66
           }, {
             value: 1.7,
-            min: 59.5, //60-62
-            max: 62.5
+            min: 60,
+            max: 62
           }, {
             value: 1.3,
-            min: 56.5, //57-59
-            max: 59.5
+            min: 57,
+            max: 59
           }, {
             value: 1,
-            min: 52.5, //53-56
-            max: 56.5
+            min: 53,
+            max: 56
           }, {
             value: 0.7,
-            min: 49.5, //50-52
-            max: 52.5
+            min: 50,
+            max: 52
           }, {
             value: 0,
-            min: 0, //0-49
-            max: 49.5
+            min: 0,
+            max: 49
           }]
         },
         "letter": {
@@ -367,44 +367,44 @@ angular.module('Universities', [])
           max: 9,
           gpaConversion: [{
             value: 4,
-            min: 8.5,//9
+            min: 9,
             max: 9
           }, {
             value: 3.8,
-            min: 7.5,//8
-            max: 8.5
+            min: 8,
+            max: 8
           }, {
             value: 3.3,
-            min: 6.5,//7
-            max: 7.5
+            min: 7,
+            max: 7
           }, {
             value: 3,
-            min: 5.5,//6
-            max: 6.5
+            min: 6,
+            max: 6
           }, {
             value: 2.3,
-            min: 4.5,//5
-            max: 5.5
+            min: 5,
+            max: 5
           }, {
             value: 2,
-            min: 3.5,//4
-            max: 4.5
+            min: 4,
+            max: 4
           }, {
             value: 1.3,
-            min: 2.5,//3
-            max: 3.5
+            min: 3,
+            max: 3
           }, {
             value: 1,
-            min: 1.5, //2
-            max: 2.5
+            min: 2,
+            max: 2
           }, {
             value: 0.7,
-            min: 0.5, //1
-            max: 1.5
+            min: 1,
+            max: 1
           }, {
             value: 0,
-            min: 0, //0
-            max: 0.5
+            min: 0,
+            max: 0
           }]
         },
         "percentage": {
@@ -415,44 +415,44 @@ angular.module('Universities', [])
           max: 100,
           gpaConversion: [{
             value: 4,
-            min: 89.5, //90-100
-            max: 100.5
+            min: 90,
+            max: 100
           }, {
             value: 3.8,
-            min: 79.5, //80-89
-            max: 89.5
+            min: 80,
+            max: 89
           }, {
             value: 3.3,
-            min: 74.5, //75-79
-            max: 79.5
+            min: 75,
+            max: 79
           }, {
             value: 3,
-            min: 69.5, //70-74
-            max: 74.5
+            min: 70,
+            max: 74
           }, {
             value: 2.3,
-            min: 64.5, //65-69
-            max: 69.5
+            min: 65,
+            max: 69
           }, {
             value: 2,
-            min: 59.5, //60-64
-            max: 64.5
+            min: 60,
+            max: 64
           }, {
             value: 1.3,
-            min: 54.5, //55-59
-            max: 59.5
+            min: 55,
+            max: 59
           }, {
             value: 1,
-            min: 49.5, //50-54
-            max: 54.5
+            min: 50,
+            max: 54
           }, {
             value: 0.7,
-            min: 39.5, //40-49
-            max: 49.5
+            min: 40,
+            max: 49
           }, {
             value: 0,
-            min: 0, //0-39
-            max: 39.5
+            min: 0,
+            max: 39
           }]
         }
       }
@@ -482,56 +482,56 @@ angular.module('Universities', [])
           max: 4.33,
           gpaConversion: [{
             value: 4,
-            min: 4.165, //aka 4.33
+            min: 4.33,
             max: 4.33
           }, {
             value: 3.9,
-            min: 3.835, //aka 4.0
-            max: 4.165
+            min: 4,
+            max: 4
           }, {
             value: 3.7,
-            min: 3.5, //aka 3.67
-            max: 3.835
+            min: 3.67,
+            max: 3.67
           }, {
             value: 3.3,
-            min: 3.165, //aka 3.33
-            max: 3.5
+            min: 3.33,
+            max: 3.33
           }, {
             value: 3,
-            min: 2.835, //aka 3.0
-            max: 3.165
+            min: 3,
+            max: 3
           }, {
             value: 2.7,
-            min: 2.5, //aka 2.67
-            max: 2.835
+            min: 2.67,
+            max: 2.67
           }, {
             value: 2.3,
-            min: 2.165, //aka 2.33
-            max: 2.5
+            min: 2.33,
+            max: 2.33
           }, {
             value: 2,
-            min: 1.835, //aka 2.0
-            max: 2.165
+            min: 2,
+            max: 2
           }, {
             value: 1.7,
-            min: 1.5, //aka 1.67
-            max: 1.835
+            min: 1.67,
+            max: 1.67
           }, {
             value: 1.3,
-            min: 1.165, //aka 1.33
-            max: 1.5
+            min: 1.33,
+            max: 1.33
           }, {
             value: 1,
-            min: 0.835, //aka 1.0
-            max: 1.165
+            min: 1,
+            max: 1
           }, {
             value: 0.7,
-            min: 0.335,//aka 0.67
-            max: 0.835
+            min: 0.67,
+            max: 0.67
           }, {
             value: 0,
-            min: 0, //aka 0
-            max: 0.335
+            min: 0,
+            max: 0
           }]
         }
       }
@@ -557,56 +557,56 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           max: 100,
           gpaConversion: [{
             value: 4,
-            min: 89.5,//90-100
+            min: 90,
             max: 100
           }, {
             value: 3.9,
-            min: 84.5, //85-89
-            max: 89.5
+            min: 85,
+            max: 89
           }, {
             value: 3.7,
-            min: 79.5,//80-84
-            max: 84.5
+            min: 80,
+            max: 84
           }, {
             value: 3.3,
-            min: 76.5,//77-79
-            max: 79.5
+            min: 77,
+            max: 79
           }, {
             value: 3,
-            min: 72.5,//73-76
-            max: 76.5
+            min: 73,
+            max: 76
           }, {
             value: 2.7,
-            min: 69.5,//70-72
-            max: 72.5
+            min: 70,
+            max: 72
           }, {
             value: 2.3,
-            min: 66.5,//67-69
-            max: 69.5
+            min: 67,
+            max: 69
           }, {
             value: 2,
-            min: 62.5, //63-66
-            max: 66.5
+            min: 63,
+            max: 66
           }, {
             value: 1.7,
-            min: 59.5, //60-62
-            max: 62.5
+            min: 60,
+            max: 62
           }, {
             value: 1.3,
-            min: 56.5, //57-59
-            max: 59.5
+            min: 57,
+            max: 59
           }, {
             value: 1,
-            min: 52.5, //53-56
-            max: 56.5
+            min: 53,
+            max: 56
           }, {
             value: 0.7,
-            min: 49.5, //50-52
-            max: 52.5
+            min: 50,
+            max: 52
           }, {
             value: 0,
-            min: 0, //0-49
-            max: 49.5
+            min: 0,
+            max: 49
           }]
         },
         "letter": {
@@ -711,36 +711,36 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           max: 100,
           gpaConversion: [{
             value: 4,
-            min: 79.5, //80-100
+            min: 80,
             max: 100
           }, {
             value: 3.5,
-            min: 74.5, //75-79
-            max: 79.5
+            min: 75,
+            max: 79
           }, {
             value: 3,
-            min: 69.5, //70-74
-            max: 74.5
+            min: 70,
+            max: 74
           }, {
             value: 2.5,
-            min: 64.5,//65-69
-            max: 69.5
+            min: 65,
+            max: 69
           }, {
             value: 2,
-            min: 59.5,//60-64
-            max: 64.5
+            min: 60,
+            max: 64
           }, {
             value: 1.5,
-            min: 54.5,//55-59
-            max: 59.5
+            min: 55,
+            max: 59
           }, {
             value: 1,
-            min: 49.5,//50-54
-            max: 54.5
+            min: 50,
+            max: 54
           }, {
             value: 0,
-            min: 0,//0-49
-            max: 49.5
+            min: 0,
+            max: 49
           }]
         }
       }
