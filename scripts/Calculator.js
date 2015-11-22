@@ -41,28 +41,23 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
         //Converts a grade to its equivalent gpa value by looking at the grade conversion data
         function convertGradeToGPA(grade, selectedGradeConversion, selectedGradeConversionKey) { //third parameter is optional
             if (typeof selectedGradeConversionKey !== 'undefined' && selectedGradeConversionKey && selectedGradeConversionKey === 'gpa') { //if input is gpa return the type
-                
                 return grade;
             } else {
-                //formatting the input grades
-                if (selectedGradeConversion.type === "number") {
-                    grade = Math.round(grade);
-                }
-
                 for (var i = 0; i < selectedGradeConversion.gpaConversion.length; i++) { //iterate through all gpa values in grade conversion table
                     if (selectedGradeConversion.type === 'number') {
                         if (grade >= selectedGradeConversion.gpaConversion[i].min && grade <= selectedGradeConversion.gpaConversion[i].max) { //check if grade is within max and min range, if so return selected gpa value
-                            
                             return selectedGradeConversion.gpaConversion[i].value;
                         }
                     } else if (selectedGradeConversion.type === "letter") {
                         if (selectedGradeConversion.gpaConversion[i].letters.indexOf(grade) > -1) { //check if grade exists in the "letters" array
-                            
                             return selectedGradeConversion.gpaConversion[i].value;
                         }
                     } else {
                         console.error('Invalid grade conversion type from dataset');
                     }
+                }
+                if(selectedGradeConversion.type==='number' && Math.round(grade)!==grade){ //use a rounded number if results with a non-rounded number didnt work
+                    return convertGradeToGPA(Math.round(grade),selectedGradeConversion,selectedGradeConversionKey);
                 }
             }
         }
