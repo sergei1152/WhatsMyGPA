@@ -1,0 +1,17 @@
+@media(min-width: 320px){ //when on desktop
+	.semesters-wrapper{
+		max-height: 300px;
+		overflow: auto;
+	}
+}
+
+@media(max-width: 780px){
+	#main-content #grade-output-results{
+		max-width: 780px;
+		width:calc(100% + 24px);
+		border-radius: 0;
+	    position: relative;
+    	left: -12px;
+    	text-align: center;
+	}
+}

@@ -28,10 +28,12 @@ html, body{
 	}
 	.grade-input-form{
 		width: 100%;
-		max-width: 400px;
+		max-width: 680px;
 		display: block;
 		margin: auto;
 		.university-selection-input{
+			max-width: 400px;
+			margin: auto;
 			.ui-select-match>.btn{
 				text-align: center !important;
 			}
@@ -64,9 +66,8 @@ html, body{
 			}
 		}
 		.grade-input-type-wrapper{
-			width: 250px;
+			width: 253px;
 			display: block;
-			//margin: auto;
 			margin: 24px auto 24px auto;
 			.grade-input-type{
 				display: flex;
@@ -93,9 +94,8 @@ html, body{
 			justify-content: center;
 			.semester{
 				width: 180px;
-				&:nth-child(odd){
-					margin-right: 18px;
-				}
+				margin-left: 9px;
+				margin-right: 9px;
 				.label-wrapper{
 					display: flex;
 					justify-content: space-around;
@@ -188,31 +188,6 @@ html, body{
 		
 	}
 }
-@media(min-width: 320px){ //when on desktop
-	.semesters-wrapper{
-		max-height: 300px;
-		overflow: auto;
-	}
-}
-
-@media(max-width: 400px ){
-	.semester{
-		&:nth-child(odd){
-			margin-right: 0 !important;
-		}
-	}
-}
-
-@media(max-width: 780px){
-	#main-content #grade-output-results{
-		max-width: 780px;
-		width:calc(100% + 24px);
-		border-radius: 0;
-	    position: relative;
-    	left: -12px;
-    	text-align: center;
-	}
-}
 .btn{
 	font-family: $sans;
 }
@@ -221,6 +196,8 @@ html, body{
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 .btn-success{
 	background-color: $header_background_color;
