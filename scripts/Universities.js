@@ -185,7 +185,7 @@ angular.module('Universities', [])
       location: {
         city: "Waterloo",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
       gradeConversions: {
@@ -202,7 +202,7 @@ angular.module('Universities', [])
       location: {
         city: "Toronto",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1],
       gradeConversions: {
@@ -318,7 +318,7 @@ angular.module('Universities', [])
       location: {
         city: "Toronto",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 1, 1.5, 2, 3, 4, 5, 6, 9, 12],
       gradeConversions: {
@@ -467,7 +467,7 @@ angular.module('Universities', [])
       location: {
         city: "Toronto",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1, 2],
       gradeConversions: {
@@ -544,7 +544,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       location: {
         city: "Waterloo",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 0.25, 0.5, 1],
       gradeConversions: {
@@ -668,7 +668,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       location: {
         city: "Toronto",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1, 5],
       gradeConversions: {
@@ -753,7 +753,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       location: {
         city: "Hamilton",
         state: "Ontario",
-        country: "Canada"
+        country: "CA"
       },
       commonCreditWeights: [0, 2, 3, 4, 5, 6, 8, 9, 12],
       gradeConversions: {
