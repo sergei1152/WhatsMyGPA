@@ -177,9 +177,6 @@ angular.module('Universities', [])
   };
 
   return {
-    /*Based from:
-    http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html
-*/
     universityofwaterloo: {
       name: 'University Of Waterloo',
       location: {
@@ -205,6 +202,7 @@ angular.module('Universities', [])
         country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1],
+      sources:[' http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
       gradeConversions: {
         gpa: gpa,
         "percentage": {
@@ -321,6 +319,7 @@ angular.module('Universities', [])
         country: "CA"
       },
       commonCreditWeights: [0, 1, 1.5, 2, 3, 4, 5, 6, 9, 12],
+      sources:['http://laps.yorku.ca/student-resources/gpa-calculator/','http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','http://calendars.registrar.yorku.ca/2013-2014/academic/grades/'],
       gradeConversions: {
         gpa: gpa,
         "letter": {
@@ -470,6 +469,7 @@ angular.module('Universities', [])
         country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1, 2],
+      sources:['http://www.ryerson.ca/studentguide/academics/grades--gpa--academic-standing.html','http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
       gradeConversions: {
         gpa: gpa,
         "percentage": commonPercentage1,
@@ -547,6 +547,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         country: "CA"
       },
       commonCreditWeights: [0, 0.25, 0.5, 1],
+      sources:['http://legacy.wlu.ca/calendars/section.php?cal=1&s=505&sp=1723&ss=2151&y=53','http://legacy.wlu.ca/page.php?grp_id=1402&p=12614'],
       gradeConversions: {
         gpa: gpa,
         "percentage": {
@@ -671,6 +672,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1, 5],
+      sources:['http://www.senecacollege.ca/registrar/records/senecatranscript.html','http://www.senecacollege.ca/registrar/records/gpa.html'],
       gradeConversions: {
         gpa: gpa,
         "letter": {
@@ -756,6 +758,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         country: "CA"
       },
       commonCreditWeights: [0, 2, 3, 4, 5, 6, 8, 9, 12],
+      sources:['http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','https://iss.mcmaster.ca/incoming-exchange-students/academics-undergraduate/grading-system.html'],
       gradeConversions: {
         gpa: gpa,
         percentage: commonPercentage1,

@@ -218,8 +218,16 @@ table{
 		text-align: center;
 	}
 }
-
-.modal-title{
-    font-size: 20px;
-    font-weight: bold;
+.modal-dialog{
+	.modal-title{
+	    font-size: 20px;
+	    font-weight: bold;
+	}
+	p{
+		font-family: $sans;
+		margin: 12px 0 12px 0;
+	}
+	ul{
+		margin: 12px 0 12px 0;
+	}
 }

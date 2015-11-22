@@ -2,6 +2,8 @@
   <h1 class="modal-title">Conversion chart for {{selectedUniversity.name}}</h1>
 </div>
 <div class="modal-body">
+  <p>The following is the specific conversion chart for  {{selectedUniversity.name}}. This is what the calculator uses in it's conversions.</p>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,6 +16,13 @@
       </tr>
     </tbody>
   </table>
+  
+  <div ng-if="selectedUniversity.sources.length>0">
+    <p>The sources for the following information can be found here:</p>
+    <ul>
+      <li ng-repeat="source in selectedUniversity.sources"><a href="{{source}}">{{source}}</a></li>
+    </ul>
+  </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-primary btn-large" type="button" ng-click="close()">OK</button>
