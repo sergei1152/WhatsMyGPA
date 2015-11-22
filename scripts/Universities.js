@@ -985,6 +985,96 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    mcgill: {
+      name: 'McGill University',
+      location: {
+        city: "Montréal",
+        state: "Quebec",
+        country: "CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['https://www.mcgill.ca/gps/files/gps/tricouncil.gpa-calculation-conversion.sept_._2011.final__0.pdf','https://www.mcgill.ca/study/2012-2013/university_regulations_and_resources/undergraduate/gi_grading_and_grade_point_averages'],
+      gradeConversions: {
+        gpa: gpa,
+        "letter":{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A','A+']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E', 'F']
+          }]
+        },
+        "percentage": {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 85,
+            max: 100
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.7,
+            min: 65,
+            max: 69
+          }, {
+            value: 2.3,
+            min: 60,
+            max: 64
+          }, {
+            value: 2,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
     }
   };
 });
