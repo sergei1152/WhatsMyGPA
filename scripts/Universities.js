@@ -202,7 +202,7 @@ angular.module('Universities', [])
         country: "CA"
       },
       commonCreditWeights: [0, 0.5, 1],
-      sources:[' http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
+      sources:[' http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html','https://www.utsc.utoronto.ca/aacc/sites/utsc.utoronto.ca.aacc/files/tipsheets/Academic_Advising_Tipsheets/howtocalculateyourGPA.pdf'],
       gradeConversions: {
         gpa: gpa,
         "percentage": {
