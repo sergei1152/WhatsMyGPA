@@ -56,8 +56,8 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                         console.error('Invalid grade conversion type from dataset');
                     }
                 }
-                if(selectedGradeConversion.type==='number' && Math.round(grade)!==grade){ //use a rounded number if results with a non-rounded number didnt work
-                    return convertGradeToGPA(Math.round(grade),selectedGradeConversion,selectedGradeConversionKey);
+                if(selectedGradeConversion.type==='number' && Math.floor(grade)!==grade){ //use a rounded number if results with a non-rounded number didnt work
+                    return convertGradeToGPA(Math.floor(grade),selectedGradeConversion,selectedGradeConversionKey);
                 }
             }
         }
