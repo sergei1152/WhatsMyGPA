@@ -12,7 +12,9 @@ html, body{
 .center-text{
 	text-align: center;
 }
-
+a{
+	cursor: pointer;
+}
 #main-content{
 	@extend .center-text;
 	width: 100%;
@@ -209,4 +211,15 @@ html, body{
 
 input.ng-invalid-bad-grade{
 	border: 1px solid red;
+}
+
+table{
+	td,th{
+		text-align: center;
+	}
+}
+
+.modal-title{
+    font-size: 20px;
+    font-weight: bold;
 }

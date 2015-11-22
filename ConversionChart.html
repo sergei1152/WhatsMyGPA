@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h1 class="modal-title">Conversion chart for {{selectedUniversity.name}}</h1>
+</div>
+<div class="modal-body">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th ng-repeat="gradeConversion in gradeConversions">{{gradeConversion.name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="values in gradeConversions[0].values">
+        <td ng-repeat="gradeConversion in gradeConversions">{{gradeConversion.values[$parent.$index]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary btn-large" type="button" ng-click="close()">OK</button>
+</div>

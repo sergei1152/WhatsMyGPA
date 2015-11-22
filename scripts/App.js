@@ -1,13 +1,13 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage','ui.bootstrap','ConversionChart'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
     selected: null, //the selected university
     selectedGradeInput: null //the input grade type the user selected
   };
-  
+
   $scope.Calculate=function(){
       Calculate($scope.university);
       Storage.saveGrades($scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]);
@@ -37,7 +37,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   //event for when the user selects the university
   $scope.universitySelected=function(notWriteStorage){
     setUpResults($scope.university.selected.value);
-
+    ConversionChart.setUniversity($scope.university.selected.value);
     //selects the first grade conversion type from the university
     for(var key in $scope.university.selected.value.gradeConversions){
       if($scope.university.selected.value.gradeConversions.hasOwnProperty(key)){
@@ -127,7 +127,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   }
 }])
 
-.controller('OutputController', ['$scope', 'Results','Facebook', function($scope, Results,Facebook){
+.controller('OutputController', ['$scope', 'Results','Facebook','$uibModal', function($scope, Results,Facebook,$uibModal){
   $scope.Results=Results;
 
   $scope.isEmpty=function(object){ //so that if the results are empty, 
@@ -137,6 +137,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       }
     }
     return true;
+  };
+
+  $scope.open = function () {
+    var modalInstance = $uibModal.open({
+      templateUrl: 'ConversionChart.html',
+      controller:'ConversionChartModal'
+    });
   };
 
   $scope.Facebook=Facebook;

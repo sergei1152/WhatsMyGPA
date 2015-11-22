@@ -80,8 +80,9 @@
       </form>
 
       <section ng-hide="isEmpty(Results)" id="grade-output-results" ng-controller="OutputController">
+        <a ng-click="open()">View Conversion Chart</a>
         <div class="result" ng-repeat="(key, value) in Results">{{value.name}}: <span class="value">{{value.result}} <span ng-show="value.max">/{{value.max}}</span></span></div>
-        <a href="#" id="facebook-button" ng-click='Facebook.share()'><div class="image"><span class="icon ion-social-facebook"></span></div>Share on Facebook <span></span></a>
+        <a id="facebook-button" ng-click='Facebook.share()'><div class="image"><span class="icon ion-social-facebook"></span></div>Share on Facebook <span></span></a>
       </section>
     </section>  <!-- main section ends -->
 
