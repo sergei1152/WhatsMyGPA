@@ -1225,7 +1225,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       }
     },
     unbc:{
-      name: "University of Northern British Columbia",
+      name: "University of Northern British Columbia (UNBC)",
       location:{
         city:"Prince George",
         state:"British Columbia",
