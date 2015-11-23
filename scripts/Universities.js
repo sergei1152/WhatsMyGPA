@@ -1452,6 +1452,20 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
-    }
+    },
+    trent:{
+      name: "Trent University",
+      location:{
+        city:"Peterborough",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1],
+      sources:['http://www.ouac.on.ca/docs/orpas/c_orpas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1
+      }
+    },
   };
 });
