@@ -397,6 +397,55 @@ angular.module('Universities', [])
         max: 0
     }]
   };
+
+  var common9={
+    name: "9-Point",
+    example: "5, 9",
+    type: "number",
+    min: 0,
+    max: 9,
+    gpaConversion: [{
+      value: 4,
+      min: 9,
+      max: 9
+    }, {
+      value: 3.9,
+      min: 8,
+      max: 8
+    }, {
+      value: 3.7,
+      min: 7,
+      max: 7
+    }, {
+      value: 3.3,
+      min: 6,
+      max: 6
+    }, {
+      value: 3,
+      min: 5,
+      max: 5
+    }, {
+      value: 2.3,
+      min: 4,
+      max: 4
+    }, {
+      value: 1.3,
+      min: 3,
+      max: 3
+    }, {
+      value: 1,
+      min: 2,
+      max: 2
+    }, {
+      value: 0.7,
+      min: 1,
+      max: 1
+    }, {
+      value: 0,
+      min: 0,
+      max: 0
+    }]
+  };
   return {
     universityofwaterloo: {
       name: 'University Of Waterloo',
@@ -1482,6 +1531,151 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         percentage:commonPercentage1,
         letter: commonLetter1,
         gpa43: common43
+      }
+    },
+    victoriauniversity:{
+      name: "University of Victoria",
+      location:{
+        city:"Victoria",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,1.5,3],
+      sources:['http://web.uvic.ca/calendar2015-09/GRAD/FARe/Grad.html','http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          },{
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1,
+            min: 50,
+            max: 59
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+        letter: { 
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          },{
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },{
+            value: 2.7,
+            letters: ['B-']
+          },{
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E', 'F']
+          }]
+        },
+        point9: {
+          name: "9 Point",
+          example: "9, 7",
+          type: "number",
+          min: 0,
+          max: 9,
+          gpaConversion: [{
+            value: 4,
+            min: 9,
+            max: 9
+          },{
+            value: 3.9,
+            min: 8,
+            max: 8
+          }, {
+            value: 3.7,
+            min: 7,
+            max: 7
+          }, {
+            value: 3.3,
+            min: 6,
+            max: 6
+          }, {
+            value: 3,
+            min: 5,
+            max: 5
+          }, {
+            value: 2.7,
+            min: 4,
+            max: 4
+          }, {
+            value: 2.3,
+            min: 3,
+            max: 3
+          }, {
+            value: 2,
+            min: 2,
+            max: 2
+          }, {
+            value: 1,
+            min: 1,
+            max: 1
+          },{
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
       }
     }
   };
