@@ -1239,6 +1239,52 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         percentage:commonPercentage1,
         gpa433: common433
       }
+    },
+    western:{
+      name: "Western University (UWO)",
+      location:{
+        city:"London",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.25,0.5,0.75,1],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage:commonPercentage1
+      }
+    },
+    brock:{
+      name: "Brock University",
+      location:{
+        city:"St. Catharines",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.25,0.5,0.75,1],
+      sources:['http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage:commonPercentage1
+      }
+    },
+    carleton:{
+      name: "Carleton University",
+      location:{
+        city:"Ottawa",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.25,0.5,0.75,1],
+      sources:['https://carleton.ca/npsia/calculate-your-gpa/','http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage:commonPercentage1,
+        point12: common12Point1
+      }
     }
   };
 });
