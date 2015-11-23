@@ -337,6 +337,66 @@ angular.module('Universities', [])
     }]
   };
 
+  var common43={
+    name: "4.3 GPA",
+    example: "4.3, 3.8",
+    type: "number",
+    min: 0,
+    max: 4.3,
+    gpaConversion: [{
+       value: 4,
+        min: 4.3,
+        max: 4.3
+      }, {
+        value: 3.9,
+        min: 4,
+        max: 4
+      }, {
+        value: 3.7,
+        min: 3.7,
+        max: 3.7
+      }, {
+        value: 3.3,
+        min: 3.3,
+        max: 3.3
+      }, {
+        value: 3,
+        min: 3,
+        max: 3
+      }, {
+        value: 2.7,
+        min: 2.7,
+        max: 2.7
+      }, {
+        value: 2.3,
+        min: 2.3,
+        max: 2.3
+      }, {
+        value: 2,
+        min: 2,
+        max: 2
+      }, {
+        value: 1.7,
+        min: 1.7,
+        max: 1.7
+      }, {
+        value: 1.3,
+        min: 1.3,
+        max: 1.3
+      }, {
+        value: 1,
+        min: 1,
+        max: 1
+      }, {
+        value: 0.7,
+        min: 0.7,
+        max: 0.7
+      }, {
+        value: 0,
+        min: 0,
+        max: 0
+    }]
+  };
   return {
     universityofwaterloo: {
       name: 'University Of Waterloo',
@@ -785,66 +845,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         gpa: gpa,
         "letter":commonLetter1,
         "percentage": commonPercentage1,
-        "4.3scale": {
-          name: "4.3 GPA",
-          example: "4.3, 3.8",
-          type: "number",
-          min: 0,
-          max: 4.3,
-          gpaConversion: [{
-             value: 4,
-              min: 4.3,
-              max: 4.3
-            }, {
-              value: 3.9,
-              min: 4,
-              max: 4
-            }, {
-              value: 3.7,
-              min: 3.7,
-              max: 3.7
-            }, {
-              value: 3.3,
-              min: 3.3,
-              max: 3.3
-            }, {
-              value: 3,
-              min: 3,
-              max: 3
-            }, {
-              value: 2.7,
-              min: 2.7,
-              max: 2.7
-            }, {
-              value: 2.3,
-              min: 2.3,
-              max: 2.3
-            }, {
-              value: 2,
-              min: 2,
-              max: 2
-            }, {
-              value: 1.7,
-              min: 1.7,
-              max: 1.7
-            }, {
-              value: 1.3,
-              min: 1.3,
-              max: 1.3
-            }, {
-              value: 1,
-              min: 1,
-              max: 1
-            }, {
-              value: 0.7,
-              min: 0.7,
-              max: 0.7
-            }, {
-              value: 0,
-              min: 0,
-              max: 0
-          }]
-        }
+        "4.3scale": common43
       }
     },
     uoit: {
@@ -1467,5 +1468,21 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         percentage:commonPercentage1
       }
     },
+    trinitywestern:{
+      name: "Trinity Western University",
+      location:{
+        city:"Langley",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,5],
+      sources:['http://twu.ca/academics/calendar/2012-2013/academic-information/grading-practices/default.html'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1,
+        letter: commonLetter1,
+        gpa43: common43
+      }
+    }
   };
 });
