@@ -1075,6 +1075,151 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    durhamcollege: {
+      name: 'Durham College',
+      location: {
+        city: "Oshawa",
+        state: "Ontario",
+        country: "CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.durhamcollege.ca/wp-content/uploads/grading-and-promotion-procedure.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        "letter":{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          },{
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },{
+            value: 2.7,
+            letters: ['C+']
+          }, {
+            value: 2.3,
+            letters: ['C']
+          }, {
+            value: 2,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E', 'F']
+          }]
+        },
+        "percentage": {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          },{
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.7,
+            min: 65,
+            max: 69
+          }, {
+            value: 2.3,
+            min: 60,
+            max: 64
+          }, {
+            value: 2,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+        "5point":{
+          name:"5 Point",
+          example:"5.0, 3.5",
+          type:"number",
+          min: 0,
+          max: 5,
+          gpaConversion:[{
+            value: 4,
+            min: 5,
+            max: 5
+          },{
+            value: 3.9,
+            min: 4.5,
+            max: 4.5
+          },{
+            value:3.7,
+            min: 4,
+            max: 4
+          },{
+            value: 3.3,
+            min: 3.5,
+            max: 3.5
+          },{
+            value: 3,
+            min: 3,
+            max: 3
+          },{
+            value: 2.7,
+            min: 2.5,
+            max: 2.5
+          },{
+            value: 2.3,
+            min: 2,
+            max: 2
+          },{
+            value: 2,
+            min: 1.5,
+            max: 1.5
+          },{
+            value: 1,
+            min: 1,
+            max: 1
+          },{
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
     }
   };
 });
