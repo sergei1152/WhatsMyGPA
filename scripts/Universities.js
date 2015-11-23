@@ -448,7 +448,7 @@ angular.module('Universities', [])
   };
   return {
     universityofwaterloo: {
-      name: 'University Of Waterloo',
+      name: 'University of Waterloo',
       location: {
         city: "Waterloo",
         state: "Ontario",
@@ -465,7 +465,7 @@ angular.module('Universities', [])
     https://www.utsc.utoronto.ca/aacc/sites/utsc.utoronto.ca.aacc/files/tipsheets/Academic_Advising_Tipsheets/howtocalculateyourGPA.pdf
 */
     universityoftoronto: {
-      name: 'University Of Toronto',
+      name: 'University of Toronto',
       location: {
         city: "Toronto",
         state: "Ontario",
