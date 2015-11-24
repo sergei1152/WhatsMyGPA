@@ -2091,5 +2091,370 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         }
       }
     },
+    ubc:{
+      name: "University of British Columbia (UBC)",
+      location:{
+        city:"Vancouver",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,2,3,6],
+      sources:['http://students.arts.ubc.ca/advising/academic-performance/gpa-equivalency/','http://www.ouac.on.ca/docs/orpas/c_orpas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          },{
+            value: 3.9,
+            min: 89,
+            max: 89
+          }, {
+            value: 3.9,
+            min: 88,
+            max: 88
+          },{
+            value: 3.9,
+            min: 87,
+            max: 87
+          },{
+            value: 3.9,
+            min: 86,
+            max: 86
+          },{
+            value: 3.9,
+            min: 85,
+            max: 85
+          },{
+            value: 3.7,
+            min: 84,
+            max: 84
+          },{
+            value: 3.7,
+            min: 83,
+            max: 83
+          },{
+            value: 3.7,
+            min: 82,
+            max: 82
+          },{
+            value: 3.7,
+            min: 81,
+            max: 81
+          },{
+            value: 3.7,
+            min: 80,
+            max: 80
+          },{
+            value: 3.3,
+            min: 79,
+            max: 79
+          },{
+            value: 3.3,
+            min: 78,
+            max: 78
+          },{
+            value: 3.3,
+            min: 77,
+            max: 77
+          },{
+            value: 3,
+            min: 76,
+            max: 76
+          },{
+            value: 3,
+            min: 75,
+            max: 75
+          },{
+            value: 3,
+            min: 74,
+            max: 74
+          },{
+            value: 3,
+            min: 73,
+            max: 73
+          },{
+            value: 2.7,
+            min: 72,
+            max: 72
+          },{
+            value: 2.7,
+            min: 71,
+            max: 71
+          },{
+            value: 2.7,
+            min: 70,
+            max: 70
+          },{
+            value: 2.3,
+            min: 69,
+            max: 69
+          },{
+            value: 2.3,
+            min: 68,
+            max: 68
+          },{
+            value: 2.3,
+            min: 67,
+            max: 67
+          },{
+            value: 2,
+            min: 66,
+            max: 66
+          },{
+            value: 2,
+            min: 65,
+            max: 65
+          },{
+            value: 2,
+            min: 64,
+            max: 64
+          },{
+            value: 2,
+            min: 63,
+            max: 63
+          },{
+            value: 1.7,
+            min: 62,
+            max: 62
+          },{
+            value: 1.7,
+            min: 61,
+            max: 61
+          },{
+            value: 1.7,
+            min: 60,
+            max: 60
+          },{
+            value: 1.3,
+            min: 59,
+            max: 59
+          },{
+            value: 1.3,
+            min: 58,
+            max: 58
+          },{
+            value: 1.3,
+            min: 57,
+            max: 57
+          },{
+            value: 1,
+            min: 56,
+            max: 56
+          },{
+            value: 1,
+            min: 55,
+            max: 55
+          },{
+            value: 1,
+            min: 54,
+            max: 54
+          },{
+            value: 1,
+            min: 53,
+            max: 53
+          },{
+            value: 0.7,
+            min: 52,
+            max: 52
+          },{
+            value: 0.7,
+            min: 51,
+            max: 51
+          },{
+            value: 0.7,
+            min: 50,
+            max: 50
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+        gpa43: {
+          name: "4.33 GPA",
+          example: "4.33, 3",
+          type: "number",
+          min: 0,
+          max: 4.33,
+          gpaConversion: [{
+            value: 4,
+            min: 4.33,
+            max: 4.33
+          },{
+            value: 3.9,
+            min: 4.3,
+            max: 4.3
+          }, {
+            value: 3.9,
+            min: 4.2,
+            max: 4.2
+          },{
+            value: 3.9,
+            min: 4.1,
+            max: 4.1
+          },{
+            value: 3.9,
+            min: 4,
+            max: 4
+          },{
+            value: 3.9,
+            min: 3.95,
+            max: 3.95
+          },{
+            value: 3.7,
+            min: 3.9,
+            max: 3.9
+          },{
+            value: 3.7,
+            min: 3.85,
+            max: 3.85
+          },{
+            value: 3.7,
+            min: 3.8,
+            max: 3.8
+          },{
+            value: 3.7,
+            min: 3.75,
+            max: 3.75
+          },{
+            value: 3.7,
+            min: 3.7,
+            max: 3.7
+          },{
+            value: 3.3,
+            min: 3.6,
+            max: 3.6
+          },{
+            value: 3.3,
+            min: 3.5,
+            max: 3.5
+          },{
+            value: 3.3,
+            min: 3.4,
+            max: 3.4
+          },{
+            value: 3,
+            min: 3.3,
+            max: 3.3
+          },{
+            value: 3,
+            min: 3.2,
+            max: 3.2
+          },{
+            value: 3,
+            min: 3.1,
+            max: 3.1
+          },{
+            value: 3,
+            min: 3,
+            max: 3
+          },{
+            value: 2.7,
+            min: 2.95,
+            max: 2.95
+          },{
+            value: 2.7,
+            min: 2.9,
+            max: 2.9
+          },{
+            value: 2.7,
+            min: 2.8,
+            max: 2.8
+          },{
+            value: 2.3,
+            min: 2.7,
+            max: 2.7
+          },{
+            value: 2.3,
+            min: 2.65,
+            max: 2.65
+          },{
+            value: 2.3,
+            min: 2.6,
+            max: 2.6
+          },{
+            value: 2,
+            min: 2.55,
+            max: 2.55
+          },{
+            value: 2,
+            min: 2.5,
+            max: 2.5
+          },{
+            value: 2,
+            min: 2.4,
+            max: 2.4
+          },{
+            value: 2,
+            min: 2.3,
+            max: 2.3
+          },{
+            value: 1.7,
+            min: 2.2,
+            max: 2.2
+          },{
+            value: 1.7,
+            min: 2.1,
+            max: 2.1
+          },{
+            value: 1.7,
+            min: 2,
+            max: 2
+          },{
+            value: 1.3,
+            min: 1.9,
+            max: 1.9
+          },{
+            value: 1.3,
+            min: 1.8,
+            max: 1.8
+          },{
+            value: 1.3,
+            min: 1.7,
+            max: 1.7
+          },{
+            value: 1,
+            min: 1.6,
+            max: 1.6
+          },{
+            value: 1,
+            min: 1.5,
+            max: 1.5
+          },{
+            value: 1,
+            min: 1.4,
+            max: 1.4
+          },{
+            value: 1,
+            min: 1.3,
+            max: 1.3
+          },{
+            value: 0.7,
+            min: 1.2,
+            max: 1.2
+          },{
+            value: 0.7,
+            min: 1.1,
+            max: 1.1
+          },{
+            value: 0.7,
+            min: 1,
+            max: 1
+          },{
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
+    }
   };
 });
