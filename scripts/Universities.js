@@ -2455,6 +2455,110 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    albertauniversity:{
+      name: "University of Alberta",
+      location:{
+        city:"Edmonton",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,2,3,4,5,6,7],
+      sources:['https://www.augustana.ualberta.ca/programs/lab/resources/gpa_calculator.html','http://www.efs.ualberta.ca/Intranet/~/media/English%20and%20Film%20Studies/Documents/Instructor/GradingChart.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: { 
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },{
+            value: 2.7,
+            letters: ['B-']
+          },{
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          },{
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F','F4']
+          }]
+        },
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 86,
+            max: 100
+          }, {
+            value: 3.7,
+            min: 82,
+            max: 85
+          }, {
+            value: 3.3,
+            min: 78,
+            max: 81
+          }, {
+            value: 3,
+            min: 74,
+            max: 77
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 73
+          }, {
+            value: 2.3,
+            min: 66,
+            max: 69
+          }, {
+            value: 2,
+            min: 62,
+            max: 65
+          }, {
+            value: 1.7,
+            min: 58,
+            max: 61
+          },{
+            value: 1.3,
+            min: 54,
+            max: 57
+          },{
+            value: 1,
+            min: 50,
+            max: 53
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
     }
   };
 });
