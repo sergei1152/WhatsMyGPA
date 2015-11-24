@@ -2000,6 +2000,96 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
-    }
+    },
+    winnipeguniversity:{
+      name: "University of Winnipeg",
+      location:{
+        city:"Winnipeg",
+        state:"Manitoba",
+        country:"CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['http://uwinnipeg.ca/academic-advising/calculating-gpa.pdf','http://www.ouac.on.ca/docs/orpas/c_orpas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: { 
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          },{
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },{
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        point45: {
+          name: "4.5 GPA",
+          example: "4.5, 3",
+          type: "number",
+          min: 0,
+          max: 4.5,
+          gpaConversion: [{
+            value: 4,
+            min: 4.5,
+            max: 4.5
+          },{
+            value: 3.9,
+            min: 4.25,
+            max: 4.25
+          },{
+            value: 3.7,
+            min: 4,
+            max: 4
+          }, {
+            value: 3.3,
+            min: 3.5,
+            max: 3.5
+          }, {
+            value: 3,
+            min: 3,
+            max: 3
+          }, {
+            value: 2.3,
+            min: 2.5,
+            max: 2.5
+          }, {
+            value: 2,
+            min: 2,
+            max: 2
+          }, {
+            value: 1,
+            min: 1,
+            max: 1
+          }, {
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
+    },
   };
 });
