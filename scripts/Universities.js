@@ -2,7 +2,7 @@ angular.module('Universities', [])
 
 .factory('UniversityList', function() {
   var gpa = {
-    name: "GPA",
+    name: "4.0 GPA",
     example: "2.1, 4.0",
     type: "number",
     min: 0,
