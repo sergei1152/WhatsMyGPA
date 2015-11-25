@@ -3,7 +3,7 @@ angular.module('Validator',[])
 //Regex used throughout the calculator
 .factory('Regex', function() {
     return {
-        letterGradeRegex: /^[a-zA-Z-+]{1,3}$/,
+        letterGradeRegex: /^[a-zA-Z-+*]{1,3}$/,
         numberGradeRegex: /^[0-9.]{1,5}$/,
         creditWeightRegex: /^[0-9.]{1,4}$/
     };

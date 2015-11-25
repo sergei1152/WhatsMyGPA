@@ -398,6 +398,106 @@ angular.module('Universities', [])
     }]
   };
 
+  var common43_2={
+    name: "4.3 GPA",
+    example: "4.3, 3.8",
+    type: "number",
+    min: 0,
+    max: 4.3,
+    gpaConversion: [{
+       value: 4,
+        min: 4.3,
+        max: 4.3
+      }, {
+        value: 3.9,
+        min: 4,
+        max: 4
+      }, {
+        value: 3.7,
+        min: 3.7,
+        max: 3.7
+      }, {
+        value: 3.3,
+        min: 3.3,
+        max: 3.3
+      }, {
+        value: 3,
+        min: 3,
+        max: 3
+      }, {
+        value: 2.7,
+        min: 2.7,
+        max: 2.7
+      }, {
+        value: 2.3,
+        min: 2.3,
+        max: 2.3
+      }, {
+        value: 2,
+        min: 2,
+        max: 2
+      }, {
+        value: 1.7,
+        min: 1.7,
+        max: 1.7
+      }, {
+        value: 1.3,
+        min: 1.3,
+        max: 1.3
+      }, {
+        value: 1,
+        min: 1,
+        max: 1
+      }, {
+        value: 0,
+        min: 0,
+        max: 0
+    }]
+  };
+
+  var commonLetter2={
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+','A*']
+    }, {
+      value: 3.9,
+      letters: ['A']
+    },{
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    },{
+      value: 2.7,
+      letters: ['B-']
+    },{
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    },{
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1.3,
+      letters: ['D+']
+    },{
+      value: 1,
+      letters: ['D']
+    }, {
+      value: 0,
+      letters: ['F','E']
+    }]
+  };
+
   var common9={
     name: "9-Point",
     example: "5, 9",
@@ -2558,6 +2658,35 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
             max: 49
           }]
         }
+      }
+    },
+    sherbrokeuniversity:{
+      name: "Université de Sherbrooke",
+      location:{
+        city:"Sherbrooke",
+        state:"Québec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6,9],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://www.goforaplus.com/gpa-calculation/'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter2,
+        gpa43: common43_2
+      }
+    },
+    saskatchewanuniversity:{
+      name: "University of Saskatchewan",
+      location:{
+        city:"Saskatoon",
+        state:"Saskatchewan",
+        country:"CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://students.usask.ca/academics/grading/grading-system.php#CalculatingYourAverage'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage: commonPercentage1
       }
     }
   };
