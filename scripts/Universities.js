@@ -2688,6 +2688,22 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         gpa: gpa,
         percentage: commonPercentage1
       }
+    },
+    concordiauniversity:{
+      name: "Concordia University",
+      location:{
+        city:"Montreal",
+        state:"Québec",
+        country:"CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','https://www.concordia.ca/encs/students/sas/undergrad-program-info/grade-point-average.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage: commonPercentage1,
+        gpa43: common43
+      }
     }
   };
 });
