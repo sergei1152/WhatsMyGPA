@@ -455,7 +455,7 @@ angular.module('Universities', [])
     }]
   };
 
-  var commonLetter2={
+  var commonLetter3={
     name: "Letter",
     example: "B, A+",
     type: "letter",
@@ -2671,7 +2671,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://www.goforaplus.com/gpa-calculation/'],
       gradeConversions: {
         gpa: gpa,
-        letter: commonLetter2,
+        letter: commonLetter3,
         gpa43: common43_2
       }
     },
@@ -2703,6 +2703,184 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         letter: commonLetter1,
         percentage: commonPercentage1,
         gpa43: common43
+      }
+    },
+    montrealuniversity:{
+      name: "Université de Montréal",
+      location:{
+        city:"Montreal",
+        state:"Québec",
+        country:"CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['http://www.iro.umontreal.ca/~vaucher/Publications/Guide_Evaluation.pdf','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.7,
+            min: 57,
+            max: 59
+          }, {
+            value: 1.3,
+            min: 54,
+            max: 56
+          },{
+            value: 1,
+            min: 50,
+            max: 53
+          }, {
+            value: 0,
+            min: 35,
+            max: 49
+          },{
+            value: 0,
+            min: 0,
+            max: 34
+          }]
+        },
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E']
+          }, {
+            value: 0,
+            letters: [ 'F']
+          }]
+        },
+        gpa43:{
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+             value: 4,
+              min: 4.3,
+              max: 4.3
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.7,
+              max: 3.7
+            }, {
+              value: 3.3,
+              min: 3.3,
+              max: 3.3
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.7,
+              max: 2.7
+            }, {
+              value: 2.3,
+              min: 2.3,
+              max: 2.3
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.7,
+              max: 1.7
+            }, {
+              value: 1.3,
+              min: 1.3,
+              max: 1.3
+            }, {
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0.5,
+              max: 0.5
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
       }
     }
   };
