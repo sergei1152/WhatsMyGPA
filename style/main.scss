@@ -70,6 +70,14 @@ a{
 
 			}
 		}
+		.searchStatus:not(.ng-hide){
+		    background-color: rgba(255, 211, 53, 0.29);
+		    max-width: 400px;
+		    text-align: center;
+		    margin: 12px auto;
+		    padding: 8px;
+		    border-radius: 3px;
+		}
 		.grade-input-type-wrapper{
 			width: 253px;
 			display: block;

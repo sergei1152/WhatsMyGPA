@@ -1,6 +1,6 @@
 angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage','ui.bootstrap','ConversionChart'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart','searchStatus',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart,searchStatus){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
@@ -101,6 +101,10 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   };
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
+
+  $scope.searchSuccess=function(){
+    return searchStatus.success;
+  };
 
   //retrieving stuff from local storage and setting it
   if(Storage.getUniversity()){ //retrieving university

@@ -1,6 +1,12 @@
 angular.module('Filters',[])
 
-.filter('uniFilter', ['$filter',function($filter) { //the custom university list filter. Names take priority over key over location
+.value('searchStatus',function(){
+  return {
+    success: true
+  }
+})
+
+.filter('uniFilter', ['$filter','searchStatus',function($filter,searchStatus) { //the custom university list filter. Names take priority over key over location
   return function(items, props) { //items is the list of universities as an object, props is the search string
     var key_out=[]; //list of universities that match key
     var name_out = []; //list of universities that match name
@@ -37,6 +43,12 @@ angular.module('Filters',[])
     }
     else{
       console.error('WARNING: uniFilter only works with objects as inputs');
+    }
+    if(out.length===0){
+      searchStatus.success=false;
+    }
+    else{
+      searchStatus.success=true;
     }
     return out;
   };

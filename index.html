@@ -31,6 +31,8 @@
           </ui-select-choices>
         </ui-select>
 
+        <p class="searchStatus" ng-show='!searchSuccess()'>Can't find your university or college? <a href="https://github.com/sergei1152/WhatsMyGPA" >Add it here.</a></p>
+
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type-wrapper" ng-hide="university.selected">
            <div class="grade-input-type radio">
