@@ -23,8 +23,8 @@
 
         <h3>1. Select your university or college</h3>
 
-        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
-          <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
+        <ui-select theme="bootstrap" ng-model="university.selected.value" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
+          <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.name}}</ui-select-match>
           <ui-select-choices repeat="university in UniversityList | uniFilter: $select.search">
             <p ng-bind-html="university.name | highlight: $select.search">{{university.name}}</p>
             <p  class="university-location"><span ng-bind-html="university.location.city | highlight: $select.search">{{university.location.city}}</span>,&nbsp;<span ng-bind-html="university.location.state | highlight: $select.search">{{university.location.state}}</span>,&nbsp;<span ng-bind-html="university.location.country | highlight: $select.search">{{university.location.country}}</span></p>
