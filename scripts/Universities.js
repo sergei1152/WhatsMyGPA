@@ -3924,6 +3924,94 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+     ocad:{
+      name: "OCAD University",
+      location:{
+        city:"Toronto",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: ['0.5','1'],
+      sources:['http://www.ocadu.ca/about/governance/VP-academic/new-grading-policy.htm','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 74,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 73
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 64,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 63
+          }, {
+            value: 1.3,
+            min: 57,
+            max: 59
+          }, {
+            value: 1,
+            min: 54,
+            max: 56
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 53
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    moncton:{
+      name: "Universite de Moncton",
+      location:{
+        city:"Edmundston",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: ['1','3','6'],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1
+      }
     }
   };
 });
