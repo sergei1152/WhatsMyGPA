@@ -102,6 +102,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 
+  //for displaying the Cant find your university? link when the search results come back with no universities
   $scope.searchSuccess=function(){
     return searchStatus.success;
   };
