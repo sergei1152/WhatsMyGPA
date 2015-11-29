@@ -2982,12 +2982,67 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Alberta",
         country:"CA"
       },
-      commonCreditWeights: [1,1.5,3,6],
+      commonCreditWeights: [0,1.5,3,6],
       sources:['http://ous.athabascau.ca/policy/registry/undergraduategradingpolicy2002.pdf'],
       gradeConversions: {
         gpa: gpa,
         percentage:commonPercentage4,
         letter: commonLetter4
+      }
+    },
+    acadia:{
+      name: "Acadia University",
+      location:{
+        city:"Wolfville",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://registrar.acadiau.ca/Examinationsandgrades.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.67,
+            letters: ['A-']
+          }, {
+            value: 3.33,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.67,
+            letters: ['B-']
+          }, {
+            value: 2.33,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.67,
+            letters: ['C-']
+          }, {
+            value: 1.33,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0.67,
+            letters: ['D-']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        }
       }
     }
   };
