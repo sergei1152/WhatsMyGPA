@@ -3044,6 +3044,89 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    conestoga:{
+      name: "Conestoga College",
+      location:{
+        city:"Kitchener",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4],
+      sources:['https://www.conestogac.on.ca/admissions/records/achievement.jsp'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.75,
+            letters: ['A']
+          },  {
+            value: 3.5,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },  {
+            value: 2.5,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.75,
+            min: 80,
+            max: 89
+          }, {
+            value: 3.5,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.5,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1,
+            min: 55,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 54
+          }]
+        }
+      }
     }
   };
 });
