@@ -4415,6 +4415,72 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    brandon:{
+      name: "Brandon University",
+      location:{
+        city:"Brandon",
+        state:"Manitoba",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1
+      }
+    },
+    calgary:{
+      name: "University of Calgary",
+      location:{
+        city:"Calgary",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4,5,6],
+      sources:['http://www.ucalgary.ca/pubs/calendar/current/f-5.html','http://www.ucalgary.ca/pubs/calendar/current/f-2.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F','I']
+          }]
+        }
+      }
     }
   };
 });
