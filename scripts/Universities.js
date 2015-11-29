@@ -4481,6 +4481,273 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    lavaluniversity:{
+      name: "Laval University",
+      location:{
+        city:"Quebec City",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.goforaplus.com/gpa-calculation/','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          },{
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F','E']
+          }]
+        },
+        gpa433:{
+          name: "4.33 GPA",
+          example: "4.33, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.33,
+          gpaConversion: [{
+             value: 4,
+              min: 4.33,
+              max: 4.33
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.67,
+              max: 3.67
+            }, {
+              value: 3.3,
+              min: 3.33,
+              max: 3.33
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.67,
+              max: 2.67
+            }, {
+              value: 2.3,
+              min: 2.33,
+              max: 2.33
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.67,
+              max: 1.67
+            },{
+              value: 1.3,
+              min: 1.33,
+              max: 1.33
+            }, {
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+    laurentianuniversity:{
+      name: "Laurentian University",
+      location:{
+        city:"Sudbury",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,1.5,2,3,6],
+      sources:['http://laurentian.ca/transcripts','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          },  {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0.7,
+            letters: ['E']
+          },{
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          },  {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          },  {
+            value: 1.3,
+            min: 55,
+            max: 59
+          },{
+            value: 1,
+            min: 50,
+            max: 54
+          },{
+            value: 0.7,
+            min: 40,
+            max: 49
+          }, {
+            value: 0,
+            min: 0,
+            max: 39
+          }]
+        },
+        gpa10:{
+          name: "10-Point",
+          example: "10, 8",
+          type: "number",
+          min: 0,
+          max: 10,
+          gpaConversion: [{
+            value: 4,
+            min: 10,
+            max: 10
+          }, {
+            value: 3.9,
+            min: 9,
+            max: 9
+          }, {
+            value: 3.7,
+            min: 8,
+            max: 8
+          }, {
+            value: 3.3,
+            min: 7,
+            max: 7
+          }, {
+            value: 3,
+            min: 6,
+            max: 6
+          },  {
+            value: 2.3,
+            min: 5,
+            max: 5
+          }, {
+            value: 2,
+            min: 4,
+            max: 4
+          },  {
+            value: 1.3,
+            min: 3,
+            max: 3
+          },{
+            value: 1,
+            min: 2,
+            max: 2
+          },{
+            value: 0.7,
+            min: 1,
+            max: 1
+          }, {
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
     }
   };
 });
