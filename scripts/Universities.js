@@ -4748,6 +4748,87 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    sfu:{
+      name: "Simon Fraser University",
+      location:{
+        city:"Burnaby",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4,5],
+      sources:['https://www.sfu.ca/students/academic-calendar-archive/calendar-spring-2012/student-info/grading.html','http://www.sfu.ca/students/advising-resources/calculators/gpa-calculator.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter6,
+        gpa433:{
+          name: "4.33 GPA",
+          example: "4.33, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.33,
+          gpaConversion: [{
+             value: 4,
+              min: 4.33,
+              max: 4.33
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.67,
+              max: 3.67
+            }, {
+              value: 3.3,
+              min: 3.33,
+              max: 3.33
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.67,
+              max: 2.67
+            }, {
+              value: 2.3,
+              min: 2.33,
+              max: 2.33
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.67,
+              max: 1.67
+            },{
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+    xavieruniversity:{
+      name: "St. Francis Xavier University",
+      location:{
+        city:"Antigonish",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage: commonPercentage1
+      }
     }
   };
 });
