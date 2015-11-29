@@ -3597,7 +3597,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Nova Scotia",
         country:"CA"
       },
-      commonCreditWeights: ['0.5','1','3','6'],
+      commonCreditWeights: [0.5,1,3,6],
       sources:['https://www.usainteanne.ca/academic-regulations'],
       gradeConversions: {
         gpa: gpa,
@@ -3663,7 +3663,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"New Brunswick",
         country:"CA"
       },
-      commonCreditWeights: ['0','3','6','9'],
+      commonCreditWeights: [0,3,6,9],
       sources:['http://w3.stu.ca/stu/currentstudents/documents/EvaluationandGrading.pdf'],
       gradeConversions: {
         gpa: gpa,
@@ -3678,7 +3678,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Nova Scotia",
         country:"CA"
       },
-      commonCreditWeights: ['1.5','3','6'],
+      commonCreditWeights: [1.5,3,6],
       sources:['http://www.smu.ca/academics/final-exams-gpa-calculation.html','http://www.smu.ca/academics/gpa-calculator.html'],
       gradeConversions: {
         gpa: gpa,
@@ -3745,7 +3745,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Prince Edward Island",
         country:"CA"
       },
-      commonCreditWeights: ['1','3','6'],
+      commonCreditWeights: [1,3,6],
       sources:['http://www.upei.ca/programsandcourses/regulation-10-grading'],
       gradeConversions: {
         gpa: gpa,
@@ -3820,7 +3820,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Ontario",
         country:"CA"
       },
-      commonCreditWeights: ['1','3','6'],
+      commonCreditWeights: [1,3,6],
       sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://academiccalendar.nipissingu.ca/~/Catalog/ViewCatalog.aspx?topicgroupid=523','http://www.nipissingu.ca/departments/academic-advising/Documents/AVGCALC.PDF'],
       gradeConversions: {
         gpa: gpa,
@@ -3835,7 +3835,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"New Brunswick",
         country:"CA"
       },
-      commonCreditWeights: ['1','3',,'4','6'],
+      commonCreditWeights: [1,3,4,6],
       sources:['http://www.unb.ca/fredericton/engineering/depts/civil/currentstudents/grades.html','http://www.unb.ca/fredericton/studentservices/academics/calculating-gpa.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
       gradeConversions: {
         gpa: gpa,
@@ -3932,7 +3932,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"Ontario",
         country:"CA"
       },
-      commonCreditWeights: ['0.5','1'],
+      commonCreditWeights: [0.5,1],
       sources:['http://www.ocadu.ca/about/governance/VP-academic/new-grading-policy.htm','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
       gradeConversions: {
         gpa: gpa,
@@ -4006,7 +4006,21 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         state:"New Brunswick",
         country:"CA"
       },
-      commonCreditWeights: ['1','3','6'],
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1
+      }
+    },
+     manitoba:{
+      name: "Universite de Moncton",
+      location:{
+        city:"Winnipeg",
+        state:"Manitoba",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,3,4.5],
       sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
       gradeConversions: {
         gpa: gpa,
