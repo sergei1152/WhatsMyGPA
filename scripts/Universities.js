@@ -3670,6 +3670,148 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         letter:commonLetter6,
         gpa43: common43_6
       }
+    },
+    saint_mary:{
+      name: "St. Mary's University",
+      location:{
+        city:"Halifax",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: ['1.5','3','6'],
+      sources:['http://www.smu.ca/academics/final-exams-gpa-calculation.html','http://www.smu.ca/academics/gpa-calculator.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        gpa43: common43_6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          },{
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1,
+            min: 50,
+            max: 59
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    pei:{
+      name: "University of Prince Edward Island",
+      location:{
+        city:"Charlottetown",
+        state:"Prince Edward Island",
+        country:"CA"
+      },
+      commonCreditWeights: ['1','3','6'],
+      sources:['http://www.upei.ca/programsandcourses/regulation-10-grading'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        gpa43: common43,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 91,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 90
+          },{
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 74,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 73
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 64,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 63
+          },{
+            value: 1.3,
+            min: 57,
+            max: 59
+          },{
+            value: 1,
+            min: 54,
+            max: 56
+          },{
+            value: 0.7,
+            min: 50,
+            max: 53
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
     }
   };
 });
