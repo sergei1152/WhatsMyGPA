@@ -546,6 +546,98 @@ angular.module('Universities', [])
       max: 0
     }]
   };
+
+  var commonLetter4 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+','A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1.3,
+      letters: ['D+']
+    }, {
+      value: 1,
+      letters: ['D']
+    }, {
+      value: 0,
+      letters: ['E', 'F']
+    }]
+  };
+  var commonPercentage4={
+    name: "Percentage",
+    example: "75%, 67%",
+    type: "number",
+    min: 0,
+    max: 100,
+    gpaConversion: [{
+      value: 4,
+      min: 85,
+      max: 100
+    }, {
+      value: 3.7,
+      min: 80,
+      max: 84
+    }, {
+      value: 3.3,
+      min: 76,
+      max: 79
+    }, {
+      value: 3,
+      min: 73,
+      max: 75
+    }, {
+      value: 2.7,
+      min: 70,
+      max: 72
+    }, {
+      value: 2.3,
+      min: 67,
+      max: 69
+    }, {
+      value: 2,
+      min: 64,
+      max: 66
+    }, {
+      value: 1.7,
+      min: 60,
+      max: 63
+    }, {
+      value: 1.3,
+      min: 55,
+      max: 59
+    }, {
+      value: 1,
+      min: 50,
+      max: 54
+    }, {
+      value: 0,
+      min: 0,
+      max: 49
+    }]
+  };
   return {
     universityofwaterloo: {
       name: 'University of Waterloo',
@@ -2881,6 +2973,21 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
               max: 0
           }]
         }
+      }
+    },
+    athabasca:{
+      name: "Athabasca University",
+      location:{
+        city:"Athabasca",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://ous.athabascau.ca/policy/registry/undergraduategradingpolicy2002.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage4,
+        letter: commonLetter4
       }
     }
   };
