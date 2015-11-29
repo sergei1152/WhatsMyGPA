@@ -3812,6 +3812,118 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    nippising:{
+      name: "Nippising University",
+      location:{
+        city:"North Bay",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: ['1','3','6'],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://academiccalendar.nipissingu.ca/~/Catalog/ViewCatalog.aspx?topicgroupid=523','http://www.nipissingu.ca/departments/academic-advising/Documents/AVGCALC.PDF'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        percentage: commonPercentage1
+      }
+    },
+    newbrunswick:{
+      name: "University of New Brunswick",
+      location:{
+        city:"Fredericton",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: ['1','3',,'4','6'],
+      sources:['http://www.unb.ca/fredericton/engineering/depts/civil/currentstudents/grades.html','http://www.unb.ca/fredericton/studentservices/academics/calculating-gpa.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },  {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          },{
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        gpa43:{
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+             value: 4,
+              min: 4.3,
+              max: 4.3
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.7,
+              max: 3.7
+            }, {
+              value: 3.3,
+              min: 3.3,
+              max: 3.3
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.7,
+              max: 2.7
+            }, {
+              value: 2.3,
+              min: 2.3,
+              max: 2.3
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            },{
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
     }
   };
 });
