@@ -638,6 +638,49 @@ angular.module('Universities', [])
       max: 49
     }]
   };
+  var commonLetter5 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+','A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1.3,
+      letters: ['D+']
+    }, {
+      value: 1,
+      letters: ['D']
+    },{
+      value: 0.7,
+      letters: ['D-']
+    }, {
+      value: 0,
+      letters: ['F']
+    }]
+  };
+  
   return {
     universityofwaterloo: {
       name: 'University of Waterloo',
@@ -3245,5 +3288,216 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         percentage:commonPercentage1
       }
     },
+    universitydequebec:{
+      name: "University of Quebec",
+      location:{
+        city:"Quebec City",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        gpa43: common43,
+        percentage: commonPercentage1
+      }
+    },
+    reginauniversity:{
+      name: "University of Regina",
+      location:{
+        city:"Regina",
+        state:"Saskatchewan",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.uregina.ca/student/registrar/assets/docs/pdf/The_Grading_System_at_UR.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter5,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 87,
+            max: 100
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 76,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 75
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 66,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 65
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1.3,
+            min: 56,
+            max: 59
+          },{
+            value: 1,
+            min: 53,
+            max: 55
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 52
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    rmc_cmr:{
+      name: "Royal Military College of Canada",
+      location:{
+        city:"Kingston",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,2,3,4],
+      sources:['https://www.rmcc-cmrc.ca/en/registrars-office/academic-regulations'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },  {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          },{
+            value: 0.7,
+            letters: ['D-']
+          },{
+            value: 0,
+            letters: ['E']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 94,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 87,
+            max: 93
+          },{
+            value: 3.7,
+            min: 80,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 76,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 75
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 66,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 65
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1.3,
+            min: 56,
+            max: 59
+          },{
+            value: 1,
+            min: 53,
+            max: 55
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 52
+          }, {
+            value: 0,
+            min: 40,
+            max: 49
+          },{
+            value: 0,
+            min: 0,
+            max: 39
+          }]
+        }
+      }
+    }
   };
 });
