@@ -4305,6 +4305,116 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
           }]
         }
       }
+    },
+    lethbridge:{
+      name: "University of Lethbridge",
+      location:{
+        city:"Lethbridge",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1
+      }
+    },
+    bishops:{
+      name: "Bishop's University",
+      location:{
+        city:"Sherbrooke",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://www3.ubishops.ca/registrarial-services/grading-scale-gpa-conversion'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1
+      }
+    },
+    lakehead:{
+      name: "Lakehead University",
+      location:{
+        city:"Thunder Bay",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1,
+        letter: commonLetter1
+      }
+    },
+    dalhousie:{
+      name: "Dalhousie University",
+      location:{
+        city:"Halifax",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,1.5,3,6],
+      sources:['http://www.dal.ca/campus_life/student_services/academic-support/grades-and-student-records/gpa-calculator.html','http://www.dal.ca/campus_life/student_services/academic-support/grades-and-student-records/grade-scale-and-definitions.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter6,
+        gpa43: common43_6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.7,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
     }
   };
 });
