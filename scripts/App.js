@@ -45,13 +45,19 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
         break;
       }
     }
+    //set the key value of the university (needed for local storage)
+    for(var key in UniversityList){
+      if(UniversityList.hasOwnProperty(key) && UniversityList[key].name===$scope.university.selected.value.name ){
+        $scope.university.selected.key=key;
+        break;
+      }
+    }
     if(notWriteStorage){
       $scope.gradeInputTypeSelected(true);
     }
     else{
       $scope.gradeInputTypeSelected(false);
     }
-    
     Storage.saveUniversity($scope.university.selected.key);
   };
 
