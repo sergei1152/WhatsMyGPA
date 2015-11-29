@@ -680,6 +680,97 @@ angular.module('Universities', [])
       letters: ['F']
     }]
   };
+  var commonLetter6 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+']
+    },{
+      value: 3.9,
+      letters: ['A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1,
+      letters: ['D']
+    }, {
+      value: 0,
+      letters: ['F','E']
+    }]
+  };
+  var common43_6={
+    name: "4.3 GPA",
+    example: "4.3, 3.8",
+    type: "number",
+    min: 0,
+    max: 4.3,
+    gpaConversion: [{
+       value: 4,
+        min: 4.3,
+        max: 4.3
+      }, {
+        value: 3.9,
+        min: 4,
+        max: 4
+      }, {
+        value: 3.7,
+        min: 3.7,
+        max: 3.7
+      }, {
+        value: 3.3,
+        min: 3.3,
+        max: 3.3
+      }, {
+        value: 3,
+        min: 3,
+        max: 3
+      }, {
+        value: 2.7,
+        min: 2.7,
+        max: 2.7
+      }, {
+        value: 2.3,
+        min: 2.3,
+        max: 2.3
+      }, {
+        value: 2,
+        min: 2,
+        max: 2
+      }, {
+        value: 1.7,
+        min: 1.7,
+        max: 1.7
+      }, {
+        value: 1,
+        min: 1,
+        max: 1
+      }, {
+        value: 0,
+        min: 0,
+        max: 0
+    }]
+  };
   
   return {
     universityofwaterloo: {
@@ -3497,6 +3588,87 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
             max: 39
           }]
         }
+      }
+    },
+    sainte_anne:{
+      name: "Univesity of Sainte-Anne",
+      location:{
+        city:"Point de l'Eglise",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: ['0.5','1','3','6'],
+      sources:['https://www.usainteanne.ca/academic-regulations'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 94,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 87,
+            max: 93
+          },{
+            value: 3.7,
+            min: 81,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 78,
+            max: 80
+          }, {
+            value: 3,
+            min: 75,
+            max: 77
+          }, {
+            value: 2.7,
+            min: 72,
+            max: 74
+          }, {
+            value: 2.3,
+            min: 69,
+            max: 71
+          }, {
+            value: 2,
+            min: 66,
+            max: 68
+          }, {
+            value: 1.7,
+            min: 63,
+            max: 65
+          },{
+            value: 1,
+            min: 60,
+            max: 62
+          },{
+            value: 0,
+            min: 0,
+            max: 59
+          }]
+        }
+      }
+    },
+    saint_thomas_stu:{
+      name: "St. Thomas University",
+      location:{
+        city:"Fredericton",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: ['0','3','6','9'],
+      sources:['http://w3.stu.ca/stu/currentstudents/documents/EvaluationandGrading.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        gpa43: common43_6
       }
     }
   };
