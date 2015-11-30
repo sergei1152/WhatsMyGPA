@@ -116,15 +116,17 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   //retrieving stuff from local storage and setting it
   if(Storage.getUniversity()){ //retrieving university
     var key=Storage.getUniversity();
-    $scope.university.selected={
-      key:key,
-      value: UniversityList[key]
-    };
-    $scope.universitySelected(true);
-  }
-  if(Storage.getGradeType()){ //retrieving grade input type
-    $scope.university.selectedGradeInput=Storage.getGradeType();
-    $scope.gradeInputTypeSelected();
+    if(UniversityList[key]){
+      $scope.university.selected={
+        key:key,
+        value: UniversityList[key]
+      };
+      $scope.universitySelected(true);
+      if(Storage.getGradeType()){ //retrieving grade input type
+        $scope.university.selectedGradeInput=Storage.getGradeType();
+        $scope.gradeInputTypeSelected();
+      }
+    }
   }
   if(Storage.getGrades()){
     Storage.loadGrades();
