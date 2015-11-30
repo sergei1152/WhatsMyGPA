@@ -1,29 +1,33 @@
 #WhatsMyGPA
 
-######A universal GPA calculator supporting grade conversions for over 50 Canadian universities
+######A universal GPA calculator supporting grade conversions for over 50 Canadian universities and colleges, with more added daily
 ######[www.whatsmygpa.ca](http://www.whatsmygpa.ca)
 
 ##Features
-- [x] Supports grade conversions for 54 Canadian universities
-- [x] Has support for a large range of credit weights, including 0.25,0.5,0.75,1,3,6,9,and 12
-- [x] Supports percentage input (eg. 84.56%), letter grade input (eg. A+) , and 12-Point grade input
-- [x] Outputs a percentage, a GPA, a letter grade, a 12-Point and a 9-Point grade corresponding to your cumulative average
-- [x] Supports multiple semester input
+- [x] Supports grade conversions for over 54 Canadian universities and colleges (more to be added)
+- [x] Customized credit weight suggestions based on university. Users can input custom values as well.
+- [x] Supports input and conversion to and from any grading system, whether it be letter, percentage, 4.33 GPA, 9-Point, 12-Point, etc...
+- [x] Multiple semester input
+- [x] View conversion table for your University, as well as the source for where the data came from
+- [x] Save your grades and university selection in local storage so you don't have to input it again after a refresh
+- [x] Responsive mobile design
 
 ##How the Calculations Work
-The program handles the different GPA conversions used by many universities by incorporating the GPA conversion chart found [here](http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html)
-
-To calculate the percent average, the following formula is used:
+This is the magic formula that is used in the calculator for finding the cumulative average in any grading system.
 ```
-Percent Average = ∑ (grade * credit) / ∑ credit
+Cumulative Average = ∑ (converted_grade * credit) / ∑ credit
 
-*Where grade is the input, and credit is the corresponding credit weight*
+*Where converted grade is the original grade converted to the output grade (if necessary), and credit is the corresponding credit weight*
 ```
-This is only used to calculate the final percent average, which is not used towards calculating the GPA. Instead to calculate the GPA, *each* percentage/letter/12-Point grade is converted to its GPA equivalent using the data from the table found [here](http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html). Then the formula shown above is used to calculate the cumulative GPA. A similar calculation is used towards calculating the 12 point and 9 point grades. 
 
-A letter grade is assigned based on the final cumulative GPA and the University (eg. an "A" in McGill corresponds to a "A+" for York).
+For example, say we want to convert an 84 and a 78 both worth 1 credit weight to find the final GPA average. The calculation is as follows: 
+```
+1. Convert each grade to output grading scale (this if for a sample university)
+84% = 3.7 GPA
+78% = 3.0 GPA
 
-##Some Problems I Faced
-The clear issue with making a universal GPA calculator is the inconsistencies in grading between different universities. There's a very useful GPA conversion chart that I used [here](http://studentsuccess.mcmaster.ca/students/tools/gpa-conversion-chart.html), however the problem was figuring out a way to incorporate the chart (without using a huge mass of if/else statements). Arrays were the obvious solution, but figuring out a way to organize the array was another challenge. In the end I decided making two 2-D arrays. One array held all the GPAs and their possible combinations of percentage, letter, 12 point, and 9 point ranges. The other held a list of universities and the index of their corresponding percentage/letter ranges from the first array. Doing it this way allowed the list to be easily readable and modifiable.
+2. Use the formula:
+  (3.7*1 + 3.0*1)/(1+1)= 3.35 GPA (cumulative)
+```
 
-Unfortunately, no GPA calculator is perfect (even though I tried really hard on this one). There's bound to be credit weights that some of  universities have that aren't supported, so if you spot a credit weight that should exist, please email me and let me know.
+So the calculator takes each input grade, converts it to the corresponding numerical output grade, then uses the formula to find the cumulative grade for that output grade. If the input grade type and output grade type is the same, no conversion is done. If the input grade type is a letter, then the 4.0 GPA scale is used as the intermediary in the calculations, before the final thing is converted back to a letter grade.
