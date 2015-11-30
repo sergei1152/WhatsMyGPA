@@ -230,6 +230,9 @@ table{
 	}
 }
 .modal-dialog{
+	.modal-header{
+		padding-right: 42px;
+	}
 	.modal-title{
 	    font-size: 20px;
 	    font-weight: bold;
