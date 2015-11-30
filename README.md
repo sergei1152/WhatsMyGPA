@@ -3,6 +3,8 @@
 ######A universal GPA calculator supporting grade conversions for over 50 Canadian universities and colleges, with more added daily
 ######[www.whatsmygpa.ca](http://www.whatsmygpa.ca)
 
+![Screenshot of WhatsMyGPA.ca](https://raw.githubusercontent.com/sergei1152/WhatsMyGPA/master/screenshot.png)
+
 ##Features
 - [x] Supports grade conversions for over 54 Canadian universities and colleges (more to be added)
 - [x] Customized credit weight suggestions based on university. Users can input custom values as well.
