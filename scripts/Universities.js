@@ -780,6 +780,7 @@ angular.module('Universities', [])
         state: "Ontario",
         country: "CA"
       },
+      sources:['https://uwaterloo.ca/registrar/transcripts/transcript-legend','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
       commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
       gradeConversions: {
         gpa: gpa,
