@@ -88,7 +88,7 @@ a{
 				justify-content: flex-start;
 				align-items: center;
 				margin: 12px;
-				label{
+				label,h6{
 					font-size: 17px;
 					margin-left: 8px;
 					cursor:default;
@@ -222,13 +222,6 @@ a{
 input.ng-invalid-bad-grade{
 	border: 1px solid red;
 }
-
-table{
-    border: 1px solid rgba(0,0,0,0.1) !important;
-	td,th{
-		text-align: center;
-	}
-}
 .modal-dialog{
 	.modal-header{
 		padding-right: 42px;
@@ -238,22 +231,25 @@ table{
 	    font-weight: bold;
 	}
 	.modal-body{
-	    padding: 0 24px 0 24px;
+	    padding: 12px 24px 12px 24px;
 	}
 	p{
 		font-family: $sans;
 	    line-height: 24px;
-	    margin-top: 12px;
-	    margin-bottom: 12px;
 	}
 	ul{
 	    line-height: 24px;
-	    margin-top: 12px;
-	    margin-bottom: 12px;
 	    a{
     	    overflow-wrap: break-word;
     		word-wrap: break-word;
 	    }
+	}
+	table{
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    margin: 12px 0 12px 0;
+		td,th{
+			text-align: center;
+		}
 	}
 	.close-icon{
 		color: black;
