@@ -77,18 +77,14 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
   $scope.getInputType=function(){
-    try{ //the try catch is there only for catching the special error case for when the selected university updates before the selected grade input type
-      if($scope.university.selectedGradeInput){
-        var selectedGradeConversionType=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput].type;
-        if(selectedGradeConversionType==='number'){
-          return 'tel';
-        }
-        return 'text';
+    if($scope.university.selectedGradeInput && $scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]){
+      var selectedGradeConversionType=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput].type;
+      if(selectedGradeConversionType==='number'){
+        return 'tel';
       }
-      return "text";
-    }catch(error){
       return 'text';
     }
+    return "text";
   };
 
   $scope.clearGrades=function(){
