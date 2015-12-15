@@ -1,6 +1,6 @@
-angular.module('Facebook',[])
+angular.module('Facebook',['Meta'])
 
-.factory('Facebook',['$window',function($window){
+.factory('Facebook',['$window','Meta',function($window,Meta){
 	var Facebook={
 		initialize: function(callback){
 			$window.fbAsyncInit = function() {
@@ -27,6 +27,9 @@ angular.module('Facebook',[])
 					  href: 'http://www.whatsmygpa.ca',
 					}, function(response){});
 				});
+				Meta.initialize();
+				Meta.sendSocial('facebook','share','www.whatsmygpa.ca');
+				Meta.sendEvent('Interaction','click','facebook_share');
 			}
 		}
 	};

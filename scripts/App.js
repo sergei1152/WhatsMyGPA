@@ -1,6 +1,6 @@
-angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage','ui.bootstrap','ConversionChart'])
+angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage','ui.bootstrap','ConversionChart','Meta'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart','Meta',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart,Meta){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
@@ -8,9 +8,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     selectedGradeInput: null //the input grade type the user selected
   };
 
-  $scope.Calculate=function(){
+  $scope.Calculate=function(source){
       Calculate($scope.university);
       Storage.saveGrades($scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]);
+      Meta.sendUniqueEvent('Calculation','unique');
+      if(source==='button'){
+        Meta.sendEvent('Calculation','button_click');
+      }
   };
   $scope.validateGrade=function(value){
     var emptyStringRegex=/^\s*$/; //because inputs arent required, and empty inputs simply wont be counted towards final
@@ -51,7 +55,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     else{
       $scope.gradeInputTypeSelected(false);
     }
-    
+    Meta.sendEvent('Selections','university_selected',$scope.university.selected.value.name);
     Storage.saveUniversity($scope.university.selected.key);
   };
 
@@ -67,6 +71,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     else{
       console.error('Error: You need to select a univeristy first.');
     }
+    Meta.sendEvent('Selections','grade_input_type',$scope.university.selectedGradeInput);
   };
 
   //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
@@ -90,6 +95,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       }
     }
     Storage.saveGrades();
+    Meta.sendEvent('Interaction','click','clear_grades');
   };
 
   $scope.addGrades=function(){
@@ -98,6 +104,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     setTimeout(function(){
       $scope.angularScrollGlue=false;
     },1);
+    Meta.sendEvent('Interaction','click','add_grades');
   };
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
@@ -118,9 +125,10 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   if(Storage.getGrades()){
     Storage.loadGrades();
   }
+  Meta.initialize();
 }])
 
-.controller('OutputController', ['$scope', 'Results','Facebook','$uibModal', function($scope, Results,Facebook,$uibModal){
+.controller('OutputController', ['$scope', 'Results','Facebook','$uibModal','Meta', function($scope, Results,Facebook,$uibModal,Meta){
   $scope.Results=Results;
 
   $scope.isEmpty=function(object){ //so that if the results are empty, 
@@ -137,7 +145,9 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
       templateUrl: 'ConversionChart.html',
       controller:'ConversionChartModal'
     });
+    Meta.sendEvent('Interaction','click','open_conversion_chart');
   };
 
   $scope.Facebook=Facebook;
+  Meta.initialize();
 }]);
