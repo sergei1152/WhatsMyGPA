@@ -18,10 +18,8 @@ angular.module('Meta',[])
 			if(doNotTrack()){
 				this.enabled=false;
 			}
-			else{ //enable google analytics
-				if(typeof ga==='undefined'){//start it if it hasn't already been initialized
-					this.startGA();
-				}
+			if(typeof ga==='undefined'){//start it if it hasn't already been initialized
+				this.startGA();
 			}
 		},
 		startGA:function(){
