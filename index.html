@@ -23,13 +23,15 @@
 
         <h3>1. Select your university or college</h3>
 
-        <ui-select theme="bootstrap" ng-model="university.selected" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
-          <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.value.name}}</ui-select-match>
-          <ui-select-choices repeat="(key, value) in UniversityList | uniFilter: {name:$select.search,city:$select.search,state:$select.search,country:$select.search}">
-            <p ng-bind-html="value.value.name | highlight: $select.search">{{value.value.name}}</p>
-            <p  class="university-location"><span ng-bind-html="value.value.location.city | highlight: $select.search">{{value.value.location.city}}</span>,&nbsp;<span ng-bind-html="value.value.location.state | highlight: $select.search">{{value.value.location.state}}</span>,&nbsp;<span ng-bind-html="value.value.location.country | highlight: $select.search">{{value.value.location.country}}</span></p>
+        <ui-select theme="bootstrap" ng-model="university.selected.value" title="Select your university or college" class="university-selection-input" on-select="universitySelected()" >
+          <ui-select-match id="university-selection" placeholder="Select your college or university">{{$select.selected.name}}</ui-select-match>
+          <ui-select-choices repeat="university in UniversityList | uniFilter: $select.search">
+            <p ng-bind-html="university.name | highlight: $select.search">{{university.name}}</p>
+            <p  class="university-location"><span ng-bind-html="university.location.city | highlight: $select.search">{{university.location.city}}</span>,&nbsp;<span ng-bind-html="university.location.state | highlight: $select.search">{{university.location.state}}</span>,&nbsp;<span ng-bind-html="university.location.country | highlight: $select.search">{{university.location.country}}</span></p>
           </ui-select-choices>
         </ui-select>
+
+        <p class="searchStatus" ng-show='!searchSuccess()'>Can't find your university or college? <a href="https://github.com/sergei1152/WhatsMyGPA" >Add it here.</a></p>
 
         <h3>2. What type of grades are you inputting?</h3>
          <div class="grade-input-type-wrapper" ng-hide="university.selected">
@@ -62,9 +64,9 @@
               <label>Credit</label>
             </div>
             <div class="grade" ng-repeat="grade in semester">
-                  <input  ng-disabled="!university.selectedGradeInput" title="Enter your grade here" ng-model="grade.value" type="{{getInputType()}}" class="grade-input form-control" ui-validate="{badGrade : 'validateGrade($value)' }">
+                  <input  ng-change="Calculate()" ng-disabled="!university.selectedGradeInput" title="Enter your grade here" ng-model="grade.value" type="{{getInputType()}}" class="grade-input form-control" ui-validate="{badGrade : 'validateGrade($value)' }">
                   <div class="credit-weight-input">
-                    <input ng-disabled="!university.selectedGradeInput" title="Enter the credit weight for the grade here" list="credit-weights" type="tel" class="form-control" ui-validate="{badGrade : 'validateCredit($value)'}" ng-model="grade.creditWeight"  >
+                    <input ng-change="Calculate()" ng-disabled="!university.selectedGradeInput" title="Enter the credit weight for the grade here" list="credit-weights" type="tel" class="form-control" ui-validate="{badGrade : 'validateCredit($value)'}" ng-model="grade.creditWeight"  >
                     <datalist id="credit-weights">
                       <option  ng-repeat="creditWeight in university.selected.value.commonCreditWeights">{{creditWeight}}</option>
                     </datalist>
@@ -93,5 +95,14 @@
     <script>
     $('input[list]').datalist(); //for datalist support on browsers that dont support it
     </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58019243-1', 'auto');
+  ga('send', 'pageview');
+</script>
   </body>
 </html>

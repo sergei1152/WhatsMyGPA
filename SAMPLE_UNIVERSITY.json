@@ -1,3 +1,19 @@
+athabasca:{
+      name: "Athabasca University",
+      location:{
+        city:"Athabasca",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1.5,3,6],
+      sources:['http://ous.athabascau.ca/policy/registry/undergraduategradingpolicy2002.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage4,
+        letter: commonLetter4
+      }
+    }
+    
 yorkuniversity: {
   name: 'York University',
   location: {

@@ -455,7 +455,7 @@ angular.module('Universities', [])
     }]
   };
 
-  var commonLetter2={
+  var commonLetter3={
     name: "Letter",
     example: "B, A+",
     type: "letter",
@@ -546,6 +546,232 @@ angular.module('Universities', [])
       max: 0
     }]
   };
+
+  var commonLetter4 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+','A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1.3,
+      letters: ['D+']
+    }, {
+      value: 1,
+      letters: ['D']
+    }, {
+      value: 0,
+      letters: ['E', 'F']
+    }]
+  };
+  var commonPercentage4={
+    name: "Percentage",
+    example: "75%, 67%",
+    type: "number",
+    min: 0,
+    max: 100,
+    gpaConversion: [{
+      value: 4,
+      min: 85,
+      max: 100
+    }, {
+      value: 3.7,
+      min: 80,
+      max: 84
+    }, {
+      value: 3.3,
+      min: 76,
+      max: 79
+    }, {
+      value: 3,
+      min: 73,
+      max: 75
+    }, {
+      value: 2.7,
+      min: 70,
+      max: 72
+    }, {
+      value: 2.3,
+      min: 67,
+      max: 69
+    }, {
+      value: 2,
+      min: 64,
+      max: 66
+    }, {
+      value: 1.7,
+      min: 60,
+      max: 63
+    }, {
+      value: 1.3,
+      min: 55,
+      max: 59
+    }, {
+      value: 1,
+      min: 50,
+      max: 54
+    }, {
+      value: 0,
+      min: 0,
+      max: 49
+    }]
+  };
+  var commonLetter5 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+','A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1.3,
+      letters: ['D+']
+    }, {
+      value: 1,
+      letters: ['D']
+    },{
+      value: 0.7,
+      letters: ['D-']
+    }, {
+      value: 0,
+      letters: ['F']
+    }]
+  };
+  var commonLetter6 = {
+    name: "Letter",
+    example: "B, A+",
+    type: "letter",
+    gpaConversion: [{
+      value: 4,
+      letters: ['A+']
+    },{
+      value: 3.9,
+      letters: ['A']
+    }, {
+      value: 3.7,
+      letters: ['A-']
+    }, {
+      value: 3.3,
+      letters: ['B+']
+    }, {
+      value: 3,
+      letters: ['B']
+    }, {
+      value: 2.7,
+      letters: ['B-']
+    }, {
+      value: 2.3,
+      letters: ['C+']
+    }, {
+      value: 2,
+      letters: ['C']
+    }, {
+      value: 1.7,
+      letters: ['C-']
+    }, {
+      value: 1,
+      letters: ['D']
+    }, {
+      value: 0,
+      letters: ['F','E']
+    }]
+  };
+  var common43_6={
+    name: "4.3 GPA",
+    example: "4.3, 3.8",
+    type: "number",
+    min: 0,
+    max: 4.3,
+    gpaConversion: [{
+       value: 4,
+        min: 4.3,
+        max: 4.3
+      }, {
+        value: 3.9,
+        min: 4,
+        max: 4
+      }, {
+        value: 3.7,
+        min: 3.7,
+        max: 3.7
+      }, {
+        value: 3.3,
+        min: 3.3,
+        max: 3.3
+      }, {
+        value: 3,
+        min: 3,
+        max: 3
+      }, {
+        value: 2.7,
+        min: 2.7,
+        max: 2.7
+      }, {
+        value: 2.3,
+        min: 2.3,
+        max: 2.3
+      }, {
+        value: 2,
+        min: 2,
+        max: 2
+      }, {
+        value: 1.7,
+        min: 1.7,
+        max: 1.7
+      }, {
+        value: 1,
+        min: 1,
+        max: 1
+      }, {
+        value: 0,
+        min: 0,
+        max: 0
+    }]
+  };
+  
   return {
     universityofwaterloo: {
       name: 'University of Waterloo',
@@ -554,6 +780,7 @@ angular.module('Universities', [])
         state: "Ontario",
         country: "CA"
       },
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
       commonCreditWeights: [0.25, 0.5, 0.75, 0.80, 1],
       gradeConversions: {
         gpa: gpa,
@@ -2671,7 +2898,7 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
       sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://www.goforaplus.com/gpa-calculation/'],
       gradeConversions: {
         gpa: gpa,
-        letter: commonLetter2,
+        letter: commonLetter3,
         gpa43: common43_2
       }
     },
@@ -2703,6 +2930,1905 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         letter: commonLetter1,
         percentage: commonPercentage1,
         gpa43: common43
+      }
+    },
+    montrealuniversity:{
+      name: "Université de Montréal",
+      location:{
+        city:"Montreal",
+        state:"Québec",
+        country:"CA"
+      },
+      commonCreditWeights: [3,6],
+      sources:['http://www.iro.umontreal.ca/~vaucher/Publications/Guide_Evaluation.pdf','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.7,
+            min: 57,
+            max: 59
+          }, {
+            value: 1.3,
+            min: 54,
+            max: 56
+          },{
+            value: 1,
+            min: 50,
+            max: 53
+          }, {
+            value: 0,
+            min: 35,
+            max: 49
+          },{
+            value: 0,
+            min: 0,
+            max: 34
+          }]
+        },
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E']
+          }, {
+            value: 0,
+            letters: [ 'F']
+          }]
+        },
+        gpa43:{
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+             value: 4,
+              min: 4.3,
+              max: 4.3
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.7,
+              max: 3.7
+            }, {
+              value: 3.3,
+              min: 3.3,
+              max: 3.3
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.7,
+              max: 2.7
+            }, {
+              value: 2.3,
+              min: 2.3,
+              max: 2.3
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.7,
+              max: 1.7
+            }, {
+              value: 1.3,
+              min: 1.3,
+              max: 1.3
+            }, {
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0.5,
+              max: 0.5
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+    athabasca:{
+      name: "Athabasca University",
+      location:{
+        city:"Athabasca",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1.5,3,6],
+      sources:['http://ous.athabascau.ca/policy/registry/undergraduategradingpolicy2002.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage4,
+        letter: commonLetter4
+      }
+    },
+    acadia:{
+      name: "Acadia University",
+      location:{
+        city:"Wolfville",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://registrar.acadiau.ca/Examinationsandgrades.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.67,
+            letters: ['A-']
+          }, {
+            value: 3.33,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.67,
+            letters: ['B-']
+          }, {
+            value: 2.33,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.67,
+            letters: ['C-']
+          }, {
+            value: 1.33,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0.67,
+            letters: ['D-']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        }
+      }
+    },
+    conestoga:{
+      name: "Conestoga College",
+      location:{
+        city:"Kitchener",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4],
+      sources:['https://www.conestogac.on.ca/admissions/records/achievement.jsp'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.75,
+            letters: ['A']
+          },  {
+            value: 3.5,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          },  {
+            value: 2.5,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.75,
+            min: 80,
+            max: 89
+          }, {
+            value: 3.5,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.5,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1,
+            min: 55,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 54
+          }]
+        }
+      }
+    },
+    georgebrowncollege:{
+      name: "George Brown College",
+      location:{
+        city:"Toronto",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1],
+      sources:['http://www.georgebrown.ca/current_students/grades/'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },  {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 86,
+            max: 100
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 85
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1.3,
+            min: 57,
+            max: 59
+          },{
+            value: 1,
+            min: 50,
+            max: 56
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    humbercollege:{
+      name: "Humber College",
+      location:{
+        city:"Toronto",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,3,6],
+      sources:[],
+      gradeConversions: {
+        percentage:commonPercentage1
+      }
+    },
+    universitydequebec:{
+      name: "University of Quebec",
+      location:{
+        city:"Quebec City",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        gpa43: common43,
+        percentage: commonPercentage1
+      }
+    },
+    reginauniversity:{
+      name: "University of Regina",
+      location:{
+        city:"Regina",
+        state:"Saskatchewan",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.uregina.ca/student/registrar/assets/docs/pdf/The_Grading_System_at_UR.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter5,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 87,
+            max: 100
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 76,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 75
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 66,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 65
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1.3,
+            min: 56,
+            max: 59
+          },{
+            value: 1,
+            min: 53,
+            max: 55
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 52
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    rmc_cmr:{
+      name: "Royal Military College of Canada",
+      location:{
+        city:"Kingston",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,2,3,4],
+      sources:['https://www.rmcc-cmrc.ca/en/registrars-office/academic-regulations'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },  {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          },{
+            value: 0.7,
+            letters: ['D-']
+          },{
+            value: 0,
+            letters: ['E']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 94,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 87,
+            max: 93
+          },{
+            value: 3.7,
+            min: 80,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 76,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 75
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 66,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 65
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1.3,
+            min: 56,
+            max: 59
+          },{
+            value: 1,
+            min: 53,
+            max: 55
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 52
+          }, {
+            value: 0,
+            min: 40,
+            max: 49
+          },{
+            value: 0,
+            min: 0,
+            max: 39
+          }]
+        }
+      }
+    },
+    sainte_anne:{
+      name: "Univesity of Sainte-Anne",
+      location:{
+        city:"Point de l'Eglise",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,3,6],
+      sources:['https://www.usainteanne.ca/academic-regulations'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 94,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 87,
+            max: 93
+          },{
+            value: 3.7,
+            min: 81,
+            max: 86
+          }, {
+            value: 3.3,
+            min: 78,
+            max: 80
+          }, {
+            value: 3,
+            min: 75,
+            max: 77
+          }, {
+            value: 2.7,
+            min: 72,
+            max: 74
+          }, {
+            value: 2.3,
+            min: 69,
+            max: 71
+          }, {
+            value: 2,
+            min: 66,
+            max: 68
+          }, {
+            value: 1.7,
+            min: 63,
+            max: 65
+          },{
+            value: 1,
+            min: 60,
+            max: 62
+          },{
+            value: 0,
+            min: 0,
+            max: 59
+          }]
+        }
+      }
+    },
+    saint_thomas_stu:{
+      name: "St. Thomas University",
+      location:{
+        city:"Fredericton",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: [0,3,6,9],
+      sources:['http://w3.stu.ca/stu/currentstudents/documents/EvaluationandGrading.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        gpa43: common43_6
+      }
+    },
+    saint_mary:{
+      name: "St. Mary's University",
+      location:{
+        city:"Halifax",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [1.5,3,6],
+      sources:['http://www.smu.ca/academics/final-exams-gpa-calculation.html','http://www.smu.ca/academics/gpa-calculator.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        gpa43: common43_6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          },{
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          },{
+            value: 1,
+            min: 50,
+            max: 59
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    pei:{
+      name: "University of Prince Edward Island",
+      location:{
+        city:"Charlottetown",
+        state:"Prince Edward Island",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.upei.ca/programsandcourses/regulation-10-grading'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        gpa43: common43,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 91,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 90
+          },{
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 74,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 73
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 64,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 63
+          },{
+            value: 1.3,
+            min: 57,
+            max: 59
+          },{
+            value: 1,
+            min: 54,
+            max: 56
+          },{
+            value: 0.7,
+            min: 50,
+            max: 53
+          },{
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    nippising:{
+      name: "Nippising University",
+      location:{
+        city:"North Bay",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf','http://academiccalendar.nipissingu.ca/~/Catalog/ViewCatalog.aspx?topicgroupid=523','http://www.nipissingu.ca/departments/academic-advising/Documents/AVGCALC.PDF'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        percentage: commonPercentage1
+      }
+    },
+    newbrunswick:{
+      name: "University of New Brunswick",
+      location:{
+        city:"Fredericton",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,4,6],
+      sources:['http://www.unb.ca/fredericton/engineering/depts/civil/currentstudents/grades.html','http://www.unb.ca/fredericton/studentservices/academics/calculating-gpa.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },  {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          },{
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        gpa43:{
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+             value: 4,
+              min: 4.3,
+              max: 4.3
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.7,
+              max: 3.7
+            }, {
+              value: 3.3,
+              min: 3.3,
+              max: 3.3
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.7,
+              max: 2.7
+            }, {
+              value: 2.3,
+              min: 2.3,
+              max: 2.3
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            },{
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+     ocad:{
+      name: "OCAD University",
+      location:{
+        city:"Toronto",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1],
+      sources:['http://www.ocadu.ca/about/governance/VP-academic/new-grading-policy.htm','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 74,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 73
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 64,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 63
+          }, {
+            value: 1.3,
+            min: 57,
+            max: 59
+          }, {
+            value: 1,
+            min: 54,
+            max: 56
+          }, {
+            value: 0.7,
+            min: 50,
+            max: 53
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    moncton:{
+      name: "Universite de Moncton",
+      location:{
+        city:"Edmundston",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1
+      }
+    },
+     manitoba:{
+      name: "University of Manitoba",
+      location:{
+        city:"Winnipeg",
+        state:"Manitoba",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1,3,4.5],
+      sources:['http://umanitoba.ca/faculties/engineering/departments/ece/pros_students/grad/gpa.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.8,
+            letters: ['A','A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B','B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C','C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },  {
+            value: 1,
+            letters: ['D','D-']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        point45:{
+          name:"4.5 Point",
+          example:"4.5, 3.5",
+          type:"number",
+          min: 0,
+          max: 4.5,
+          gpaConversion:[{
+            value: 4,
+            min: 4.5,
+            max: 4.5
+          },{
+            value: 3.8,
+            min: 4,
+            max: 4
+          },{
+            value:3.3,
+            min: 3.5,
+            max: 3.5
+          },{
+            value: 3,
+            min: 3,
+            max: 3
+          },{
+            value: 2.3,
+            min: 2.5,
+            max: 2.5
+          },{
+            value: 2,
+            min: 2,
+            max: 2
+          },{
+            value: 1.3,
+            min: 1.5,
+            max: 1.5
+          },{
+            value: 1,
+            min: 1,
+            max: 1
+          },{
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
+    },
+    mun:{
+      name: "Memorial University",
+      location:{
+        city:"St. John's",
+        state:"Newfoundland",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 94,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 93
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.7,
+            min: 65,
+            max: 69
+          }, {
+            value: 2.3,
+            min: 60,
+            max: 64
+          }, {
+            value: 2,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    saint_vincent:{
+      name: "Mount Saint Vincent",
+      location:{
+        city:"Halifax",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1],
+      sources:['http://www.msvu.ca/en/home/studentservices/academicadvisingsupport/academicadvising/gpacalculator.aspx','http://www.msvu.ca/en/home/programsdepartments/academiccalendars/undergradprograms/regulations/gradingexaminations.aspx','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter6,
+        gpa43: common43_6,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 67,
+            max: 69
+          }, {
+            value: 2,
+            min: 63,
+            max: 66
+          }, {
+            value: 1.7,
+            min: 60,
+            max: 62
+          }, {
+            value: 1,
+            min: 50,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    mount_allison:{
+      name: "Mount Allison University",
+      location:{
+        city:"Sackville",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.mta.ca/~amiller/m1251/gradeconversion.htm','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1,
+        gpa43: common43,
+        percentage: {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          },  {
+            value: 2.7,
+            min: 67,
+            max: 69
+          }, {
+            value: 2.3,
+            min: 64,
+            max: 66
+          }, {
+            value: 2,
+            min: 61,
+            max: 63
+          }, {
+            value: 1.7,
+            min: 58,
+            max: 60
+          }, {
+            value: 1.3,
+            min: 54,
+            max: 57
+          }, {
+            value: 1,
+            min: 51,
+            max: 53
+          },{
+            value: 0.7,
+            min: 50,
+            max: 50
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    lethbridge:{
+      name: "University of Lethbridge",
+      location:{
+        city:"Lethbridge",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter:commonLetter1
+      }
+    },
+    bishops:{
+      name: "Bishop's University",
+      location:{
+        city:"Sherbrooke",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,3,6],
+      sources:['http://www3.ubishops.ca/registrarial-services/grading-scale-gpa-conversion'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1
+      }
+    },
+    lakehead:{
+      name: "Lakehead University",
+      location:{
+        city:"Thunder Bay",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0.5,1],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1,
+        letter: commonLetter1
+      }
+    },
+    dalhousie:{
+      name: "Dalhousie University",
+      location:{
+        city:"Halifax",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,1.5,3,6],
+      sources:['http://www.dal.ca/campus_life/student_services/academic-support/grades-and-student-records/gpa-calculator.html','http://www.dal.ca/campus_life/student_services/academic-support/grades-and-student-records/grade-scale-and-definitions.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter6,
+        gpa43: common43_6,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 77,
+            max: 79
+          }, {
+            value: 3,
+            min: 73,
+            max: 76
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 72
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.7,
+            min: 55,
+            max: 59
+          }, {
+            value: 1,
+            min: 50,
+            max: 54
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        }
+      }
+    },
+    brandon:{
+      name: "Brandon University",
+      location:{
+        city:"Brandon",
+        state:"Manitoba",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1
+      }
+    },
+    calgary:{
+      name: "University of Calgary",
+      location:{
+        city:"Calgary",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4,5,6],
+      sources:['http://www.ucalgary.ca/pubs/calendar/current/f-5.html','http://www.ucalgary.ca/pubs/calendar/current/f-2.html'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+','A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F','I']
+          }]
+        }
+      }
+    },
+    lavaluniversity:{
+      name: "Laval University",
+      location:{
+        city:"Quebec City",
+        state:"Quebec",
+        country:"CA"
+      },
+      commonCreditWeights: [1,3,6],
+      sources:['http://www.goforaplus.com/gpa-calculation/','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          },{
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F','E']
+          }]
+        },
+        gpa433:{
+          name: "4.33 GPA",
+          example: "4.33, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.33,
+          gpaConversion: [{
+             value: 4,
+              min: 4.33,
+              max: 4.33
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.67,
+              max: 3.67
+            }, {
+              value: 3.3,
+              min: 3.33,
+              max: 3.33
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.67,
+              max: 2.67
+            }, {
+              value: 2.3,
+              min: 2.33,
+              max: 2.33
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.67,
+              max: 1.67
+            },{
+              value: 1.3,
+              min: 1.33,
+              max: 1.33
+            }, {
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+    laurentianuniversity:{
+      name: "Laurentian University",
+      location:{
+        city:"Sudbury",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,1.5,2,3,6],
+      sources:['http://laurentian.ca/transcripts','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          },  {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0.7,
+            letters: ['E']
+          },{
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 90,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.7,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.3,
+            min: 75,
+            max: 79
+          }, {
+            value: 3,
+            min: 70,
+            max: 74
+          },  {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          },  {
+            value: 1.3,
+            min: 55,
+            max: 59
+          },{
+            value: 1,
+            min: 50,
+            max: 54
+          },{
+            value: 0.7,
+            min: 40,
+            max: 49
+          }, {
+            value: 0,
+            min: 0,
+            max: 39
+          }]
+        },
+        gpa10:{
+          name: "10-Point",
+          example: "10, 8",
+          type: "number",
+          min: 0,
+          max: 10,
+          gpaConversion: [{
+            value: 4,
+            min: 10,
+            max: 10
+          }, {
+            value: 3.9,
+            min: 9,
+            max: 9
+          }, {
+            value: 3.7,
+            min: 8,
+            max: 8
+          }, {
+            value: 3.3,
+            min: 7,
+            max: 7
+          }, {
+            value: 3,
+            min: 6,
+            max: 6
+          },  {
+            value: 2.3,
+            min: 5,
+            max: 5
+          }, {
+            value: 2,
+            min: 4,
+            max: 4
+          },  {
+            value: 1.3,
+            min: 3,
+            max: 3
+          },{
+            value: 1,
+            min: 2,
+            max: 2
+          },{
+            value: 0.7,
+            min: 1,
+            max: 1
+          }, {
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+        }
+      }
+    },
+    sfu:{
+      name: "Simon Fraser University",
+      location:{
+        city:"Burnaby",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4,5],
+      sources:['https://www.sfu.ca/students/academic-calendar-archive/calendar-spring-2012/student-info/grading.html','http://www.sfu.ca/students/advising-resources/calculators/gpa-calculator.html','http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter6,
+        gpa433:{
+          name: "4.33 GPA",
+          example: "4.33, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.33,
+          gpaConversion: [{
+             value: 4,
+              min: 4.33,
+              max: 4.33
+            }, {
+              value: 3.9,
+              min: 4,
+              max: 4
+            }, {
+              value: 3.7,
+              min: 3.67,
+              max: 3.67
+            }, {
+              value: 3.3,
+              min: 3.33,
+              max: 3.33
+            }, {
+              value: 3,
+              min: 3,
+              max: 3
+            }, {
+              value: 2.7,
+              min: 2.67,
+              max: 2.67
+            }, {
+              value: 2.3,
+              min: 2.33,
+              max: 2.33
+            }, {
+              value: 2,
+              min: 2,
+              max: 2
+            }, {
+              value: 1.7,
+              min: 1.67,
+              max: 1.67
+            },{
+              value: 1,
+              min: 1,
+              max: 1
+            }, {
+              value: 0,
+              min: 0,
+              max: 0
+          }]
+        }
+      }
+    },
+    xavieruniversity:{
+      name: "St. Francis Xavier University",
+      location:{
+        city:"Antigonish",
+        state:"Nova Scotia",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,3,6],
+      sources:['http://www.ouac.on.ca/docs/omsas/c_omsas_b.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+        letter: commonLetter1,
+        percentage: commonPercentage1
       }
     }
   };

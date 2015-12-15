@@ -1,6 +1,6 @@
 angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSanitize','ui.select','ui.validate','Facebook','Results','Validator','Filters','luegg.directives','Storage','ui.bootstrap','ConversionChart','Meta'])
 
-.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart','Meta',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart,Meta){
+.controller('InputController',['$scope','UniversityList','ReportCard','Calculate','setUpResults','Results','Validator','Storage','ConversionChart','searchStatus','Meta',function($scope,UniversityList,ReportCard,Calculate,setUpResults,Results,Validator,Storage,ConversionChart,searchStatus,Meta){
 	$scope.UniversityList=UniversityList;
   $scope.ReportCard=ReportCard;
   $scope.university={
@@ -49,6 +49,13 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
         break;
       }
     }
+    //set the key value of the university (needed for local storage)
+    for(var key in UniversityList){
+      if(UniversityList.hasOwnProperty(key) && UniversityList[key].name===$scope.university.selected.value.name ){
+        $scope.university.selected.key=key;
+        break;
+      }
+    }
     if(notWriteStorage){
       $scope.gradeInputTypeSelected(true);
     }
@@ -76,7 +83,7 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
 
   //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
   $scope.getInputType=function(){
-    if($scope.university.selectedGradeInput){
+    if($scope.university.selectedGradeInput && $scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]){
       var selectedGradeConversionType=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput].type;
       if(selectedGradeConversionType==='number'){
         return 'tel';
@@ -94,8 +101,8 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
         grade.creditWeight='';
       }
     }
-    Storage.saveGrades();
     Meta.sendEvent('Interaction','click','clear_grades');
+    Storage.saveGrades($scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]);
   };
 
   $scope.addGrades=function(){
@@ -109,18 +116,25 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
   
   $scope.ReportCard.addSemester(); //initializes the report card with a semester for the user to fill in
 
+  //for displaying the Cant find your university? link when the search results come back with no universities
+  $scope.searchSuccess=function(){
+    return searchStatus.success;
+  };
+
   //retrieving stuff from local storage and setting it
   if(Storage.getUniversity()){ //retrieving university
     var key=Storage.getUniversity();
-    $scope.university.selected={
-      key:key,
-      value: UniversityList[key]
-    };
-    $scope.universitySelected(true);
-  }
-  if(Storage.getGradeType()){ //retrieving grade input type
-    $scope.university.selectedGradeInput=Storage.getGradeType();
-    $scope.gradeInputTypeSelected();
+    if(UniversityList[key]){
+      $scope.university.selected={
+        key:key,
+        value: UniversityList[key]
+      };
+      $scope.universitySelected(true);
+      if(Storage.getGradeType()){ //retrieving grade input type
+        $scope.university.selectedGradeInput=Storage.getGradeType();
+        $scope.gradeInputTypeSelected();
+      }
+    }
   }
   if(Storage.getGrades()){
     Storage.loadGrades();
