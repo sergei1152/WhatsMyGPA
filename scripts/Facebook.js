@@ -25,11 +25,14 @@ angular.module('Facebook',['Meta'])
 					FB.ui({
 					  method: 'share',
 					  href: 'http://www.whatsmygpa.ca',
-					}, function(response){});
+					}, function(response){
+						Meta.sendSocial('facebook','share','www.whatsmygpa.ca');
+						Meta.sendEvent('Interaction','click','facebook_share','success');
+					});
 				});
 				Meta.initialize();
 				Meta.sendSocial('facebook','share','www.whatsmygpa.ca');
-				Meta.sendEvent('Interaction','click','facebook_share');
+				Meta.sendEvent('Interaction','click','facebook_share','started');
 			}
 		}
 	};
