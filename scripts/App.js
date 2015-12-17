@@ -81,18 +81,6 @@ angular.module('WhatsMyGPA.ca', ['Universities','ReportCard','Calculator', 'ngSa
     Meta.sendEvent('Selections','grade_input_type',$scope.university.selectedGradeInput);
   };
 
-  //for mobile. If the grade input type is letter, makes the input type tel which is easier for if youre using a phone
-  $scope.getInputType=function(){
-    if($scope.university.selectedGradeInput && $scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput]){
-      var selectedGradeConversionType=$scope.university.selected.value.gradeConversions[$scope.university.selectedGradeInput].type;
-      if(selectedGradeConversionType==='number'){
-        return 'tel';
-      }
-      return 'text';
-    }
-    return "text";
-  };
-
   $scope.clearGrades=function(){
     for (var i = 0; i < ReportCard.semesters.length; i++) { //iterate through all the semesters
       for (var j = 0; j < ReportCard.semesters[i].length; j++) { //iterate through all the grades in the semesters
