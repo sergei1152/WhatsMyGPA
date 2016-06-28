@@ -33,3 +33,11 @@ For example, say we want to convert an 84 and a 78 both worth 1 credit weight to
 ```
 
 So the calculator takes each input grade, converts it to the corresponding numerical output grade, then uses the formula to find the cumulative grade for that output grade. If the input grade type and output grade type is the same, no conversion is done. If the input grade type is a letter, then the 4.0 GPA scale is used as the intermediary in the calculations, before the final thing is converted back to a letter grade.
+
+# Missing Your University?
+Create a [Github issue](https://github.com/sergei1152/WhatsMyGPA/issues) stating what university is missing, and preferably a link to the university's page for their grading system. You'll need to sign up for github if you dont have an account.
+
+# Developing
+To start developing, you need to have node installed. The app uses bower and gulp to manage dependencies and build the files.
+
+Open up the terminal, cd into the project directory, and run `npm install -g bower gulp` to install the required dependencies globally. Run `bower install` after to install all of the front-end dependencies, and `npm install` to install everything else. Run `gulp build` to build the files necessary, and run `gulp watch` to build everything on a file change.
