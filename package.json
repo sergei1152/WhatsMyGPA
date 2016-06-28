@@ -4,7 +4,7 @@
   "description": "Canadian Universities GPA calculator with support for over 50 Canadian Universities",
   "main": "addSemester.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",

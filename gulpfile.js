@@ -37,7 +37,7 @@ gulp.task('default', function() {
 
 //for production builds
 gulp.task('build', function() {
-    runSequence('js-hint','js-uglify','sass','css-min');
+    runSequence('js-hint','js-uglify','sass','css-concat','css-min');
 });
 
 //so that livereload works with html
