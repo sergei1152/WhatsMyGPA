@@ -16,7 +16,7 @@ angular.module('Filters',[])
     if (typeof items==='object' && search!=='') { //if not an empty search string
       for(var university in items){
         if(items.hasOwnProperty(university)){
-          if(items[university].name.toLowerCase().indexOf(props)!==-1){ //match on the name
+          if(items[university].name.toLowerCase().indexOf(search)!==-1){ //match on the name
             name_out.push(items[university]);
           }
           //if it matches location

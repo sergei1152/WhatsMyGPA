@@ -792,7 +792,7 @@ angular.module('Universities', [])
     https://www.utsc.utoronto.ca/aacc/sites/utsc.utoronto.ca.aacc/files/tipsheets/Academic_Advising_Tipsheets/howtocalculateyourGPA.pdf
 */
     universityoftoronto: {
-      name: 'University of Toronto',
+      name: 'University of Toronto (UFT)',
       location: {
         city: "Toronto",
         state: "Ontario",
