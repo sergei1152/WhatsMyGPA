@@ -982,7 +982,7 @@ angular.module('Universities', [])
 and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
 */
     wilfridlaurieruniversity: {
-      name: 'Wilfred Laurier University',
+      name: 'Wilfrid Laurier University',
       location: {
         city: "Waterloo",
         state: "Ontario",
