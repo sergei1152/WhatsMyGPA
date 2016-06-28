@@ -4830,6 +4830,20 @@ and http://legacy.wlu.ca/page.php?grp_id=1402&p=12614
         letter: commonLetter1,
         percentage: commonPercentage1
       }
+    },
+    mohawlkcollege:{
+      name: "Mohawk College",
+      location:{
+        city:"Hamilton",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,2,3,4,6,12],
+      sources:['http://www.mohawkcollege.ca/studentservices/recordsregistration/gradingEvaluation/grading-evaluation-system.html'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage: commonPercentage1
+      }
     }
   };
 });
