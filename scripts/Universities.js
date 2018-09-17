@@ -4321,6 +4321,19 @@ angular.module('Universities', [])
         letter:commonLetter1
       }
     },
+    lethbridgecollege:{
+      name: "Lethbridge College",
+      location:{
+        city:"Lethbridge",
+        state:"Alberta",
+        country:"CA"
+      },
+      commonCreditWeights: [1.5,3,6],
+      sources:[],
+      gradeConversions: {
+        gpa: gpa
+      }
+    },
     bishops:{
       name: "Bishop's University",
       location:{
@@ -4330,6 +4343,20 @@ angular.module('Universities', [])
       },
       commonCreditWeights: [1,1.5,3,6],
       sources:['http://www3.ubishops.ca/registrarial-services/grading-scale-gpa-conversion'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:commonPercentage1
+      }
+    },
+    sheridan:{
+      name: "Sheridan College",
+      location:{
+        city:"Mississauga",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [2,3,4,6,7],
+      sources:[],
       gradeConversions: {
         gpa: gpa,
         percentage:commonPercentage1
@@ -4348,6 +4375,272 @@ angular.module('Universities', [])
         gpa: gpa,
         percentage:commonPercentage1,
         letter: commonLetter1
+      }
+    },
+    cambriancollege:{
+      name: "Cambrian College",
+      location:{
+        city:"Sudbury",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [3,4,6,9],
+      sources:['https://cambriancollege.ca/apply/transcripts-and-grades/'],
+      gradeConversions: {
+        gpa: gpa,
+	percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 80,
+            max: 100
+          }, {
+            value: 3,
+            min: 70,
+            max: 79
+          }, {
+            value: 2,
+            min: 60,
+            max: 69
+          }, {
+            value: 1,
+            min: 50,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+      }
+    },
+    georgiancollege:{
+      name: "Georgian College",
+      location:{
+        city:"Barrie",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [3,4,6,9],
+      sources:['https://www.georgiancollege.ca/wp-content/uploads/TranscriptLegend_GradingSymbols_Nov122015.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+	percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 80,
+            max: 100
+          }, {
+            value: 3,
+            min: 70,
+            max: 79
+          }, {
+            value: 2,
+            min: 60,
+            max: 69
+          }, {
+            value: 1,
+            min: 50,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+	letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E']
+          }]
+        },
+      }
+    },
+    northerncollege:{
+      name: "Northern College",
+      location:{
+        city:"Timmins",
+        state:"Ontario",
+        country:"CA"
+      },
+      commonCreditWeights: [0,1,2,3,4],
+      sources:['http://www.northernc.on.ca/docs/StudentHandbook20152016.pdf'],
+      gradeConversions: {
+        gpa: gpa,
+	percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 80,
+            max: 100
+          }, {
+            value: 3,
+            min: 70,
+            max: 79
+          }, {
+            value: 2,
+            min: 60,
+            max: 69
+          }, {
+            value: 1,
+            min: 50,
+            max: 59
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
+          }]
+        },
+	letter:{
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['E']
+          }]
+        },
+      }
+    },
+    newbrunswickcc:{
+      name: "New Brunswick Community College",
+      location:{
+        city:"Fredericton",
+        state:"New Brunswick",
+        country:"CA"
+      },
+      commonCreditWeights: [1,2,3,4,5,6],
+      sources:['http://nbcc.ca/docs/default-source/policies/gpa-calculation.pdf?sfvrsn=2'],
+      gradeConversions: {
+        gpa: gpa,
+	gpa43:{
+          name: "4.3 GPA",
+          example: "4.3, 3.8",
+          type: "number",
+          min: 0,
+          max: 4.3,
+          gpaConversion: [{
+            value: 4,
+            min: 4.33,
+            max: 4.33
+          }, {
+            value: 3.9,
+            min: 4,
+            max: 4
+          }, {
+            value: 3.5,
+            min: 3.5,
+            max: 3.5
+          }, {
+            value: 3.0,
+            min: 3.0,
+            max: 3.0
+          }, {
+            value: 2.5,
+            min: 2.5,
+            max: 2.5
+          }, {
+            value: 2,
+            min: 2,
+            max: 2
+          }, {
+            value: 1.5,
+            min: 1.5,
+            max: 1.5
+          }, {
+            value: 1,
+            min: 1,
+            max: 1
+          }, {
+            value: 0,
+            min: 0,
+            max: 0
+          }]
+	},
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 95,
+            max: 100
+          }, {
+            value: 3.9,
+            min: 90,
+            max: 94
+          }, {
+            value: 3.5,
+            min: 85,
+            max: 89
+          }, {
+            value: 3,
+            min: 80,
+            max: 84
+          }, {
+            value: 2.5,
+            min: 75,
+            max: 79
+          }, {
+            value: 2,
+            min: 70,
+            max: 74
+          }, {
+            value: 1.5,
+            min: 65,
+            max: 69
+          }, {
+            value: 1,
+            min: 60,
+            max: 64
+          }, {
+            value: 0,
+            min: 0,
+            max: 59
+          }]
+        },
       }
     },
     dalhousie:{
