@@ -2426,6 +2426,110 @@ angular.module('Universities', [])
         country:"CA"
       },
       commonCreditWeights: [1,1.5,2,3,6],
+      sources:['https://students.ubc.ca/enrolment/courses/grades'],
+      gradeConversions: {
+        gpa: gpa,
+        percentage:{
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+              value: 4,
+              min: 90,
+              max: 100
+            }, {
+              value: 3.9,
+              min: 85,
+              max: 89
+            }, {
+              value: 3.7,
+              min: 80,
+              max: 84
+            }, {
+              value: 3.3,
+              min: 76,
+              max: 79
+            }, {
+              value: 3,
+              min: 72,
+              max: 75
+            }, {
+              value: 2.7,
+              min: 68,
+              max: 71
+            }, {
+              value: 2.3,
+              min: 64,
+              max: 67
+            }, {
+              value: 1.7,
+              min: 60,
+              max: 63
+            }, {
+              value: 1.3,
+              min: 55,
+              max: 59
+            }, {
+              value: 1,
+              min: 50,
+              max: 54
+            }, {
+              value: 0,
+              min: 0,
+              max: 49
+            }]
+        },
+        letter: {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.9,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          },{
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          },{
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 1.7,
+            letters: ['C']
+          },{
+            value: 1.3,
+            letters: ['C-']
+          },{
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        } 
+      }
+    },
+    ubc_arts:{
+      name: "University of British Columbia Arts (UBC)",
+      location:{
+        city:"Vancouver",
+        state:"British Columbia",
+        country:"CA"
+      },
+      commonCreditWeights: [1,1.5,2,3,6],
       sources:['http://students.arts.ubc.ca/advising/academic-performance/gpa-equivalency/','http://www.ouac.on.ca/docs/orpas/c_orpas_b.pdf'],
       gradeConversions: {
         gpa: gpa,
@@ -4331,7 +4435,49 @@ angular.module('Universities', [])
       commonCreditWeights: [1.5,3,6],
       sources:[],
       gradeConversions: {
-        gpa: gpa
+        gpa: gpa,
+        "letter": {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.99,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F', 'AF']
+          }]
+        },
       }
     },
     bishops:{
@@ -5290,6 +5436,117 @@ angular.module('Universities', [])
           }, {
             value: 0,
             letters: ['F','UN']
+          }]
+        }
+      }
+    },
+    lakelandcollege: {
+      name: 'Lakeland College',
+      location: {
+        city: "Vermilion",
+        state: "Alberta",
+        country: "Canada"
+      },
+      sources:['https://lakelandcollege.ca/campus-life/rules-regulations-forms/grading-system/'],
+      commonCreditWeights: [0, 1, 2, 3, 4, 5, 6, 9, 12],
+      gradeConversions: {
+        gpa: gpa,
+        "letter": {
+          name: "Letter",
+          example: "B, A+",
+          type: "letter",
+          gpaConversion: [{
+            value: 4,
+            letters: ['A+']
+          }, {
+            value: 3.99,
+            letters: ['A']
+          }, {
+            value: 3.7,
+            letters: ['A-']
+          }, {
+            value: 3.3,
+            letters: ['B+']
+          }, {
+            value: 3,
+            letters: ['B']
+          }, {
+            value: 2.7,
+            letters: ['B-']
+          }, {
+            value: 2.3,
+            letters: ['C+']
+          }, {
+            value: 2,
+            letters: ['C']
+          }, {
+            value: 1.7,
+            letters: ['C-']
+          }, {
+            value: 1.3,
+            letters: ['D+']
+          }, {
+            value: 1,
+            letters: ['D']
+          }, {
+            value: 0,
+            letters: ['F']
+          }]
+        },
+        "percentage": {
+          name: "Percentage",
+          example: "75%, 67%",
+          type: "number",
+          min: 0,
+          max: 100,
+          gpaConversion: [{
+            value: 4,
+            min: 95,
+            max: 100
+          }, {
+            value: 3.99,
+            min: 90,
+            max: 94
+          }, {
+            value: 3.7,
+            min: 85,
+            max: 89
+          }, {
+            value: 3.3,
+            min: 80,
+            max: 84
+          }, {
+            value: 3.0,
+            min: 75,
+            max: 79
+          }, {
+            value: 2.7,
+            min: 70,
+            max: 74
+          }, {
+            value: 2.3,
+            min: 65,
+            max: 69
+          }, {
+            value: 2,
+            min: 60,
+            max: 64
+          }, {
+            value: 1.7,
+            min: 57,
+            max: 59
+          }, {
+            value: 1.3,
+            min: 53,
+            max: 56
+          }, {
+            value: 1,
+            min: 50,
+            max: 52
+          }, {
+            value: 0,
+            min: 0,
+            max: 49
           }]
         }
       }
