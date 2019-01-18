@@ -1,11 +1,11 @@
-#WhatsMyGPA
+# WhatsMyGPA
 
-######A universal GPA calculator supporting grade conversions for over 50 Canadian universities and colleges, with more added daily
-######[www.whatsmygpa.ca](http://www.whatsmygpa.ca)
+###### A universal GPA calculator supporting grade conversions for over 50 Canadian universities and colleges, with more added daily
+###### [www.whatsmygpa.ca](http://www.whatsmygpa.ca)
 
 ![Screenshot of WhatsMyGPA.ca](https://raw.githubusercontent.com/sergei1152/WhatsMyGPA/master/screenshot.png)
 
-##Features
+## Features
 - [x] Supports grade conversions for over 54 Canadian universities and colleges (more to be added)
 - [x] Customized credit weight suggestions based on university. Users can input custom values as well.
 - [x] Supports input and conversion to and from any grading system, whether it be letter, percentage, 4.33 GPA, 9-Point, 12-Point, etc...
@@ -14,7 +14,7 @@
 - [x] Save your grades and university selection in local storage so you don't have to input it again after a refresh
 - [x] Responsive mobile design
 
-##How the Calculations Work
+## How the Calculations Work
 This is the magic formula that is used in the calculator for finding the cumulative average in any grading system.
 ```
 Cumulative Average = ∑ (converted_grade * credit) / ∑ credit
