@@ -4442,10 +4442,7 @@ angular.module('Universities', [])
           type: "letter",
           gpaConversion: [{
             value: 4,
-            letters: ['A+']
-          }, {
-            value: 3.99,
-            letters: ['A']
+            letters: ['A+', 'A']
           }, {
             value: 3.7,
             letters: ['A-']

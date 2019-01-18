@@ -71,6 +71,7 @@ angular.module('Calculator', ['ReportCard', 'Validator', 'Results'])
                 
                 return gpa;
             } else {
+                gpa = Math.round(gpa*100)/100; //round to 2 decimal places to avoid weird issues like 2.99 being registered as 2.99 instead of 3
                 var maximumGPA = 0;
                 var i=0;
                 if (selectedGradeConversion.type === 'letter') {
